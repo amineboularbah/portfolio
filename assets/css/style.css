@@ -30,7 +30,7 @@
 
 */
 :root {
-    --primary_color: #28e98c;
+    --primary_color: #02c2fd;
 }
 *,*::before,*::after {
     margin: 0;
@@ -683,7 +683,7 @@ main.drake-main {
     margin-bottom: 65px;
 }
 .left-sidebar .sidebar-header .designation {
-    max-width: 110px;
+    max-width: 150px;
     text-align: right;
     color: #fff;
     font-size: 14px;
