@@ -1992,3 +1992,8 @@ body .body-overlay {
     color: var(--primary_color);
     cursor: pointer;
  }
+
+ .skill-icon {
+    width: 60px;
+    height: 61px;
+}
