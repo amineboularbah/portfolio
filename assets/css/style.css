@@ -1981,3 +1981,14 @@ body .body-overlay {
     }
 }
 
+.verify-link {
+    font-size: inherit;
+    color: inherit;
+    text-decoration: underline;
+    display: block;
+ }
+ 
+ .verify-link:hover {
+    color: var(--primary_color);
+    cursor: pointer;
+ }
