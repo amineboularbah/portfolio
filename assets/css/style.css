@@ -72,7 +72,7 @@ ul {
 }
 .theme-btn {
     background: var(--primary_color);
-    color: #1f1f1f;
+    color: #111111;
     display: block;
     text-align: center;
     padding: 11px 58px 10px 58px;
@@ -168,7 +168,7 @@ ul {
     gap: 4px;
     cursor: pointer;
     transition: .3s;
-    background: #1f1f1f;
+    background: #111111;
     z-index: 99;
 }
 .icon-menu span {
@@ -220,7 +220,7 @@ main.drake-main {
     text-align: center;
     gap: 20px;
     padding: 24px 0;
-    background: #1f1f1f;
+    background: #111111;
     z-index: 20;
 }
 .menu li .scroll-to,
@@ -411,7 +411,7 @@ main.drake-main {
     justify-content: center;
     font-size: 20px;
     cursor: pointer;
-    background: #1f1f1f;
+    background: #111111;
 }
 .global-color .inner .global-color-option .close-settings {
     position: absolute;
@@ -560,7 +560,7 @@ main.drake-main {
 
 /* 04 - Header */
 .header-area {
-    background: #1f1f1f;
+    background: #111111;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -796,14 +796,14 @@ main.drake-main {
 .home1-page,
 .home5-page,
 .home6-page {
-    background: #1f1f1f;
+    background: #111111;
 }
 .home-3 {
     overflow: hidden;
 }
 .home-3:before {
     content: '';
-    background: #1f1f1f;
+    background: #111111;
     position: absolute;
     left: 0;
     top: 0;
@@ -819,7 +819,7 @@ main.drake-main {
 .home1-page .icon-menu,
 .home5-page .icon-menu,
 .home6-page .icon-menu {
-    background: #1f1f1f;
+    background: #111111;
 }
 /* 09 - Home 5 */
 body .body-overlay {
@@ -1055,13 +1055,13 @@ body .body-overlay {
     display: block;
     font-size: 14px;
     background: #fff;
-    color: #1f1f1f;
+    color: #111111;
     padding: 7px 20px;
     border-radius: 19px;
     transition: .3s;
 }
 .portfolio-items .portfolio-item:hover .portfolio-item-inner .portfolio-categories li a {
-    background: #1f1f1f;
+    background: #111111;
     color: #fff;
 }
 .portfolio-items .portfolio-item h2 {
@@ -1364,7 +1364,7 @@ body .body-overlay {
 .breadcrumb-area {
     position: relative;
     padding: 50px 0px 50px;
-    background: #1f1f1f;
+    background: #111111;
     overflow: hidden;
     z-index: 1;
 }
@@ -1630,13 +1630,13 @@ body .body-overlay {
 .blog-sidebar .blog-sidebar-item.blog-tags ul li a {
     background: #fff;
     padding: 6px 18px;
-    color: #1f1f1f;
+    color: #111111;
     font-weight: 400;
     border-radius: 30px;
     font-size: 14px;
 }
 .blog-sidebar .blog-sidebar-item.blog-tags ul li a:hover {
-    background: #1f1f1f;
+    background: #111111;
     color: #fff;
 }
 
@@ -1869,7 +1869,7 @@ body .body-overlay {
 
 /* 25 - Footer */
 .footer-area {
-    background: #1f1f1f;
+    background: #111111;
     position: relative;
     overflow: hidden;
     z-index: 1;
