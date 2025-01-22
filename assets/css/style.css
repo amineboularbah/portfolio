@@ -1997,3 +1997,41 @@ body .body-overlay {
     width: 60px;
     height: 61px;
 }
+
+/* Projects Page Styles */
+.projects-section {
+    padding: 120px 0 90px;
+    background-color: var(--dark);
+    min-height: 100vh;
+}
+
+.projects-section .section-heading {
+    margin-bottom: 60px;
+    color: var(--light);
+    text-align: center;
+}
+
+/* See All Button Styles */
+.see-all-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: var(--light);
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 30px;
+}
+
+.see-all-btn:hover {
+    background: var(--light);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.see-all-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
