@@ -73,3 +73,51 @@
     });
     
 })(jQuery);
+
+$(document).ready(function() {
+    // Contact Form Submission
+    $('#submit-form').on('click', function(e) {
+        e.preventDefault();
+        var form = $(this).closest('form');
+        
+        // Basic form validation
+        var isValid = true;
+        form.find('[required]').each(function() {
+            if (!$(this).val()) {
+                isValid = false;
+                $(this).addClass('error');
+            } else {
+                $(this).removeClass('error');
+            }
+        });
+
+        if (!isValid) {
+            $('.messenger-box-contact__msg').removeClass('alert-success').addClass('alert-danger').html('Please fill in all required fields.').show();
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "mailer.php",
+            data: form.serialize(),
+            success: function(response) {
+                $('.messenger-box-contact__msg').removeClass('alert-danger').addClass('alert-success').html(response).show();
+                form.trigger('reset');
+            },
+            error: function(xhr, status, error) {
+                var errorMessage = xhr.responseText || 'Sorry, there was an error sending your message. Please try again later.';
+                if (xhr.status === 405) {
+                    errorMessage = 'Server configuration error. Please contact the administrator.';
+                }
+                $('.messenger-box-contact__msg').removeClass('alert-success').addClass('alert-danger').html(errorMessage).show();
+                console.error('Form submission error:', status, error);
+            }
+        });
+    });
+
+    // Clear error state on input
+    $('form input, form textarea').on('input', function() {
+        $(this).removeClass('error');
+        $('.messenger-box-contact__msg').hide();
+    });
+});
