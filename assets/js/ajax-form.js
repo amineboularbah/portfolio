@@ -1,101 +1,125 @@
 (function ($) {
     'use strict';
     var form = $('.contact-form'),
-        message = $('.messenger-box-contact__msg'),
-        form_data;
+        message = $('.messenger-box-contact__msg');
+
+    // Update reply-to field when email changes
+    $('#email').on('change', function() {
+        $('input[name="_replyto"]').val($(this).val());
+    });
 
     // Success function
-    function done_func(response) {
+    function showSuccess() {
+        console.log('Success: Form submission successful');
         message.fadeIn().removeClass('alert-danger').addClass('alert-success');
         message.text('Thank you! Your message has been sent successfully.');
         setTimeout(function () {
             message.fadeOut();
         }, 3000);
-        form.find('input:not([type="submit"]), textarea').val('');
+        form.find('input:not([type="hidden"]), textarea, select').val('');
     }
 
-    // fail function
-    function fail_func(data) {
+    // Error function
+    function showError(errorMsg, details) {
+        console.error('Form Error:', errorMsg, details);
         message.fadeIn().removeClass('alert-success').addClass('alert-danger');
-        message.text('Sorry, there was a problem sending your message. Please try again.');
+        message.text(errorMsg || 'Sorry, there was a problem sending your message. Please try again.');
         setTimeout(function () {
             message.fadeOut();
         }, 3000);
     }
     
+    // Form submission handler
     form.submit(function (e) {
         e.preventDefault();
+        console.log('Form submission started');
 
-        // Basic form validation
-        const fullName = document.getElementById("full-name");
-        const email = document.getElementById("email");
-        const subject = document.getElementById("subject");
-        const messageText = document.getElementById("message");
+        // Set reply-to field
+        $('input[name="_replyto"]').val($('#email').val());
 
-        if (!fullName.value || !email.value || !subject.value || !messageText.value) {
-            message.fadeIn().removeClass('alert-success').addClass('alert-danger');
-            message.text('Please fill in all required fields.');
-            return false;
+        // Log form data
+        const formData = new FormData(form[0]);
+        console.log('Form action URL:', form.attr('action'));
+        console.log('Form data:');
+        for (let pair of formData.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
         }
 
-        // Submit form via Formspree
-        form_data = $(this).serialize();
-        $.ajax({
-            url: form.attr('action'),
-            method: 'POST',
-            data: form_data,
-            dataType: 'json'
-        })
-        .done(done_func)
-        .fail(fail_func);
-    });
-    
-})(jQuery);
-
-$(document).ready(function() {
-    // Contact Form Submission
-    $('#submit-form').on('click', function(e) {
-        e.preventDefault();
-        var form = $(this).closest('form');
-        
         // Basic form validation
         var isValid = true;
         form.find('[required]').each(function() {
             if (!$(this).val()) {
                 isValid = false;
                 $(this).addClass('error');
+                console.log('Validation failed for:', $(this).attr('name'));
             } else {
                 $(this).removeClass('error');
             }
         });
 
         if (!isValid) {
-            $('.messenger-box-contact__msg').removeClass('alert-success').addClass('alert-danger').html('Please fill in all required fields.').show();
-            return;
+            showError('Please fill in all required fields.');
+            return false;
         }
 
-        $.ajax({
-            type: "POST",
-            url: "mailer.php",
-            data: form.serialize(),
-            success: function(response) {
-                $('.messenger-box-contact__msg').removeClass('alert-danger').addClass('alert-success').html(response).show();
-                form.trigger('reset');
+        // Show loading state
+        var submitButton = $('#submit-form');
+        var originalText = submitButton.text();
+        submitButton.prop('disabled', true).text('Sending...');
+        console.log('Form validation passed, attempting submission');
+
+        // Submit form via Formspree
+        fetch(form.attr('action'), {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
             },
-            error: function(xhr, status, error) {
-                var errorMessage = xhr.responseText || 'Sorry, there was an error sending your message. Please try again later.';
-                if (xhr.status === 405) {
-                    errorMessage = 'Server configuration error. Please contact the administrator.';
+        })
+        .then(response => {
+            console.log('Response status:', response.status);
+            console.log('Response headers:', response.headers);
+            
+            return response.text().then(text => {
+                try {
+                    // Try to parse as JSON
+                    const data = JSON.parse(text);
+                    console.log('Response data:', data);
+                    return response;
+                } catch (e) {
+                    // If not JSON, log as text
+                    console.log('Response text:', text);
+                    return response;
                 }
-                $('.messenger-box-contact__msg').removeClass('alert-success').addClass('alert-danger').html(errorMessage).show();
-                console.error('Form submission error:', status, error);
+            });
+        })
+        .then(response => {
+            if (response.ok) {
+                showSuccess();
+                form.trigger('reset');
+            } else {
+                throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
             }
+        })
+        .catch(error => {
+            console.error('Detailed submission error:', {
+                message: error.message,
+                stack: error.stack,
+                type: error.name
+            });
+            showError('There was a problem sending your message. Please try again.', error);
+        })
+        .finally(() => {
+            // Reset button state
+            console.log('Form submission completed');
+            submitButton.prop('disabled', false).text(originalText);
         });
     });
-
+    
     // Clear error state on input
-    $('form input, form textarea').on('input', function() {
+    $('form input, form textarea, form select').on('input change', function() {
         $(this).removeClass('error');
-        $('.messenger-box-contact__msg').hide();
+        message.hide();
     });
-});
+    
+})(jQuery);
