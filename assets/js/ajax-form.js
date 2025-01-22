@@ -4,31 +4,10 @@
         message = $('.messenger-box-contact__msg'),
         form_data;
 
-     const submit = document.getElementById("submit-form");
-     submit.addEventListener("click", validate);
-     function validate(e) {
-         const message = document.getElementById('required-msg');
-
-         const fullName = document.getElementById("full-name");
-         const email = document.getElementById("email");
-         const subject = document.getElementById("subject");
-         let valid = true;
-
-         if (!fullName.value || !email.value || !subject.value) {
-             message.classList.add('show');
-             fullName.classList.add("invalid");
-         } else {
-             message.classList.remove('show');
-         }
-        
-         return valid;
-     }
-
-
     // Success function
     function done_func(response) {
         message.fadeIn().removeClass('alert-danger').addClass('alert-success');
-        message.text(response);
+        message.text('Thank you! Your message has been sent successfully.');
         setTimeout(function () {
             message.fadeOut();
         }, 3000);
@@ -37,8 +16,8 @@
 
     // fail function
     function fail_func(data) {
-        message.fadeIn().removeClass('alert-success').addClass('alert-success');
-        message.text(data.responseText);
+        message.fadeIn().removeClass('alert-success').addClass('alert-danger');
+        message.text('Sorry, there was a problem sending your message. Please try again.');
         setTimeout(function () {
             message.fadeOut();
         }, 3000);
@@ -47,26 +26,25 @@
     form.submit(function (e) {
         e.preventDefault();
 
-        
-        const message = document.getElementById('required-msg');
-
+        // Basic form validation
         const fullName = document.getElementById("full-name");
         const email = document.getElementById("email");
         const subject = document.getElementById("subject");
+        const messageText = document.getElementById("message");
 
-        if (!fullName.value || !email.value || !subject.value) {
-            message.classList.add('show');
-            fullName.classList.add("invalid");
-            console.log('false');
-            return false
+        if (!fullName.value || !email.value || !subject.value || !messageText.value) {
+            message.fadeIn().removeClass('alert-success').addClass('alert-danger');
+            message.text('Please fill in all required fields.');
+            return false;
         }
-        message.classList.remove('show');
 
+        // Submit form via Formspree
         form_data = $(this).serialize();
         $.ajax({
-            type: 'POST',
             url: form.attr('action'),
-            data: form_data
+            method: 'POST',
+            data: form_data,
+            dataType: 'json'
         })
         .done(done_func)
         .fail(fail_func);
