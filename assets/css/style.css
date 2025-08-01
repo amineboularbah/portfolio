@@ -740,11 +740,12 @@ main.drake-main {
     z-index: 3;
 }
 .hero-section .hero-content h1 {
-    font-size: 78px;
+    font-size: 68px;
     letter-spacing: -0.2px;
-    line-height: 90px;
+    line-height: 80px;
     margin-bottom: 43px;
     font-weight: 300;
+    max-width: 600px;
 }
 .hero-section .hero-content h1 span {
     color: var(--primary_color);
@@ -2037,40 +2038,22 @@ body .body-overlay {
 }
 
 /* Custom Upwork Icon Styling */
-.upwork-link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
 .upwork-icon {
     width: 20px;
     height: 20px;
-    transition: opacity .3s ease;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transition: .3s ease;
 }
 
-/* Show default, hide active by default */
-.upwork-default {
-    opacity: 1;
-}
-
+/* Hide the active icon by default */
 .upwork-active {
-    opacity: 0;
+    display: none;
 }
 
-/* On hover: fade default out, fade active in */
+/* On hover: hide default, show active */
 .upwork-link:hover .upwork-default {
-    opacity: 0;
+    display: none;
 }
 
 .upwork-link:hover .upwork-active {
-    opacity: 1;
+    display: inline-block;
 }
