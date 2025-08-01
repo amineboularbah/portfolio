@@ -2035,3 +2035,42 @@ body .body-overlay {
     text-align: center;
     margin-top: 20px;
 }
+
+/* Custom Upwork Icon Styling */
+.upwork-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.upwork-icon {
+    width: 20px;
+    height: 20px;
+    transition: opacity .3s ease;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Show default, hide active by default */
+.upwork-default {
+    opacity: 1;
+}
+
+.upwork-active {
+    opacity: 0;
+}
+
+/* On hover: fade default out, fade active in */
+.upwork-link:hover .upwork-default {
+    opacity: 0;
+}
+
+.upwork-link:hover .upwork-active {
+    opacity: 1;
+}
