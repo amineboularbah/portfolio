@@ -1,0 +1,39 @@
+[debug] [2025-08-01T21:42:48.639Z] ----------------------------------------------------------------------
+[debug] [2025-08-01T21:42:48.646Z] Command:       /opt/homebrew/Cellar/node/23.11.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-08-01T21:42:48.646Z] CLI Version:   14.2.1
+[debug] [2025-08-01T21:42:48.646Z] Platform:      darwin
+[debug] [2025-08-01T21:42:48.646Z] Node Version:  v23.11.0
+[debug] [2025-08-01T21:42:48.646Z] Time:          Fri Aug 01 2025 22:42:48 GMT+0100 (GMT+01:00)
+[debug] [2025-08-01T21:42:48.646Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-01T21:42:48.651Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-01T21:42:48.651Z] > authorizing via signed-in user (amine@amineboularbah.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/amine/Dev/mainfiles
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-08-01T21:42:57.785Z] Checked if tokens are valid: true, expires at: 1754087660211
+[debug] [2025-08-01T21:42:57.790Z] Checked if tokens are valid: true, expires at: 1754087660211
+[debug] [2025-08-01T21:42:57.792Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-08-01T21:42:58.347Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-08-01T21:42:58.347Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project noxi-website (noxi-website) 
+[info] 
+=== Hosting Setup
+[debug] [2025-08-01T21:43:30.339Z] Checked if tokens are valid: true, expires at: 1754087660211
+[debug] [2025-08-01T21:43:30.339Z] Checked if tokens are valid: true, expires at: 1754087660211
+[debug] [2025-08-01T21:43:30.339Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/noxi-website [none]
