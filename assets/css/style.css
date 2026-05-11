@@ -380,6 +380,16 @@ main.drake-main {
 .responsive-sidebar-menu .sidebar-menu-inner .sidebar-social ul li a:hover {
     color: var(--primary_color);
 }
+.responsive-sidebar-menu .sidebar-menu-inner .sidebar-social ul li a.upwork-link,
+.responsive-sidebar-menu .sidebar-menu-inner .sidebar-social ul li a.malt-link {
+    display: inline-flex;
+    align-items: center;
+}
+.responsive-sidebar-menu .sidebar-menu-inner .sidebar-social .upwork-icon,
+.responsive-sidebar-menu .sidebar-menu-inner .sidebar-social .malt-icon {
+    width: 16px;
+    height: 16px;
+}
 
 /* 03 - Global Color */
 .global-color {
@@ -2044,16 +2054,35 @@ body .body-overlay {
     transition: .3s ease;
 }
 
-/* Hide the active icon by default */
-.upwork-active {
-    display: none;
+
+/* Upwork & Malt link centering */
+.upwork-link,
+.malt-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
 }
 
-/* On hover: hide default, show active */
-.upwork-link:hover .upwork-default {
-    display: none;
+/* Malt icon sizing */
+.malt-icon {
+    width: 20px;
+    height: 20px;
+    transition: .3s ease;
 }
 
-.upwork-link:hover .upwork-active {
-    display: inline-block;
+/* Hide active variants by default */
+.malt-icon.malt-active,
+.upwork-icon.upwork-active {
+    display: none !important;
+}
+
+/* On hover: swap icons */
+.malt-link:hover .malt-icon.malt-default,
+.upwork-link:hover .upwork-icon.upwork-default {
+    display: none !important;
+}
+
+.malt-link:hover .malt-icon.malt-active,
+.upwork-link:hover .upwork-icon.upwork-active {
+    display: inline-block !important;
 }
