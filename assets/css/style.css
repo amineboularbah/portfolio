@@ -684,10 +684,18 @@ main.drake-main {
 .drake-main .left-sidebar {
     display: none;
 }
-.left-sidebar > img.me {
-    border-radius: 30px;
+.left-sidebar > img.me,
+.left-sidebar picture img.me {
+    border-radius: 20px;
     display: block;
-    margin-bottom: 56px;
+    margin-bottom: 28px;
+}
+.left-sidebar picture {
+    display: block;
+    margin-bottom: 28px;
+}
+.left-sidebar picture img.me {
+    margin-bottom: 0;
 }
 .left-sidebar .sidebar-header {
     margin-bottom: 65px;
@@ -921,6 +929,16 @@ body .body-overlay {
     font-size: 13px;
     color: #999999;
     margin-bottom: 18px;
+}
+a.company-link,
+.resume-timeline .company-link {
+    color: var(--primary_color) !important;
+    text-decoration: none;
+    font-weight: 500;
+}
+a.company-link:hover,
+.resume-timeline .company-link:hover {
+    text-decoration: underline;
 }
 .resume-area .resume-content .resume-timeline .item p:last-child {
     margin-bottom: 0;
