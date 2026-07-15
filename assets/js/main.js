@@ -1,4 +1,12 @@
 
+// Save language choice when user explicitly clicks a switcher button
+document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var lang = this.getAttribute('data-lang');
+        if (lang) localStorage.setItem('ab-lang', lang);
+    });
+});
+
 $(function(){
 
     $(window).on('load', function () {

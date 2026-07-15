@@ -741,8 +741,35 @@ main.drake-main {
     color: var(--primary_color);
     border-color: var(--primary_color);
 }
+.lang-switcher {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.lang-btn {
+    font-size: 11px;
+    font-weight: 600;
+    color: #666;
+    text-decoration: none;
+    padding: 4px 12px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+}
+.lang-btn:hover,
+.lang-btn.active {
+    color: var(--primary_color);
+    border-color: var(--primary_color);
+}
 .left-sidebar .theme-btn {
     width: 100%;
+    white-space: nowrap;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
 }
 
 

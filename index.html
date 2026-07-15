@@ -5,12 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Amine Boularbah — Lead Mobile Engineer | Flutter | Founder of Receipto &amp; Flura</title>
+    <script>
+      (function() {
+        // If user already made an explicit language choice, honour it
+        var chosen = localStorage.getItem('ab-lang');
+        if (chosen === 'fr') { window.location.replace('/fr/'); return; }
+        if (chosen === 'es') { window.location.replace('/es/'); return; }
+        if (chosen === 'en') return;
+        // First visit: detect browser/OS language
+        var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+        if (lang.startsWith('fr')) { window.location.replace('/fr/'); }
+        else if (lang.startsWith('es')) { window.location.replace('/es/'); }
+      })();
+    </script>
 
     <meta name="description" content="Lead Mobile Engineer with 6+ years building scalable mobile apps. Currently leading the 433 app rebuild for 77M+ users. Founder of Receipto and Flura — two live iOS apps. Based in Málaga, Spain." />
     <meta name="keywords" content="Lead Mobile Engineer, Flutter developer, Flutter lead, mobile engineer, iOS developer, Android developer, cross-platform development, clean architecture, BLoC, Riverpod, Firebase, NestJS, Amine Boularbah, Málaga Spain, Receipto, Flura, health tracking app, receipt scanner app, Flutter freelancer, mobile app development" />
     <meta name="author" content="Amine Boularbah" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://amineboularbah.com/" />
+    <link rel="alternate" hreflang="en" href="https://amineboularbah.com/" />
+    <link rel="alternate" hreflang="fr" href="https://amineboularbah.com/fr/" />
+    <link rel="alternate" hreflang="es" href="https://amineboularbah.com/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://amineboularbah.com/" />
 
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="Amine Boularbah — Lead Mobile Engineer & Founder" />
@@ -212,6 +229,11 @@
               /></a>
             </li>
           </ul>
+          <div class="lang-switcher" style="margin-top:16px;">
+            <a href="/" class="lang-btn active" data-lang="en">EN</a>
+            <a href="/fr/" class="lang-btn" data-lang="fr">FR</a>
+            <a href="/es/" class="lang-btn" data-lang="es">ES</a>
+          </div>
         </div>
       </div>
     </div>
@@ -309,6 +331,11 @@
           /></a>
         </li>
       </ul>
+      <div class="lang-switcher">
+        <a href="/" class="lang-btn active" data-lang="en">EN</a>
+        <a href="/fr/" class="lang-btn" data-lang="fr">FR</a>
+        <a href="/es/" class="lang-btn" data-lang="es">ES</a>
+      </div>
       <a href="#contact" class="theme-btn">
         <i class="las la-envelope"></i> WORK WITH ME!
       </a>
@@ -364,6 +391,11 @@
                 /></a>
               </li>
             </ul>
+            <div class="lang-switcher">
+              <a href="/" class="lang-btn active" data-lang="en">EN</a>
+              <a href="/fr/" class="lang-btn" data-lang="fr">FR</a>
+              <a href="/es/" class="lang-btn" data-lang="es">ES</a>
+            </div>
             <a href="#contact" class="theme-btn">
               <i class="las la-envelope"></i> WORK WITH ME!
             </a>
