@@ -1230,15 +1230,35 @@ a.company-link:hover,
     font-weight: 300;
     margin-bottom: 57px;
 }
-.clients-logos .col-md-3 {
-    margin-bottom: 74px;
+.clients-logos .col-md-4 {
+    margin-bottom: 28px;
+}
+.clients-logos .logo-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.02);
+    transition: border-color .3s, background .3s;
+    min-height: 96px;
+}
+.clients-logos .logo-card:hover {
+    border-color: #02c2fd;
+    background: rgba(2,194,253,0.04);
 }
 .clients-logos img {
     display: block;
-    opacity: 0.3;
-    transition: .3s;
+    max-width: 140px;
+    max-height: 56px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    opacity: 0.45;
+    transition: opacity .3s;
 }
-.clients-logos img:hover {
+.clients-logos .logo-card:hover img {
     opacity: 1;
 }
 
