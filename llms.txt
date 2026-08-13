@@ -1,0 +1,37 @@
+# Amine Boularbah
+
+> Lead Mobile Engineer & app founder based in Málaga, Spain. 6+ years building Flutter apps for iOS and Android. Currently leading a team of 5 engineers on the ground-up rebuild of the official 433 football app (77M+ fans). Founder of Receipto and Flura, two live iOS apps.
+
+## Identity
+
+- Name: Amine Boularbah
+- Role: Lead Mobile Engineer & Founder
+- Location: Málaga, Spain (works remotely worldwide)
+- Email: hello@amineboularbah.com
+- Website: https://amineboularbah.com
+- LinkedIn: https://www.linkedin.com/in/amineboularbah
+- GitHub: https://github.com/amineboularbah
+- X/Twitter: https://x.com/amineboularbah
+- Upwork: https://www.upwork.com/freelancers/aminebboularbah
+
+## Expertise
+
+Flutter, Dart, Clean Architecture, BLoC, Riverpod, multi-modular monorepos, CI/CD automation (Codemagic), iOS (Swift/SwiftUI), Android, Firebase, NestJS, mobile team leadership.
+
+## Current work
+
+- Lead Mobile Engineer at 433 Football: leading a team of 5 engineers rebuilding the official 433 app for 77M+ football fans on iOS and Android.
+- Founder of Receipto (https://receipto.app): AI-powered receipt scanner and expense manager for iOS. OCR across 162+ currencies, Magic Email inbox, tax-ready PDF/CSV/Excel exports. 400+ App Store ratings, recurring revenue.
+- Founder of Flura (https://flura.app): health tracking app for people with chronic conditions (fibromyalgia, PCOS, endometriosis, long COVID, lupus, ME/CFS). 60-second daily symptom logging, pattern detection, physician-formatted PDF reports. Encrypted, GDPR compliant.
+
+## Pages
+
+- [Portfolio home](https://amineboularbah.com/): bio, experience, services, skills, featured projects, contact
+- [All projects](https://amineboularbah.com/projects): full list of shipped Flutter and mobile apps
+- [FAQ](https://amineboularbah.com/faq): common questions about Amine, Receipto, Flura, and availability
+- [French version](https://amineboularbah.com/fr/)
+- [Spanish version](https://amineboularbah.com/es/)
+
+## Availability
+
+Available for select remote contract and freelance Flutter projects. Contact: hello@amineboularbah.com
