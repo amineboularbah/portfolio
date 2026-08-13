@@ -1,161 +1,170 @@
-
 // Save language choice when user explicitly clicks a switcher button
-document.querySelectorAll('.lang-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        var lang = this.getAttribute('data-lang');
-        if (lang) localStorage.setItem('ab-lang', lang);
-    });
+document.querySelectorAll(".lang-btn").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var lang = this.getAttribute("data-lang");
+    if (lang) localStorage.setItem("ab-lang", lang);
+  });
 });
 
-$(function(){
+$(function () {
+  function hidePageLoader() {
+    $(".page-loader").delay("500").fadeOut(1000);
+  }
+  // jQuery 3 fires ready asynchronously, so window 'load' may already
+  // have happened by the time this runs — check readyState first.
+  if (document.readyState === "complete") {
+    hidePageLoader();
+  } else {
+    $(window).on("load", hidePageLoader);
+  }
 
-    $(window).on('load', function () {
-        $('.page-loader').delay('500').fadeOut(1000);
+  $(document).ready(function () {
+    $(document).on("click", ".icon-menu", function () {
+      $(".responsive-sidebar-menu").addClass("active");
+    });
+    $(document).on("click", ".responsive-sidebar-menu .overlay", function () {
+      $(".responsive-sidebar-menu").removeClass("active");
     });
 
-    $(document).ready(function() {
-
-        $(document).on('click', '.icon-menu', function() {
-            $('.responsive-sidebar-menu').addClass('active');
-        });
-        $(document).on('click', '.responsive-sidebar-menu .overlay', function() {
-            $('.responsive-sidebar-menu').removeClass('active');
-        });
-
-        $(document).on('click', '.menu li .scroll-to', function() {
-            $('.responsive-sidebar-menu').removeClass('active');
-        })
-
-        $(document).on('click', ".color-boxed a", function() {
-            $(".color-boxed a").removeClass("clr-active");
-            $(this).addClass("clr-active");
-        });
-
-        $(document).on('click', ".global-color .setting-toggle", function() {
-            $(".global-color").addClass("active");
-        });
-
-        $(document).on('click', ".global-color .inner .overlay, .global-color .inner .global-color-option .close-settings", function() {
-            $(".global-color").removeClass("active");
-        });
-
+    $(document).on("click", ".menu li .scroll-to", function () {
+      $(".responsive-sidebar-menu").removeClass("active");
     });
 
-    $(window).scroll(function() {
+    $(document).on("click", ".color-boxed a", function () {
+      $(".color-boxed a").removeClass("clr-active");
+      $(this).addClass("clr-active");
+    });
 
-        var windscroll = $(window).scrollTop();
+    $(document).on("click", ".global-color .setting-toggle", function () {
+      $(".global-color").addClass("active");
+    });
 
-        if (windscroll >= 0) {
-            $('.scroll-to-page').each(function(i) {
+    $(document).on(
+      "click",
+      ".global-color .inner .overlay, .global-color .inner .global-color-option .close-settings",
+      function () {
+        $(".global-color").removeClass("active");
+      },
+    );
+  });
 
-                var wscrolldecress = windscroll + 1;
-                if ($(this).position().top <= wscrolldecress - 0) {
-                    $('.scroll-nav .scroll-to.active').removeClass('active');
-                    $('.scroll-nav .scroll-to').eq(i).addClass('active');
-                    $('.scroll-nav-responsive a.active').removeClass('active');
-                    $('.scroll-nav-responsive a').eq(i).addClass('active');
-                }
-            });
+  $(window)
+    .scroll(function () {
+      var windscroll = $(window).scrollTop();
 
-        } else {
-            $('.scroll-nav .scroll-to.active').removeClass('active');
-            $('.scroll-nav .scroll-to:first').addClass('active');
-            $('.scroll-nav-responsive a.active').removeClass('active');
-            $('.scroll-nav-responsive a:first').addClass('active');
-        }
-
-    }).scroll();
-
-    if ($('.testimonial-slider').length) {
-        var testimonial = $('.testimonial-slider').owlCarousel({
-            items: 1,
-            margin: 30,
-            stagePadding: 0,
-            smartSpeed: 450,
-            autoHeight: true,
-            loop: false,
-            nav: false,
-            dots: false,
-            onInitialized  : counter,
-            onTranslated : counter
+      if (windscroll >= 0) {
+        $(".scroll-to-page").each(function (i) {
+          var wscrolldecress = windscroll + 1;
+          if ($(this).position().top <= wscrolldecress - 0) {
+            $(".scroll-nav .scroll-to.active").removeClass("active");
+            $(".scroll-nav .scroll-to").eq(i).addClass("active");
+            $(".scroll-nav-responsive a.active").removeClass("active");
+            $(".scroll-nav-responsive a").eq(i).addClass("active");
+          }
         });
+      } else {
+        $(".scroll-nav .scroll-to.active").removeClass("active");
+        $(".scroll-nav .scroll-to:first").addClass("active");
+        $(".scroll-nav-responsive a.active").removeClass("active");
+        $(".scroll-nav-responsive a:first").addClass("active");
+      }
+    })
+    .scroll();
 
-        $('.testimonial-nav .next').on('click', function() {
-            testimonial.trigger('next.owl.carousel');
-        })
-        $('.testimonial-nav .prev').on('click', function() {
-            testimonial.trigger('prev.owl.carousel', [300]);
-        })
+  if ($(".testimonial-slider").length) {
+    var testimonial = $(".testimonial-slider").owlCarousel({
+      items: 1,
+      margin: 30,
+      stagePadding: 0,
+      smartSpeed: 450,
+      autoHeight: true,
+      loop: false,
+      nav: false,
+      dots: false,
+      onInitialized: counter,
+      onTranslated: counter,
+    });
 
-        function counter(event) {
-            var element   = event.target;
-            var items     = event.item.count;
-            var item      = event.item.index + 1;
+    $(".testimonial-nav .next").on("click", function () {
+      testimonial.trigger("next.owl.carousel");
+    });
+    $(".testimonial-nav .prev").on("click", function () {
+      testimonial.trigger("prev.owl.carousel", [300]);
+    });
 
-            if(item > items) {
-                item = item - items
-            }
-            $('#testimonial-slide-count').html("<span class='left'>"+item+"</span> / "+items)
-        }
+    function counter(event) {
+      var element = event.target;
+      var items = event.item.count;
+      var item = event.item.index + 1;
+
+      if (item > items) {
+        item = item - items;
+      }
+      $("#testimonial-slide-count").html(
+        "<span class='left'>" + item + "</span> / " + items,
+      );
     }
+  }
 
-    window.addEventListener('scroll', {
-        scroll_animations,
-    });
-
+  window.addEventListener("scroll", {
+    scroll_animations,
+  });
 });
 
 function scroll_animations() {
-    var defaults = {
-        duration: 1.2,
-        ease: "power4.out",
-        animation: "fade_from_bottom",
-        once: !1,
+  var defaults = {
+    duration: 1.2,
+    ease: "power4.out",
+    animation: "fade_from_bottom",
+    once: !1,
+  };
+  gsap.utils.toArray(".scroll-animation").forEach(function (box) {
+    var gsap_obj = {};
+    var settings = {
+      duration: box.dataset.animationDuration || defaults.duration,
     };
-    gsap.utils.toArray(".scroll-animation").forEach(function (box) {
-        var gsap_obj = {};
-        var settings = {
-            duration: box.dataset.animationDuration || defaults.duration,
-        };
-        var animations = {
-            fade_from_bottom: {
-                y: 180,
-                opacity: 0,
-            },
-            fade_from_top: {
-                y: -180,
-                opacity: 0,
-            },
-            fade_from_left: {
-                x: -180,
-                opacity: 0,
-            },
-            fade_from_right: {
-                x: 180,
-                opacity: 0,
-            },
-            fade_in: {
-                opacity: 0,
-            },
-            rotate_up: {
-                y: 180,
-                rotation: 10,
-                opacity: 0,
-            },
-        };
-        var scroll_trigger = {
-            scrollTrigger: {
-                trigger: box,
-                once: defaults.once,
-                start: "top bottom+=20%",
-                toggleActions: "play none none reverse",
-                markers: !1,
-            },
-        };
-        jQuery.extend(gsap_obj, settings);
-        jQuery.extend(gsap_obj, animations[box.dataset.animation || defaults.animation]);
-        jQuery.extend(gsap_obj, scroll_trigger);
-        gsap.from(box, gsap_obj);
-    });
+    var animations = {
+      fade_from_bottom: {
+        y: 180,
+        opacity: 0,
+      },
+      fade_from_top: {
+        y: -180,
+        opacity: 0,
+      },
+      fade_from_left: {
+        x: -180,
+        opacity: 0,
+      },
+      fade_from_right: {
+        x: 180,
+        opacity: 0,
+      },
+      fade_in: {
+        opacity: 0,
+      },
+      rotate_up: {
+        y: 180,
+        rotation: 10,
+        opacity: 0,
+      },
+    };
+    var scroll_trigger = {
+      scrollTrigger: {
+        trigger: box,
+        once: defaults.once,
+        start: "top bottom+=20%",
+        toggleActions: "play none none reverse",
+        markers: !1,
+      },
+    };
+    jQuery.extend(gsap_obj, settings);
+    jQuery.extend(
+      gsap_obj,
+      animations[box.dataset.animation || defaults.animation],
+    );
+    jQuery.extend(gsap_obj, scroll_trigger);
+    gsap.from(box, gsap_obj);
+  });
 }
 scroll_animations();

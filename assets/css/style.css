@@ -53,6 +53,7 @@ body {
 }
 img {
     max-width: 100%;
+    height: auto;
 }
 a {
     text-decoration: none;
@@ -656,14 +657,16 @@ main.drake-main {
 
 
 /* 05 - Section Header */
-.section-header h1 {
+.section-header h1,
+.section-header h2 {
     font-size: 48px;
     line-height: 60px;
     color: #fff;
     font-weight: 300;
     margin-bottom: 33px;
 }
-.section-header h1 span {
+.section-header h1 span,
+.section-header h2 span {
     color: var(--primary_color);
 }
 
@@ -826,7 +829,8 @@ main.drake-main {
     gap: 100px;
     margin-top: 55px;
 }
-.hero-section .hero-content .facts h1 {
+.hero-section .hero-content .facts h1,
+.hero-section .hero-content .facts .number {
     font-size: 72px;
     color: var(--primary_color);
     line-height: 56px;
@@ -1057,7 +1061,8 @@ a.company-link:hover,
     display: block;
     margin: auto auto 29px auto;
 }
-.skills .skill .skill-inner h1 {
+.skills .skill .skill-inner h1,
+.skills .skill .skill-inner .percent {
     font-size: 30px;
     color: var(--primary_color);
     font-weight: 300;
@@ -2130,4 +2135,10 @@ a.company-link:hover,
 .malt-link:hover .malt-icon.malt-active,
 .upwork-link:hover .upwork-icon.upwork-active {
     display: inline-block !important;
+}
+
+/* number/percent spans replacing former h1s (SEO heading fix) */
+.hero-section .hero-content .facts .number,
+.skills .skill .skill-inner .percent {
+    display: block;
 }

@@ -44,7 +44,8 @@
     .content-width {
         max-width: 100%;
     }
-    .section-header h1 br {
+    .section-header h1 br,
+    .section-header h2 br {
         display: none;
     }
     .left-sidebar {
@@ -119,7 +120,8 @@
         font-size: 58px;
         line-height: 1.3;
     }
-    .hero-section .hero-content .facts h1 {
+    .hero-section .hero-content .facts h1,
+    .hero-section .hero-content .facts .number {
         font-size: 52px;
     }
 }
@@ -269,7 +271,8 @@
     .subtitle {
         margin-bottom: 40px;
     }
-    .section-header h1 {
+    .section-header h1,
+    .section-header h2 {
         font-size: 38px;
         line-height: 1.4;
     }
@@ -283,7 +286,8 @@
     .hero-section .hero-content h1 {
         font-size: 50px;
     }
-    .hero-section .hero-content .facts h1 {
+    .hero-section .hero-content .facts h1,
+    .hero-section .hero-content .facts .number {
         font-size: 48px;
         margin-bottom: 25px;
     }
