@@ -1221,14 +1221,15 @@ a.company-link:hover,
 
 /* 16 - Client */
 .clients-logos {
-    padding-top: 100px;
+    padding-top: 56px;
 }
 .clients-logos h4 {
-    color: #fff;
+    color: rgba(255,255,255,0.4);
     text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 300;
-    margin-bottom: 57px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
 }
 .clients-logos .col-md-4 {
     margin-bottom: 28px;
@@ -1237,16 +1238,18 @@ a.company-link:hover,
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 28px 24px;
+    padding: 20px 24px;
     border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.07);
     background: rgba(255,255,255,0.02);
     transition: border-color .3s, background .3s;
-    min-height: 96px;
+    height: 110px;
+    text-decoration: none;
 }
 .clients-logos .logo-card:hover {
     border-color: #02c2fd;
     background: rgba(2,194,253,0.04);
+    text-decoration: none;
 }
 .clients-logos img {
     display: block;
