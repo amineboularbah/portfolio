@@ -1346,6 +1346,7 @@ a.company-link:hover,
 
 /* 18 - Contact */
 .contact-area {
+    padding-top: 80px;
     padding-bottom: 50px;
 }
 .contact-area .contact-content h3 {
