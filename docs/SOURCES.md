@@ -11,6 +11,8 @@ Reviewed for the Astro migration on 22 September 2026. Sources support the scope
 
 Do not treat an official product homepage as evidence of individual employment or measured outcomes. The case studies describe Amine's role from his existing public portfolio and supplied project context. They make no new traffic, revenue, conversion, reliability, or performance claims.
 
+Amine supplied additional detail about his 433 contributions on 22 September 2026: complex product features, real-time data updates with SignalR, Airship for customer engagement, Segment for customer data, and live match notifications and activities. The case study reflects these responsibilities alongside architecture, technical leadership, and release automation. No performance or audience metrics were added.
+
 ## Products and collaborations
 
 | Project            | Public destination                                   | Relationship shown                         |
