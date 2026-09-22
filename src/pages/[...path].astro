@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomeContent from '../components/HomeContent.astro';
+import AboutContent from '../components/AboutContent.astro';
+import ProjectsContent from '../components/ProjectsContent.astro';
+import ProjectContent from '../components/ProjectContent.astro';
+import ServicesContent from '../components/ServicesContent.astro';
+import ContactContent from '../components/ContactContent.astro';
+import FaqContent from '../components/FaqContent.astro';
+import PrivacyContent from '../components/PrivacyContent.astro';
+import { pages, type Page } from '../data/pages';
+import { projects } from '../data/projects';
+
+export function getStaticPaths() {
+  return pages.map((page) => ({
+    params: { path: page.path.slice(1, -1) || undefined },
+    props: { page },
+  }));
+}
+interface Props {
+  page: Page;
+}
+const { page } = Astro.props;
+const project = projects.find((item) => item.slug === page.projectSlug);
+const components = {
+  '': HomeContent,
+  about: AboutContent,
+  projects: ProjectsContent,
+  services: ServicesContent,
+  contact: ContactContent,
+  faq: FaqContent,
+  privacy: PrivacyContent,
+};
+const Content = components[page.section];
+---
+
+<Layout page={page}>
+  {project ? (
+    <ProjectContent locale={page.locale} project={project} />
+  ) : (
+    <Content locale={page.locale} />
+  )}
+</Layout>

@@ -1,0 +1,29 @@
+{
+  "name": "amine-boularbah-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^24.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 4322",
+    "build": "astro check && astro build",
+    "preview": "astro preview --host 127.0.0.1 --port 4322",
+    "test": "node --test tests/*.test.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate": "npm run format:check && npm run build && npm test"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.10",
+    "@fontsource-variable/manrope": "5.3.0",
+    "astro": "7.3.3",
+    "typescript": "6.0.3"
+  },
+  "devDependencies": {
+    "cheerio": "1.2.0",
+    "prettier": "3.9.8",
+    "prettier-plugin-astro": "1.0.1"
+  }
+}

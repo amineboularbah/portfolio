@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/me.webp';
+import { copy } from '../data/copy';
+import { projects } from '../data/projects';
+import { localPath, site, type Locale } from '../data/site';
+import ContactBanner from './ContactBanner.astro';
+import ProjectCard from './ProjectCard.astro';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+
+<section class="container hero" id="home">
+  <div class="hero-copy">
+    <p class="eyebrow">
+      <span class="status-dot" aria-hidden="true"></span>
+      {t.home.eyebrow}
+    </p>
+    <h1>
+      {t.home.title[0]}
+      <br />
+      <span>{t.home.title[1]}</span>
+    </h1>
+    <p class="hero-intro">{t.home.intro}</p>
+    <div class="actions">
+      <a class="button button-dark" href={localPath(locale, 'projects')}>
+        {t.home.primary}
+      </a>
+      <a class="text-link" href={localPath(locale, 'contact')}>
+        {t.home.secondary}
+      </a>
+    </div>
+    <p class="hero-location">{t.home.location}</p>
+  </div>
+  <div class="hero-portrait">
+    <div class="portrait-frame">
+      <Image
+        src={portrait}
+        alt={t.ui.photo}
+        widths={[400, 640, 880]}
+        sizes="(max-width: 760px) 85vw, 400px"
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="portrait-note">
+      <span class="note-line" aria-hidden="true"></span>
+      <p>
+        {t.home.portraitNote}
+        <br />
+        <strong>{t.home.portraitNote2}</strong>
+      </p>
+    </div>
+    <p class="portrait-caption">{t.home.since}</p>
+  </div>
+</section>
+<div class="container collaboration-strip">
+  <p class="eyebrow">{t.home.collaborations}</p>
+  <div>
+    <span>433</span>
+    <span>Ignite Tournaments</span>
+    <span>Flow Digital Studio</span>
+    <span>Poste Maroc</span>
+  </div>
+</div>
+<section class="container section" id="portfolio">
+  <div class="section-heading" data-reveal>
+    <div>
+      <p class="eyebrow">{t.home.workLabel}</p>
+      <h2>{t.home.workTitle}</h2>
+    </div>
+    <p>{t.home.workIntro}</p>
+  </div>
+  <div class="project-grid">
+    {projects.slice(0, 4).map((project, index) => (
+      <ProjectCard project={project} locale={locale} index={index} />
+    ))}
+  </div>
+  <div class="section-end">
+    <a class="button button-outline" href={localPath(locale, 'projects')}>
+      {t.ui.allWork}
+    </a>
+  </div>
+</section>
+<section class="approach-section" id="about">
+  <div class="container approach-grid" data-reveal>
+    <div>
+      <p class="eyebrow">{t.home.aboutLabel}</p>
+      <h2>{t.home.aboutTitle}</h2>
+      <a class="text-link" href={localPath(locale, 'about')}>
+        {t.ui.more}
+      </a>
+    </div>
+    <div>
+      <p class="lead">{t.home.aboutIntro}</p>
+      <p>{t.home.aboutBody}</p>
+      <ul class="capability-list" id="skills">
+        {t.home.capabilities.map((item, index) => (
+          <li>
+            <span aria-hidden="true">0{index + 1}</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+      <div class="inline-links">
+        <a id="resume" href={localPath(locale, 'about') + '#experience'}>
+          {t.about.timelineLabel}
+        </a>
+        <a
+          id="certifications"
+          href={localPath(locale, 'about') + '#credentials'}
+        >
+          {t.about.referencesLabel}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container studio-section" id="services" data-reveal>
+  <div class="studio-brand">
+    <img
+      src="/appwrapp-wordmark.png"
+      width="2138"
+      height="400"
+      loading="lazy"
+      alt="AppWrapp"
+    />
+    <div class="studio-products">
+      <span>Receipto</span>
+      <span>Fielduro</span>
+      <span>Flura</span>
+      <span>FinFlo</span>
+    </div>
+  </div>
+  <div>
+    <p class="eyebrow">{t.home.studioLabel}</p>
+    <h2>{t.home.studioTitle}</h2>
+    <p>{t.home.studioBody}</p>
+    <a class="text-link" href={site.studio}>
+      {t.home.studioLink}
+    </a>
+  </div>
+</section>
+<section class="container quote-section" id="testimonial" data-reveal>
+  <p class="eyebrow">{t.home.quoteLabel}</p>
+  <blockquote lang="en">
+    “He was able to execute on everything we assigned to him, showing clear
+    understanding of the problem space.”
+  </blockquote>
+  <p class="quote-attribution">
+    Josh K. <span>CTO, Ignite Tournaments</span>
+  </p>
+  {locale !== 'en' && <p class="caption">{t.ui.originalQuote}</p>}
+</section>
+<ContactBanner locale={locale} />

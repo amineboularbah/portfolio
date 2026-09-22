@@ -1,0 +1,87 @@
+---
+import { copy } from '../data/copy';
+import { services, process, faqs } from '../data/experience';
+import { localPath, site, type Locale } from '../data/site';
+import ContactBanner from './ContactBanner.astro';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+
+<section class="container page-intro">
+  <p class="eyebrow">{t.services.eyebrow}</p>
+  <h1>{t.services.title}</h1>
+  <p class="intro">{t.services.intro}</p>
+  <div class="actions">
+    <a class="button button-dark" href={localPath(locale, 'contact')}>
+      {t.nav.contact}
+    </a>
+    <a class="text-link" href={localPath(locale, 'projects')}>
+      {t.ui.allWork}
+    </a>
+  </div>
+</section>
+<section class="container services-grid">
+  {services.map((service, index) => (
+    <article data-reveal>
+      <span class="eyebrow">0{index + 1}</span>
+      <h2>{service.title[locale]}</h2>
+      <p>{service.body[locale]}</p>
+      <ul class="tags" lang="en">
+        {service.topics.map((topic) => (
+          <li>{topic}</li>
+        ))}
+      </ul>
+    </article>
+  ))}
+</section>
+<section class="process-section">
+  <div class="container">
+    <div class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow">{t.services.processLabel}</p>
+        <h2>{t.services.processTitle}</h2>
+      </div>
+    </div>
+    <ol class="process-grid">
+      {process.map((step, index) => (
+        <li data-reveal>
+          <span class="step-number">0{index + 1}</span>
+          <h3>{step.title[locale]}</h3>
+          <p>{step.body[locale]}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<section class="container studio-callout" data-reveal>
+  <div>
+    <h2>{t.services.studioTitle}</h2>
+    <p>{t.services.studioBody}</p>
+  </div>
+  <a class="text-link" href={site.studio + '/services/'}>
+    {t.services.studioLink}
+  </a>
+</section>
+<section class="container faq-preview">
+  <h2>{t.faq.title}</h2>
+  <div class="faq-list">
+    {[faqs[1], faqs[2], faqs[4]].map((faq) => (
+      <details>
+        <summary>
+          {faq.question[locale]}
+          <span class="details-symbol" aria-hidden="true">
+            +
+          </span>
+        </summary>
+        <p>{faq.answer[locale]}</p>
+      </details>
+    ))}
+    <a class="text-link" href={localPath(locale, 'faq')}>
+      {t.nav.faq}
+    </a>
+  </div>
+</section>
+<ContactBanner locale={locale} />

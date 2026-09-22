@@ -1,0 +1,33 @@
+---
+import { copy } from '../data/copy';
+import { faqs } from '../data/experience';
+import type { Locale } from '../data/site';
+import ContactBanner from './ContactBanner.astro';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+
+<section class="container page-intro">
+  <p class="eyebrow">{t.faq.eyebrow}</p>
+  <h1>{t.faq.title}</h1>
+  <p class="intro">{t.faq.intro}</p>
+</section>
+<section class="container faq-page">
+  <div class="faq-list">
+    {faqs.map((faq, index) => (
+      <details open={index === 0}>
+        <summary>
+          {faq.question[locale]}
+          <span class="details-symbol" aria-hidden="true">
+            +
+          </span>
+        </summary>
+        <p>{faq.answer[locale]}</p>
+      </details>
+    ))}
+  </div>
+</section>
+<ContactBanner locale={locale} />

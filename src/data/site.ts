@@ -1,0 +1,32 @@
+export const locales = ['en', 'fr', 'es'] as const;
+export type Locale = (typeof locales)[number];
+export type Localized<T = string> = Record<Locale, T>;
+
+export const site = {
+  name: 'Amine Boularbah',
+  url: 'https://amineboularbah.com',
+  email: 'hello@amineboularbah.com',
+  role: 'Lead Mobile Engineer & Founder',
+  city: 'Málaga, Spain',
+  studio: 'https://appwrapp.com',
+  profiles: [
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/amineboularbah' },
+    { label: 'GitHub', url: 'https://github.com/amineboularbah' },
+    {
+      label: 'Upwork',
+      url: 'https://www.upwork.com/freelancers/aminebboularbah',
+    },
+    { label: 'Malt', url: 'https://www.malt.com/profile/amineboularbah' },
+  ],
+};
+
+export function localPath(locale: Locale, path = '') {
+  const clean = path.replace(/^\/+|\/+$/g, '');
+  return (
+    (locale === 'en' ? '/' : '/' + locale + '/') + (clean ? clean + '/' : '')
+  );
+}
+
+export function absolute(path: string) {
+  return new URL(path, site.url).href;
+}
