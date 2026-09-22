@@ -19,14 +19,18 @@ const t = copy[locale];
       </div>
       <div class="footer-place">
         <p>{t.footer.location}</p>
-        <a href={site.studio}>{t.footer.studio}</a>
+        <a href={site.studio} target="_blank" rel="noopener noreferrer">
+          {t.footer.studio}
+        </a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© {new Date().getFullYear()} Amine Boularbah</span>
       <nav aria-label={t.ui.profiles}>
         {site.profiles.slice(0, 2).map((profile) => (
-          <a href={profile.url}>{profile.label}</a>
+          <a href={profile.url} target="_blank" rel="noopener noreferrer">
+            {profile.label}
+          </a>
         ))}
         <a href={localPath(locale, 'faq')}>{t.nav.faq}</a>
         <a href={localPath(locale, 'privacy')}>{t.nav.privacy}</a>
