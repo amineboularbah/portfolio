@@ -44,9 +44,12 @@ export const projects: Project[] = [
         context:
           'The 433 app brings football content and fan experiences together. My work focuses on the Flutter rebuild and the foundations that help the engineering team develop and maintain it.',
         contributions: [
-          'Shape the mobile architecture and modular project structure.',
-          'Guide engineering standards, code reviews, and team delivery.',
-          'Work on release automation and third-party mobile integrations.',
+          'Lead mobile architecture and modular project design.',
+          'Build complex product features, including real-time data updates with SignalR.',
+          'Integrate Airship for customer engagement and Segment for customer data and analytics.',
+          'Develop live match experiences, including iOS Live Activities and match notifications.',
+          'Guide engineering standards, code reviews, and technical delivery across the mobile team.',
+          'Improve release automation and manage native and third-party SDK integrations.',
         ],
       },
       fr: {
@@ -57,9 +60,12 @@ export const projects: Project[] = [
         context:
           'L’application 433 rassemble contenus et expériences pour les fans de football. Mon travail porte sur sa refonte Flutter et les bases qui permettent à l’équipe de la développer et de la maintenir.',
         contributions: [
-          'Définir l’architecture mobile et la structure modulaire du projet.',
-          'Accompagner les standards, les revues de code et les livraisons.',
-          'Travailler sur l’automatisation des versions et les intégrations mobiles.',
+          'Piloter l’architecture mobile et la conception modulaire du projet.',
+          'Développer des fonctionnalités complexes, notamment la mise à jour des données en temps réel avec SignalR.',
+          'Intégrer Airship pour l’engagement utilisateur et Segment pour les données clients et l’analytique.',
+          'Créer des expériences de suivi des matchs en direct, avec les Live Activities iOS et les notifications de match.',
+          'Guider les standards d’ingénierie, les revues de code et les livraisons techniques de l’équipe mobile.',
+          'Améliorer l’automatisation des publications et prendre en charge les intégrations de SDK natifs et tiers.',
         ],
       },
       es: {
@@ -70,9 +76,12 @@ export const projects: Project[] = [
         context:
           'La app de 433 reúne contenido y experiencias para los aficionados al fútbol. Mi trabajo se centra en su reconstrucción con Flutter y en las bases que permiten al equipo desarrollarla y mantenerla.',
         contributions: [
-          'Definir la arquitectura móvil y la estructura modular del proyecto.',
-          'Guiar los estándares, las revisiones de código y las entregas.',
-          'Trabajar en la automatización de versiones y las integraciones móviles.',
+          'Liderar la arquitectura móvil y el diseño modular del proyecto.',
+          'Desarrollar funcionalidades complejas, incluidas las actualizaciones de datos en tiempo real con SignalR.',
+          'Integrar Airship para la interacción con los usuarios y Segment para los datos de clientes y la analítica.',
+          'Crear experiencias de seguimiento de partidos en directo, con Live Activities en iOS y notificaciones de partidos.',
+          'Guiar los estándares de ingeniería, las revisiones de código y las entregas técnicas del equipo móvil.',
+          'Mejorar la automatización de las publicaciones y gestionar integraciones de SDK nativos y de terceros.',
         ],
       },
     },
