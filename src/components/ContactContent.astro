@@ -53,12 +53,22 @@ const mailto =
     <p class="eyebrow">{t.contact.linksTitle}</p>
     <div class="contact-profiles">
       {site.profiles.map((profile) => (
-        <a class="text-link" href={profile.url}>
+        <a
+          class="text-link"
+          href={profile.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {profile.label}
         </a>
       ))}
     </div>
-    <a class="studio-link" href={site.studio}>
+    <a
+      class="studio-link"
+      href={site.studio}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {t.contact.studio}
     </a>
   </div>
