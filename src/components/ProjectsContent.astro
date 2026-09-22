@@ -1,0 +1,105 @@
+---
+import { copy } from '../data/copy';
+import { projects, earlierWork } from '../data/projects';
+import type { Locale } from '../data/site';
+import ProjectCard from './ProjectCard.astro';
+import ContactBanner from './ContactBanner.astro';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+
+<section class="container page-intro">
+  <p class="eyebrow">{t.projects.eyebrow}</p>
+  <h1>{t.projects.title}</h1>
+  <p class="intro">{t.projects.intro}</p>
+</section>
+<section class="container project-collection">
+  <h2 class="sr-only">{t.nav.projects}</h2>
+  <div class="filter-bar" hidden data-filters>
+    <div class="filter-options" role="group" aria-label={t.nav.projects}>
+      {(['all', 'client', 'own'] as const).map((category) => (
+        <button
+          type="button"
+          data-filter={category}
+          aria-pressed={category === 'all'}
+        >
+          {t.ui[category]}
+        </button>
+      ))}
+    </div>
+    <span class="filter-count" aria-live="polite" data-count-label={t.ui.show}>
+      {projects.length} {t.ui.show}
+    </span>
+  </div>
+  <div class="project-grid" id="project-grid">
+    {projects.map((project, index) => (
+      <ProjectCard project={project} locale={locale} index={index} />
+    ))}
+  </div>
+</section>
+<section class="container section archive-section">
+  <div class="section-heading" data-reveal>
+    <div>
+      <p class="eyebrow">{t.ui.archive}</p>
+      <h2>{t.ui.archiveIntro}</h2>
+    </div>
+  </div>
+  <div class="archive-list">
+    {earlierWork.map((project) => (
+      <details>
+        <summary>
+          <span>{project.name}</span>
+          <span class="caption" lang="en">
+            {project.tags}
+          </span>
+          <span class="details-symbol" aria-hidden="true">
+            +
+          </span>
+        </summary>
+        <div class="archive-detail">
+          <p>{project.summary[locale]}</p>
+          <img
+            src={project.image}
+            alt={project.name}
+            loading="lazy"
+            width="1200"
+            height="675"
+          />
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+<ContactBanner locale={locale} />
+<script>
+  const filters = document.querySelector<HTMLElement>('[data-filters]');
+  const cards = document.querySelectorAll<HTMLElement>(
+    '#project-grid .project-card',
+  );
+  const count = document.querySelector<HTMLElement>('[data-count-label]');
+  if (filters && cards.length) {
+    filters.hidden = false;
+    filters
+      .querySelectorAll<HTMLButtonElement>('[data-filter]')
+      .forEach((button) => {
+        button.addEventListener('click', () => {
+          const selected = button.dataset.filter;
+          let total = 0;
+          cards.forEach((card) => {
+            card.hidden =
+              selected !== 'all' && card.dataset.category !== selected;
+            if (!card.hidden) total++;
+          });
+          filters
+            .querySelectorAll('[data-filter]')
+            .forEach((item) =>
+              item.setAttribute('aria-pressed', String(item === button)),
+            );
+          if (count) count.textContent = total + ' ' + count.dataset.countLabel;
+        });
+      });
+  }
+</script>

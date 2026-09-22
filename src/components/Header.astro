@@ -1,0 +1,150 @@
+---
+import { copy } from '../data/copy';
+import { translatedPage, type Page } from '../data/pages';
+import { localPath, locales } from '../data/site';
+interface Props {
+  page: Page;
+  noindex?: boolean;
+}
+const { page, noindex } = Astro.props;
+const t = copy[page.locale];
+const nav = ['projects', 'about', 'services'] as const;
+const names = { en: 'English', fr: 'Français', es: 'Español' };
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={localPath(page.locale)} aria-label="Amine Boularbah">
+      <span class="monogram" aria-hidden="true">
+        ab<span>.</span>
+      </span>
+      <span class="brand-name">Amine Boularbah</span>
+    </a>
+    <nav class="desktop-nav" aria-label={t.nav.menu}>
+      {nav.map((section) => (
+        <a
+          href={localPath(page.locale, section)}
+          aria-current={page.section === section ? 'page' : undefined}
+        >
+          {t.nav[section]}
+        </a>
+      ))}
+      <a
+        class="nav-contact"
+        href={localPath(page.locale, 'contact')}
+        aria-current={page.section === 'contact' ? 'page' : undefined}
+      >
+        {t.nav.contact}
+      </a>
+    </nav>
+    <div class="header-controls">
+      <button
+        class="theme-toggle"
+        type="button"
+        hidden
+        data-dark={t.theme.dark}
+        data-light={t.theme.light}
+        data-to-dark={t.theme.toDark}
+        data-to-light={t.theme.toLight}
+        aria-label={t.theme.toDark}
+      >
+        {t.theme.dark}
+      </button>
+      <details class="language-menu">
+        <summary aria-label={t.nav.language + ': ' + names[page.locale]}>
+          {page.locale.toUpperCase()}
+        </summary>
+        <nav aria-label={t.nav.language}>
+          {locales.map((locale) => (
+            <a
+              lang={locale}
+              hreflang={locale}
+              href={
+                noindex ? localPath(locale) : translatedPage(page, locale).path
+              }
+              aria-current={locale === page.locale ? 'true' : undefined}
+            >
+              {names[locale]}
+            </a>
+          ))}
+        </nav>
+      </details>
+      <details class="mobile-menu">
+        <summary>{t.nav.menu}</summary>
+        <nav aria-label={t.nav.menu}>
+          {[...nav, 'contact' as const].map((section) => (
+            <a
+              href={localPath(page.locale, section)}
+              aria-current={page.section === section ? 'page' : undefined}
+            >
+              {t.nav[section]}
+            </a>
+          ))}
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const applyTheme = (theme: 'light' | 'dark') => {
+    document.documentElement.dataset.theme = theme;
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', theme === 'dark' ? '#171e21' : '#fafaf6');
+    if (!toggle) return;
+    toggle.textContent =
+      (theme === 'dark' ? toggle.dataset.light : toggle.dataset.dark) ?? '';
+    toggle.setAttribute(
+      'aria-label',
+      (theme === 'dark' ? toggle.dataset.toLight : toggle.dataset.toDark) ??
+        'Change theme',
+    );
+  };
+  if (toggle) {
+    applyTheme(
+      document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
+    );
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => {
+      const theme =
+        document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(theme);
+      try {
+        localStorage.setItem('ab-theme', theme);
+      } catch {
+        /* Theme switching still works in this tab. */
+      }
+    });
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'ab-theme' || event.key === null)
+        applyTheme(event.newValue === 'dark' ? 'dark' : 'light');
+    });
+  }
+  const menus = document.querySelectorAll<HTMLDetailsElement>(
+    '.header-controls details',
+  );
+  menus.forEach((menu) =>
+    menu.addEventListener('toggle', () => {
+      if (menu.open)
+        menus.forEach((other) => {
+          if (other !== menu) other.open = false;
+        });
+    }),
+  );
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    menus.forEach((menu) => {
+      if (menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+  });
+  document.addEventListener('click', (event) => {
+    menus.forEach((menu) => {
+      if (event.target instanceof Node && !menu.contains(event.target))
+        menu.open = false;
+    });
+  });
+</script>

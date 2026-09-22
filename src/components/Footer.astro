@@ -1,0 +1,36 @@
+---
+import { copy } from '../data/copy';
+import { localPath, site, type Locale } from '../data/site';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="footer-name" href={localPath(locale)}>
+          Amine Boularbah<span>.</span>
+        </a>
+        <p>{t.footer.line}</p>
+      </div>
+      <div class="footer-place">
+        <p>{t.footer.location}</p>
+        <a href={site.studio}>{t.footer.studio}</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {new Date().getFullYear()} Amine Boularbah</span>
+      <nav aria-label={t.ui.profiles}>
+        {site.profiles.slice(0, 2).map((profile) => (
+          <a href={profile.url}>{profile.label}</a>
+        ))}
+        <a href={localPath(locale, 'faq')}>{t.nav.faq}</a>
+        <a href={localPath(locale, 'privacy')}>{t.nav.privacy}</a>
+      </nav>
+    </div>
+  </div>
+</footer>

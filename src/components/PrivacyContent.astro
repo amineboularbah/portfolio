@@ -1,0 +1,23 @@
+---
+import { copy } from '../data/copy';
+import type { Locale } from '../data/site';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+---
+
+<section class="container page-intro">
+  <p class="eyebrow">{t.privacy.eyebrow}</p>
+  <h1>{t.privacy.title}</h1>
+  <p class="intro">{t.privacy.intro}</p>
+</section>
+<article class="container prose">
+  {t.privacy.headings.map((heading, index) => (
+    <section>
+      <h2>{heading}</h2>
+      <p>{t.privacy.paragraphs[index]}</p>
+    </section>
+  ))}
+</article>

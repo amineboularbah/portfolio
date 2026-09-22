@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import { copy } from '../data/copy';
+import { projects, type Project } from '../data/projects';
+import { localPath, type Locale } from '../data/site';
+import ContactBanner from './ContactBanner.astro';
+interface Props {
+  locale: Locale;
+  project: Project;
+}
+const { locale, project } = Astro.props;
+const t = copy[locale];
+const content = project.content[locale];
+const next = projects[(projects.indexOf(project) + 1) % projects.length];
+---
+
+<section class="container project-intro">
+  <a class="back-link" href={localPath(locale, 'projects')}>
+    {t.ui.back}
+  </a>
+  <div class="project-intro-heading">
+    <div>
+      <p class="eyebrow">
+        {project.name} / {t.ui[project.category]}
+      </p>
+      <h1>{content.title}</h1>
+      <p class="intro">{content.summary}</p>
+    </div>
+    <dl class="project-facts">
+      <div>
+        <dt>{t.ui.role}</dt>
+        <dd>{content.role}</dd>
+      </div>
+      <div>
+        <dt>{t.ui.focus}</dt>
+        <dd lang="en">{project.tags.join(' · ')}</dd>
+      </div>
+    </dl>
+  </div>
+  <div
+    class:list={['project-cover', project.visual, project.slug]}
+    style={'--project-bg:' + project.color}
+  >
+    <Image
+      src={project.image}
+      alt={project.name}
+      widths={project.visual === 'screen' ? [400, 640, 880] : [640, 1000, 1600]}
+      sizes={
+        project.visual === 'screen'
+          ? '(max-width:760px) 240px, 360px'
+          : '(max-width:760px) 90vw, 1100px'
+      }
+      format="webp"
+      loading="eager"
+    />
+  </div>
+</section>
+<section class="container project-story" data-reveal>
+  <p class="eyebrow">{t.ui.context}</p>
+  <div>
+    <h2>{project.name}</h2>
+    <p>{content.context}</p>
+    <a class="text-link" href={project.url}>
+      {t.ui.visit}: {project.name}
+    </a>
+  </div>
+</section>
+<section class="container contributions" data-reveal>
+  <p class="eyebrow">{t.ui.contribution}</p>
+  <ol>
+    {content.contributions.map((item, index) => (
+      <li>
+        <span aria-hidden="true">0{index + 1}</span>
+        <p>{item}</p>
+      </li>
+    ))}
+  </ol>
+</section>
+<div class="container next-project">
+  <a href={localPath(locale, 'projects/' + next.slug)}>
+    <span class="eyebrow">{t.ui.next}</span>
+    <strong>{next.name}</strong>
+  </a>
+</div>
+<ContactBanner locale={locale} />

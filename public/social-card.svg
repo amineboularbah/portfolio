@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fafaf6"/>
+  <path d="M72 114H1128M72 518H1128" stroke="#dfe5df" stroke-width="2"/>
+  <circle cx="82" cy="72" r="7" fill="#087e94"/>
+  <text x="105" y="79" font-family="Arial,sans-serif" font-size="20" letter-spacing="3" fill="#203238">MOBILE ENGINEERING WITH A PRODUCT MIND</text>
+  <text x="72" y="260" font-family="Arial,sans-serif" font-size="82" font-weight="500" letter-spacing="-4" fill="#203238">Amine Boularbah<tspan fill="#087e94">.</tspan></text>
+  <text x="76" y="330" font-family="Arial,sans-serif" font-size="35" fill="#087e94">Lead Mobile Engineer &amp; Founder</text>
+  <text x="76" y="410" font-family="Arial,sans-serif" font-size="27" fill="#63716f">Flutter. Thoughtful products. Strong engineering teams.</text>
+  <text x="72" y="569" font-family="Arial,sans-serif" font-size="23" fill="#203238">amineboularbah.com</text>
+  <text x="872" y="569" font-family="Arial,sans-serif" font-size="23" fill="#63716f">Málaga, Spain</text>
+</svg>

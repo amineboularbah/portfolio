@@ -1,0 +1,80 @@
+---
+import { copy } from '../data/copy';
+import { site, type Locale } from '../data/site';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale];
+const mailto =
+  'mailto:' + site.email + '?subject=' + encodeURIComponent(t.contact.draft);
+---
+
+<section class="container page-intro">
+  <p class="eyebrow">{t.contact.eyebrow}</p>
+  <h1>{t.contact.title}</h1>
+  <p class="intro">{t.contact.intro}</p>
+</section>
+<section class="container contact-grid">
+  <div class="contact-panel" data-reveal>
+    <h2>{t.contact.panelTitle}</h2>
+    <p>{t.contact.panelBody}</p>
+    <a class="email-address" href={mailto}>
+      {site.email}
+    </a>
+    <div class="actions">
+      <a class="button button-dark" href={mailto}>
+        {t.ui.email}
+      </a>
+      <button
+        type="button"
+        class="copy-email"
+        data-email={site.email}
+        data-success={t.ui.copied}
+        data-error={t.ui.copyFailed}
+        hidden
+      >
+        {t.ui.copy}
+      </button>
+    </div>
+    <p class="copy-status caption" role="status" aria-live="polite"></p>
+    <p class="contact-note">{t.contact.note}</p>
+  </div>
+  <div class="contact-details" data-reveal>
+    <h2>{t.contact.checklistTitle}</h2>
+    <ol>
+      {t.contact.checklist.map((item, index) => (
+        <li>
+          <span aria-hidden="true">0{index + 1}</span>
+          {item}
+        </li>
+      ))}
+    </ol>
+    <p class="eyebrow">{t.contact.linksTitle}</p>
+    <div class="contact-profiles">
+      {site.profiles.map((profile) => (
+        <a class="text-link" href={profile.url}>
+          {profile.label}
+        </a>
+      ))}
+    </div>
+    <a class="studio-link" href={site.studio}>
+      {t.contact.studio}
+    </a>
+  </div>
+</section>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.copy-email');
+  const status = document.querySelector<HTMLElement>('.copy-status');
+  if (button && navigator.clipboard) {
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.email ?? '');
+        if (status) status.textContent = button.dataset.success ?? '';
+      } catch {
+        if (status) status.textContent = button.dataset.error ?? '';
+      }
+    });
+  }
+</script>

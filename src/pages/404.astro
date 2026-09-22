@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { copy } from '../data/copy';
+import type { Page } from '../data/pages';
+const t = copy.en;
+const page: Page = {
+  locale: 'en',
+  section: '',
+  path: '/404.html',
+  title: 'Page not found | Amine Boularbah',
+  description: t.notFound.intro,
+};
+---
+
+<Layout page={page} noindex>
+  <section class="container error-page">
+    <p class="eyebrow">404</p>
+    <h1>{t.notFound.title}</h1>
+    <p>{t.notFound.intro}</p>
+    <a class="button button-dark" href="/">
+      {t.notFound.button}
+    </a>
+  </section>
+</Layout>
