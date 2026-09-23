@@ -1592,8 +1592,11 @@ details[open] > summary .details-symbol {
     aspect-ratio: 1;
   }
   .portrait-note {
+    position: relative;
+    width: fit-content;
+    margin-top: -48px;
     left: -12px;
-    bottom: 52px;
+    bottom: auto;
     padding: 15px 21px;
   }
   .portrait-caption {
