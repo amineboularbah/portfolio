@@ -87,108 +87,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: 'receipto',
-    name: 'Receipto',
-    category: 'own',
-    image: receipto,
-    visual: 'screen',
-    color: '#f4edda',
-    tags: ['Flutter', 'Smart scans', 'Product ownership'],
-    url: 'https://receipto.app/',
-    content: {
-      en: {
-        role: 'Founder & Mobile Engineer',
-        title: 'Less paperwork. More headspace.',
-        summary:
-          'My receipt management app, built to make everyday business records easier to handle.',
-        context:
-          'Receipto brings receipt photos and emailed receipts into one organized place. Smart scans, folders, and exports help freelancers and small businesses spend less time sorting paperwork.',
-        contributions: [
-          'Take the product from idea through development and release.',
-          'Build receipt capture, email workflows, and export experiences.',
-          'Connect product feedback with ongoing mobile improvements.',
-        ],
-      },
-      fr: {
-        role: 'Fondateur et ingénieur mobile',
-        title: 'Moins de paperasse. L’esprit plus libre.',
-        summary:
-          'Mon application de gestion de reçus, pour simplifier les justificatifs du quotidien.',
-        context:
-          'Receipto réunit les photos de reçus et les reçus envoyés par e-mail. La numérisation intelligente, les dossiers et les exports aident les indépendants et les petites entreprises à mieux organiser leurs documents.',
-        contributions: [
-          'Porter le produit de l’idée au développement et à la publication.',
-          'Créer la capture de reçus, les flux e-mail et les exports.',
-          'Relier les retours des utilisateurs aux améliorations du produit.',
-        ],
-      },
-      es: {
-        role: 'Fundador e ingeniero móvil',
-        title: 'Menos papeleo. Más tranquilidad.',
-        summary:
-          'Mi app de gestión de recibos, creada para simplificar los documentos del día a día.',
-        context:
-          'Receipto reúne fotos de recibos y recibos enviados por correo. Los escaneos inteligentes, las carpetas y las exportaciones ayudan a autónomos y pequeñas empresas a organizar sus documentos.',
-        contributions: [
-          'Llevar el producto desde la idea hasta su desarrollo y publicación.',
-          'Crear la captura de recibos, los flujos de correo y las exportaciones.',
-          'Conectar los comentarios de los usuarios con las mejoras del producto.',
-        ],
-      },
-    },
-  },
-  {
-    slug: 'flura',
-    name: 'Flura',
-    category: 'own',
-    image: flura,
-    visual: 'screen',
-    color: '#e9eee7',
-    tags: ['Flutter', 'Health tracking', 'Product ownership'],
-    url: 'https://flura.app/',
-    content: {
-      en: {
-        role: 'Founder & Mobile Engineer',
-        title: 'A clearer picture of everyday health.',
-        summary:
-          'A symptom journal that helps people keep a more useful record of how they feel.',
-        context:
-          'Flura is a health tracking app for people living with chronic conditions. It brings symptom logging, health history, and shareable reports into a considered mobile experience. It supports personal record-keeping and is not a diagnostic tool.',
-        contributions: [
-          'Design and build the mobile product from the ground up.',
-          'Develop symptom logging and health-history experiences.',
-          'Make recorded information easier to review and share with a clinician.',
-        ],
-      },
-      fr: {
-        role: 'Fondateur et ingénieur mobile',
-        title: 'Mieux comprendre son quotidien.',
-        summary:
-          'Un journal de symptômes pour conserver un historique plus utile de son ressenti.',
-        context:
-          'Flura accompagne les personnes vivant avec des maladies chroniques. L’application rassemble le suivi des symptômes, l’historique et les rapports à partager. Elle aide à tenir un journal personnel et ne constitue pas un outil de diagnostic.',
-        contributions: [
-          'Concevoir et développer le produit mobile de bout en bout.',
-          'Créer le suivi des symptômes et de l’historique de santé.',
-          'Faciliter la consultation des informations et leur partage avec un soignant.',
-        ],
-      },
-      es: {
-        role: 'Fundador e ingeniero móvil',
-        title: 'Una visión más clara del día a día.',
-        summary:
-          'Un diario de síntomas para llevar un registro más útil de cómo te sientes.',
-        context:
-          'Flura acompaña a personas que viven con enfermedades crónicas. Reúne el registro de síntomas, el historial y los informes para compartir. Ayuda a llevar un diario personal y no es una herramienta de diagnóstico.',
-        contributions: [
-          'Diseñar y desarrollar el producto móvil desde cero.',
-          'Crear el registro de síntomas y el historial de salud.',
-          'Facilitar la revisión de los datos y su intercambio con profesionales sanitarios.',
-        ],
-      },
-    },
-  },
-  {
     slug: 'ignite-tournaments',
     name: 'Ignite Tournaments',
     category: 'client',
@@ -240,6 +138,57 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'receipto',
+    name: 'Receipto',
+    category: 'own',
+    image: receipto,
+    visual: 'screen',
+    color: '#f4edda',
+    tags: ['Flutter', 'Smart scans', 'Product ownership'],
+    url: 'https://receipto.app/',
+    content: {
+      en: {
+        role: 'Founder & Mobile Engineer',
+        title: 'Less paperwork. More headspace.',
+        summary:
+          'My receipt management app, built to make everyday business records easier to handle.',
+        context:
+          'Receipto brings receipt photos and emailed receipts into one organized place. Smart scans, folders, and exports help freelancers and small businesses spend less time sorting paperwork.',
+        contributions: [
+          'Take the product from idea through development and release.',
+          'Build receipt capture, email workflows, and export experiences.',
+          'Connect product feedback with ongoing mobile improvements.',
+        ],
+      },
+      fr: {
+        role: 'Fondateur et ingénieur mobile',
+        title: 'Moins de paperasse. L’esprit plus libre.',
+        summary:
+          'Mon application de gestion de reçus, pour simplifier les justificatifs du quotidien.',
+        context:
+          'Receipto réunit les photos de reçus et les reçus envoyés par e-mail. La numérisation intelligente, les dossiers et les exports aident les indépendants et les petites entreprises à mieux organiser leurs documents.',
+        contributions: [
+          'Porter le produit de l’idée au développement et à la publication.',
+          'Créer la capture de reçus, les flux e-mail et les exports.',
+          'Relier les retours des utilisateurs aux améliorations du produit.',
+        ],
+      },
+      es: {
+        role: 'Fundador e ingeniero móvil',
+        title: 'Menos papeleo. Más tranquilidad.',
+        summary:
+          'Mi app de gestión de recibos, creada para simplificar los documentos del día a día.',
+        context:
+          'Receipto reúne fotos de recibos y recibos enviados por correo. Los escaneos inteligentes, las carpetas y las exportaciones ayudan a autónomos y pequeñas empresas a organizar sus documentos.',
+        contributions: [
+          'Llevar el producto desde la idea hasta su desarrollo y publicación.',
+          'Crear la captura de recibos, los flujos de correo y las exportaciones.',
+          'Conectar los comentarios de los usuarios con las mejoras del producto.',
+        ],
+      },
+    },
+  },
+  {
     slug: 'fielduro',
     name: 'Fielduro',
     category: 'own',
@@ -286,6 +235,57 @@ export const projects: Project[] = [
           'Diseñar el recorrido desde el presupuesto hasta la factura.',
           'Conectar los documentos de un trabajo en una experiencia clara.',
           'Crear documentos profesionales fáciles de compartir.',
+        ],
+      },
+    },
+  },
+  {
+    slug: 'flura',
+    name: 'Flura',
+    category: 'own',
+    image: flura,
+    visual: 'screen',
+    color: '#e9eee7',
+    tags: ['Flutter', 'Health tracking', 'Product ownership'],
+    url: 'https://flura.app/',
+    content: {
+      en: {
+        role: 'Founder & Mobile Engineer',
+        title: 'A clearer picture of everyday health.',
+        summary:
+          'A symptom journal that helps people keep a more useful record of how they feel.',
+        context:
+          'Flura is a health tracking app for people living with chronic conditions. It brings symptom logging, health history, and shareable reports into a considered mobile experience. It supports personal record-keeping and is not a diagnostic tool.',
+        contributions: [
+          'Design and build the mobile product from the ground up.',
+          'Develop symptom logging and health-history experiences.',
+          'Make recorded information easier to review and share with a clinician.',
+        ],
+      },
+      fr: {
+        role: 'Fondateur et ingénieur mobile',
+        title: 'Mieux comprendre son quotidien.',
+        summary:
+          'Un journal de symptômes pour conserver un historique plus utile de son ressenti.',
+        context:
+          'Flura accompagne les personnes vivant avec des maladies chroniques. L’application rassemble le suivi des symptômes, l’historique et les rapports à partager. Elle aide à tenir un journal personnel et ne constitue pas un outil de diagnostic.',
+        contributions: [
+          'Concevoir et développer le produit mobile de bout en bout.',
+          'Créer le suivi des symptômes et de l’historique de santé.',
+          'Faciliter la consultation des informations et leur partage avec un soignant.',
+        ],
+      },
+      es: {
+        role: 'Fundador e ingeniero móvil',
+        title: 'Una visión más clara del día a día.',
+        summary:
+          'Un diario de síntomas para llevar un registro más útil de cómo te sientes.',
+        context:
+          'Flura acompaña a personas que viven con enfermedades crónicas. Reúne el registro de síntomas, el historial y los informes para compartir. Ayuda a llevar un diario personal y no es una herramienta de diagnóstico.',
+        contributions: [
+          'Diseñar y desarrollar el producto móvil desde cero.',
+          'Crear el registro de síntomas y el historial de salud.',
+          'Facilitar la revisión de los datos y su intercambio con profesionales sanitarios.',
         ],
       },
     },
