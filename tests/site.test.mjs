@@ -312,7 +312,7 @@ test('readable resumes preserve the Markdown and offer current downloads without
       assert.equal(link.length, 1);
       assert.equal(
         link.attr('href'),
-        `/resume/amine-boularbah-resume.${extension}`,
+        `/resume/amine-boularbah-resume.${extension}?v=${manifest[`public/resume/amine-boularbah-resume.${extension}`].slice(0, 12)}`,
       );
       assert.ok(existsSync(resolveFile(new URL(link.attr('href'), origin))));
     }

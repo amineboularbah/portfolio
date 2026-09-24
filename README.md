@@ -59,7 +59,7 @@ Keep claims attributable. See [content sources](docs/SOURCES.md) before editing 
 - Review the generated Word document visually, including page breaks, and compare all formats with the approved PDF before committing.
 - Commit the source, three downloads, and `scripts/resume-manifest.json` together. Generated-site tests compare the HTML with the Markdown and validate checksums so a source change cannot silently leave old downloads behind.
 
-Download URLs are stable under `/resume/amine-boularbah-resume.{pdf,docx,txt}`. Personal contact details and claims in this résumé are reproduced from Amine’s approved website version; they are not independently verified.
+Download paths are stable under `/resume/amine-boularbah-resume.{pdf,docx,txt}`. Page download links include a content-checksum query parameter so updated files bypass older browser and CDN cache entries. Personal contact details and claims in this résumé are reproduced from Amine’s approved website version; they are not independently verified.
 
 ## Deployment
 

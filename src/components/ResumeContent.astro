@@ -1,5 +1,6 @@
 ---
 import { Content } from '../content/resume.md';
+import checksums from '../../scripts/resume-manifest.json';
 import { copy } from '../data/copy';
 import { site, type Locale } from '../data/site';
 interface Props {
@@ -15,7 +16,7 @@ const downloads = [
     type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   },
   { extension: 'txt', label: t.text, type: 'text/plain' },
-];
+] as const;
 ---
 
 <section class="container resume-page">
@@ -31,7 +32,7 @@ const downloads = [
               'button',
               extension === 'pdf' ? 'button-dark' : 'button-outline',
             ]}
-            href={`${site.resume.basePath}.${extension}`}
+            href={`${site.resume.basePath}.${extension}?v=${checksums[`public/resume/amine-boularbah-resume.${extension}`].slice(0, 12)}`}
             type={type}
             hreflang="en"
             download={`Amine-Boularbah-Resume.${extension}`}
