@@ -20,7 +20,7 @@
     "@astrojs/markdown-satteri": "0.4.1",
     "@fontsource-variable/manrope": "5.3.0",
     "astro": "7.3.3",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "devDependencies": {
     "cheerio": "1.2.0",
