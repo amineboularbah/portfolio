@@ -11,6 +11,11 @@ export const site = {
   studio: 'https://appwrapp.com',
   resume: {
     basePath: '/resume/amine-boularbah-resume',
+    languages: {
+      en: { suffix: '', downloadName: 'Amine-Boularbah-Resume' },
+      fr: { suffix: '-fr', downloadName: 'Amine-Boularbah-CV-FR' },
+      es: { suffix: '-es', downloadName: 'Amine-Boularbah-CV-ES' },
+    },
   },
   profiles: [
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/amineboularbah' },

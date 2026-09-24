@@ -9,7 +9,7 @@ export function GET() {
     '## Profile',
     '',
     '- Contact: ' + site.email,
-    '- [Résumé (English PDF)](' + absolute(site.resume.basePath + '.pdf') + ')',
+    '- [Resume (English PDF)](' + absolute(site.resume.basePath + '.pdf') + ')',
     '- Studio: ' + site.studio,
     ...site.profiles.map(
       (profile) => '- [' + profile.label + '](' + profile.url + ')',
@@ -33,6 +33,8 @@ export function GET() {
     '',
     '- [Français](' + site.url + '/fr/)',
     '- [Español](' + site.url + '/es/)',
+    '- [CV en français](' + site.url + '/fr/resume/)',
+    '- [CV en español](' + site.url + '/es/resume/)',
     '',
     'Project pages distinguish client collaborations from products built through AppWrapp. Credentials and professional references are linked on the About page. Public copy makes no guarantees about availability, prices, performance metrics, or delivery dates.',
     '',

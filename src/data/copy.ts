@@ -1,18 +1,18 @@
 export const copy = {
   en: {
     resume: {
-      label: 'Résumé',
+      label: 'Resume',
       download: 'Download PDF',
       word: 'Download Word',
       text: 'Download text',
       downloads: 'Keep a copy',
-      language: 'Résumé and downloads in English.',
-      title: 'Résumé',
+      language: 'Resume and downloads in English.',
+      title: 'Resume',
       description:
-        'Read Amine Boularbah’s résumé: mobile engineering experience, Flutter expertise, products, and education. Download a PDF, Word, or text copy.',
+        'Read Amine Boularbah’s resume: mobile engineering experience, Flutter expertise, products, and education. Download a PDF, Word, or text copy.',
     },
     nav: {
-      resume: 'Résumé',
+      resume: 'Resume',
       home: 'Home',
       projects: 'Work',
       about: 'About',
@@ -204,7 +204,7 @@ export const copy = {
       word: 'Télécharger Word',
       text: 'Télécharger le texte',
       downloads: 'Garder une copie',
-      language: 'CV et documents en anglais.',
+      language: 'CV et documents en français.',
       title: 'CV et parcours professionnel',
       description:
         'Consultez le CV d’Amine Boularbah : expérience en ingénierie mobile, expertise Flutter, produits et formation. Disponible en PDF, Word et texte.',
@@ -403,7 +403,7 @@ export const copy = {
       word: 'Descargar Word',
       text: 'Descargar texto',
       downloads: 'Guardar una copia',
-      language: 'CV y documentos en inglés.',
+      language: 'CV y documentos en español.',
       title: 'CV y trayectoria profesional',
       description:
         'Consulta el CV de Amine Boularbah: experiencia en ingeniería móvil, conocimientos de Flutter, productos y formación. Descárgalo en PDF, Word o texto.',

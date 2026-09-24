@@ -268,24 +268,15 @@ test('core content and navigation work without client JavaScript', () => {
   }
 });
 
-test('readable resumes preserve the Markdown and offer current downloads without JavaScript', () => {
-  const source = readFileSync(
-    new URL('../src/content/resume.md', import.meta.url),
-    'utf8',
-  );
+test('readable resumes preserve each translation and offer matching current downloads without JavaScript', () => {
   const normalize = (value) => value.replace(/\s+/g, ' ').trim();
-  const expected = normalize(
-    source
-      .replace(/^#{1,3} /gm, '')
-      .replace(/^- /gm, '')
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
-  );
   const manifest = JSON.parse(
     readFileSync(
       new URL('../scripts/resume-manifest.json', import.meta.url),
       'utf8',
     ),
   );
+  assert.equal(Object.keys(manifest).length, 12);
   for (const [path, checksum] of Object.entries(manifest)) {
     const bytes = path.startsWith('public/')
       ? readFileSync(join(dist, path.slice('public/'.length)))
@@ -296,23 +287,72 @@ test('readable resumes preserve the Markdown and offer current downloads without
       `Regenerate resume downloads after changing ${path}`,
     );
   }
-  for (const prefix of ['', '/fr', '/es']) {
+  for (const locale of ['en', 'fr', 'es']) {
+    const prefix = locale === 'en' ? '' : '/' + locale;
+    const suffix = locale === 'en' ? '' : '-' + locale;
+    const source = readFileSync(
+      new URL(
+        `../src/content/resume${locale === 'en' ? '' : '.' + locale}.md`,
+        import.meta.url,
+      ),
+      'utf8',
+    );
+    const expected = normalize(
+      source
+        .replace(/^#{1,3} /gm, '')
+        .replace(/^- /gm, '')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+    );
     const $ = byPath.get(prefix + '/resume/').$;
-    assert.equal($('.resume-document').attr('lang'), 'en');
+    assert.equal($('.resume-document').attr('lang'), locale);
     const content = $('.resume-document')
       .find('h1,h2,h3,p,li')
       .toArray()
       .map((node) => $(node).text())
       .join(' ');
     assert.equal(normalize(content), expected);
+    const headings = $('.resume-document h3')
+      .toArray()
+      .map((node) => $(node).text());
+    const productPositions = ['Receipto', 'Fielduro', 'Flura'].map((name) =>
+      headings.findIndex((heading) => heading.includes(name)),
+    );
+    assert.ok(
+      productPositions[0] >= 0 &&
+        productPositions[0] < productPositions[1] &&
+        productPositions[1] < productPositions[2],
+    );
+    assert.equal(
+      $('.resume-document a[href="https://coursera.org/verify/NXWJ4OHRRCJN"]')
+        .length,
+      1,
+    );
+    assert.equal(
+      $(
+        '.resume-document a[href="https://www.coursera.org/account/accomplishments/professional-cert/78GNB17YLC98"]',
+      ).length,
+      1,
+    );
+    if (locale === 'en') {
+      assert.equal(
+        $('.desktop-nav a[href="/resume/"]').text().trim(),
+        'Resume',
+      );
+      assert.doesNotMatch($('title').text(), /résumé/i);
+    }
     for (const extension of ['pdf', 'docx', 'txt']) {
+      const filename =
+        locale === 'en'
+          ? 'Amine-Boularbah-Resume'
+          : `Amine-Boularbah-CV-${locale.toUpperCase()}`;
       const link = $(
-        `.resume-downloads a[download="Amine-Boularbah-Resume.${extension}"]`,
+        `.resume-downloads a[download="${filename}.${extension}"]`,
       );
       assert.equal(link.length, 1);
+      assert.equal(link.attr('hreflang'), locale);
       assert.equal(
         link.attr('href'),
-        `/resume/amine-boularbah-resume.${extension}?v=${manifest[`public/resume/amine-boularbah-resume.${extension}`].slice(0, 12)}`,
+        `/resume/amine-boularbah-resume${suffix}.${extension}?v=${manifest[`public/resume/amine-boularbah-resume${suffix}.${extension}`].slice(0, 12)}`,
       );
       assert.ok(existsSync(resolveFile(new URL(link.attr('href'), origin))));
     }

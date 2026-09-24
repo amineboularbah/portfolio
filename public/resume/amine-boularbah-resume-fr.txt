@@ -1,0 +1,121 @@
+Amine Boularbah
+
+Ingénieur mobile senior
+
+Málaga, Espagne · amine@amineboularbah.com
+
+LinkedIn (https://www.linkedin.com/in/amineboularbah) · GitHub (https://github.com/amineboularbah) · Portfolio (https://amineboularbah.com/)
+
+Profil professionnel
+
+Ingénieur mobile senior avec plus de 6 ans d’expérience dans la conception d’applications mobiles performantes et évolutives. Je dirige actuellement une équipe de 5 ingénieurs chargée de la refonte de l’application de football 433, destinée à plus de 77 millions de fans. Je pilote sa conception en Clean Architecture, la mise en place d’un monorepo modulaire et l’automatisation CI/CD. Expertise approfondie de Flutter, Dart et de la gestion d’état avec BLoC. Je conçois et commercialise également mes propres produits de bout en bout, avec une attention particulière à la fiabilité, aux besoins des utilisateurs et à la capacité de montée en charge.
+
+Expérience professionnelle
+
+Lead Mobile Engineer chez 433
+
+Télétravail (entreprise basée dans l’UE) · Septembre 2025 à aujourd’hui
+
+- Direction d’une équipe de 5 ingénieurs pour la refonte complète de l’application mobile officielle de 433, destinée à une communauté mondiale de plus de 77 millions de fans de football
+- Conception de l’application depuis zéro, fondée sur la Clean Architecture, un monorepo multimodule et une gestion d’état évolutive, désormais à la base de tous les développements mobiles de 433
+- Responsabilité des décisions techniques : stratégie de test, pipelines CI/CD, conventions de code et revues d’architecture au sein de l’équipe mobile
+- Pilotage d’intégrations complexes de services tiers, notamment Airship, Segment et l’infrastructure d’analytique
+- Collaboration avec les responsables produit, design et backend pour évaluer la faisabilité de la feuille de route et définir les priorités techniques
+- Accompagnement des ingénieurs sur l’architecture, la gestion d’état avec BLoC et la qualité du code pour améliorer l’efficacité et la cohérence des développements
+
+Lead Flutter Engineer chez Ignite Tournaments
+
+Télétravail (entreprise basée aux États-Unis) · Septembre 2021 à août 2025
+
+- Pilotage de la refonte et de la modernisation d’une plateforme e-sport intégrant les cryptomonnaies, avec une amélioration des performances de 20 % et une réduction des régressions de 90 % sur mobile et sur le web
+- Conception d’un code Flutter modulaire selon les principes de la Clean Architecture, permettant d’ajouter des fonctionnalités sans compromettre l’existant
+- Encadrement d’une équipe pluridisciplinaire à distance et mise en place de conventions de code, de règles d’architecture et de pratiques de test
+- Mise en place de pipelines CI/CD automatisés, réduisant le temps de déploiement de 30 % et améliorant la fiabilité des livraisons
+- Conception et maintenance de services backend avec NestJS, reliant les clients mobiles et web aux systèmes de paiement et à la blockchain
+- Rédaction de documentation interne sur les tests, l’architecture et les revues de code, réduisant le temps d’intégration des nouveaux ingénieurs
+
+Ingénieur mobile full stack chez Flow Digital Studio
+
+Rabat · Mai 2021 à novembre 2021
+
+- Développement d’applications web et mobiles avec Flutter et NestJS pour des clients de plusieurs secteurs
+- Création de composants d’interface adaptatifs et réutilisables pour assurer un comportement cohérent sur chaque plateforme
+- Conception et utilisation d’API REST et intégration de services tiers pour enrichir les fonctionnalités des applications
+
+Ingénieur mobile chez MEGALOGI
+
+Rabat · Septembre 2020 à mai 2021
+
+- Pilotage du développement de MyButcher sur Android et iOS avec Flutter, intégrant Firebase et les API Shopify, avec une hausse de la rétention des utilisateurs de 15 %
+- Amélioration de la lecture audio et vidéo dans iSophro, avec une hausse de l’engagement de 10 %
+- Mise en place d’une stratégie de test complète atteignant 95 % de couverture du code et réduisant sensiblement les défauts après livraison
+- Automatisation des pipelines de compilation, de test et de déploiement avec CI/CD, améliorant l’efficacité des livraisons de 25 %
+
+Produits
+
+Fondateur et développeur de Receipto
+
+Málaga · Mai 2025 à aujourd’hui · receipto.app (https://receipto.app/)
+
+Conception et lancement d’une application iOS de numérisation de reçus et de gestion des dépenses utilisant l’IA, générant des revenus récurrents et comptant plus de 400 évaluations sur l’App Store. Responsabilité complète du produit, de l’architecture, de l’intégration de l’IA, de l’optimisation sur l’App Store et de l’acquisition payante. Fonctionnalités : reconnaissance de texte par IA, boîte de réception Magic Email pour le traitement automatique des reçus et exports pour la préparation fiscale.
+
+Fondateur et développeur de Fielduro
+
+Málaga · Aujourd’hui · fielduro.com (https://fielduro.com/)
+
+Conception d’un produit pour les prestataires de services indépendants, reliant devis, bons d’intervention, factures et reçus. Création de documents liés à chaque intervention, de PDF prêts à envoyer aux clients et d’un suivi des paiements.
+
+Fondateur et développeur de Flura
+
+Málaga · Janvier 2026 à aujourd’hui · flura.app (https://flura.app/)
+
+Conception et lancement d’une application de suivi de santé destinée aux personnes atteintes de maladies chroniques, avec détection de tendances par IA et rapports PDF structurés pour les médecins. Responsabilité de bout en bout : application Flutter, génération de rapports par IA, infrastructure d’analytique et stratégie de croissance.
+
+Certifications
+
+Certificat professionnel de développeur iOS, Meta
+
+Août 2024 à novembre 2024
+
+Vérifier le certificat iOS sur Coursera (https://www.coursera.org/account/accomplishments/professional-cert/78GNB17YLC98)
+
+Certificat React Native, Meta
+
+2024
+
+Vérifier le certificat React Native sur Coursera (https://coursera.org/verify/NXWJ4OHRRCJN)
+
+Formation
+
+Diplôme en informatique (Associate’s Degree), OFPPT
+
+Kénitra · Septembre 2018 à juillet 2020
+
+Compétences
+
+- Flutter/Dart
+- Swift/SwiftUI
+- Kotlin/Java
+- React Native
+- NestJS/TypeScript
+- Suite Firebase
+- PostgreSQL
+- Clean Architecture
+- MVC/MVVM
+- Riverpod/Provider
+- BLoC/Cubit
+- API REST/GraphQL
+- Git/GitFlow
+- Codemagic
+- Tests unitaires, d’intégration et d’interface
+- Développement piloté par les tests (TDD)
+- Méthodes agiles (Scrum/Kanban)
+- Leadership et gestion d’équipe
+
+Langues
+
+Arabe · Anglais · Français
+
+Centres d’intérêt
+
+Rencontres techniques, fitness, photographie

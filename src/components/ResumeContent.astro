@@ -1,5 +1,7 @@
 ---
-import { Content } from '../content/resume.md';
+import { Content as English } from '../content/resume.md';
+import { Content as French } from '../content/resume.fr.md';
+import { Content as Spanish } from '../content/resume.es.md';
 import checksums from '../../scripts/resume-manifest.json';
 import { copy } from '../data/copy';
 import { site, type Locale } from '../data/site';
@@ -8,6 +10,10 @@ interface Props {
 }
 const { locale } = Astro.props;
 const t = copy[locale].resume;
+const Content = { en: English, fr: French, es: Spanish }[locale];
+const resume = site.resume.languages[locale];
+const basePath = site.resume.basePath + resume.suffix;
+const manifest: Record<string, string> = checksums;
 const downloads = [
   { extension: 'pdf', label: t.download, type: 'application/pdf' },
   {
@@ -32,10 +38,10 @@ const downloads = [
               'button',
               extension === 'pdf' ? 'button-dark' : 'button-outline',
             ]}
-            href={`${site.resume.basePath}.${extension}?v=${checksums[`public/resume/amine-boularbah-resume.${extension}`].slice(0, 12)}`}
+            href={`${basePath}.${extension}?v=${manifest[`public${basePath}.${extension}`].slice(0, 12)}`}
             type={type}
-            hreflang="en"
-            download={`Amine-Boularbah-Resume.${extension}`}
+            hreflang={locale}
+            download={`${resume.downloadName}.${extension}`}
           >
             {label}
           </a>
@@ -44,7 +50,7 @@ const downloads = [
     </aside>
     <article
       class="resume-document"
-      lang="en"
+      lang={locale}
       aria-labelledby="amine-boularbah"
     >
       <Content />

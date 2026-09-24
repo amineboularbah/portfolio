@@ -59,6 +59,12 @@ Malaga · May 2025 to Present · [receipto.app](https://receipto.app/)
 
 Built and launched an AI-powered receipt scanner and expense manager for iOS, now generating recurring revenue with 400+ App Store ratings. Full ownership across product, architecture, AI integration, App Store optimization, and paid acquisition. Features include AI OCR scanning, a Magic Email inbox for automatic receipt processing, and tax-ready exports.
 
+### Founder & Developer at Fielduro
+
+Malaga · Present · [fielduro.com](https://fielduro.com/)
+
+Built a product for independent service businesses that connects estimates, work orders, invoices, and receipts. Designed linked job documents, customer-ready PDFs, and payment tracking.
+
 ### Founder & Developer at Flura
 
 Malaga · Jan 2026 to Present · [flura.app](https://flura.app/)
