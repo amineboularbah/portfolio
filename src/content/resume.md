@@ -71,6 +71,14 @@ Built and launched a health tracking app for people with chronic conditions, fea
 
 Aug 2024 to Nov 2024
 
+[Verify iOS certificate on Coursera](https://www.coursera.org/account/accomplishments/professional-cert/78GNB17YLC98)
+
+### React Native Certificate, Meta
+
+2024
+
+[Verify React Native certificate on Coursera](https://coursera.org/verify/NXWJ4OHRRCJN)
+
 ## Education
 
 ### Associate's Degree in Information Technology, OFPPT

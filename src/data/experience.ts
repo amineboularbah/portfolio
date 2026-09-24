@@ -64,7 +64,7 @@ export const experience = [
 export const credentials = [
   {
     key: 'credential1',
-    url: 'https://coursera.org/verify/professional-cert/78GNB17YLC98',
+    url: 'https://www.coursera.org/account/accomplishments/professional-cert/78GNB17YLC98',
     issuer: 'Meta · Coursera',
     year: '2024',
   },
