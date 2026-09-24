@@ -29,6 +29,42 @@ const resolveFile = (url) =>
     url.pathname.endsWith('/') ? 'index.html' : '',
   );
 
+test('every language uses the branded landscape sharing image and matching accessible metadata', () => {
+  const path = '/social/amine-boularbah-social-v1.png';
+  const image = readFileSync(join(dist, path));
+  assert.equal(image.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
+  assert.equal(image.readUInt32BE(16), 1200);
+  assert.equal(image.readUInt32BE(20), 630);
+  assert.ok(image.length < 5 * 1024 * 1024);
+  const alternatives = new Set();
+  for (const { $ } of pages) {
+    assert.equal($('meta[property="og:image"]').attr('content'), origin + path);
+    assert.equal(
+      $('meta[property="og:image:secure_url"]').attr('content'),
+      origin + path,
+    );
+    assert.equal(
+      $('meta[property="og:image:type"]').attr('content'),
+      'image/png',
+    );
+    assert.equal($('meta[property="og:image:width"]').attr('content'), '1200');
+    assert.equal($('meta[property="og:image:height"]').attr('content'), '630');
+    assert.equal(
+      $('meta[name="twitter:card"]').attr('content'),
+      'summary_large_image',
+    );
+    assert.equal(
+      $('meta[name="twitter:image"]').attr('content'),
+      origin + path,
+    );
+    const alt = $('meta[property="og:image:alt"]').attr('content');
+    assert.ok(alt?.includes('Amine Boularbah'));
+    assert.equal($('meta[name="twitter:image:alt"]').attr('content'), alt);
+    alternatives.add(alt);
+  }
+  assert.equal(alternatives.size, 3);
+});
+
 test('42 English, French, and Spanish pages have unique indexable metadata', () => {
   assert.equal(pages.length, 42);
   const titles = new Set();
