@@ -45,3 +45,7 @@ The new design removes the previous skill percentages, unsupported outcome metri
 - [USWDS typography guidance](https://designsystem.digital.gov/components/typography/)
 
 Body text uses 18px on desktop and 16px on narrow screens, relative font units, a 1.7 line height, and restrained line length. This is a design decision informed by readability guidance, not a claim that a single font size establishes WCAG compliance.
+
+## Public résumé
+
+On 24 September 2026, Amine explicitly supplied `Amine_Boularbah_-_Senior_Mobile_Engineer-website-version.pdf` for publication on his personal website and requested a readable résumé page with PDF, Word, and text downloads. The original PDF is preserved byte for byte. Its approved content, including résumé-specific contact details and quantified claims, is transcribed into `src/content/resume.md` for the HTML, Word, and text versions. Those user-supplied résumé claims are not independently verified and do not add new claims to the portfolio case studies. Date separators, layout, and link presentation are adapted for readability.

@@ -1,0 +1,107 @@
+Amine Boularbah
+
+Senior Mobile Engineer
+
+Malaga, Spain · amine@amineboularbah.com
+
+LinkedIn (https://www.linkedin.com/in/amineboularbah) · GitHub (https://github.com/amineboularbah) · Portfolio (https://amineboularbah.com/)
+
+Professional Summary
+
+Senior Mobile Engineer with 6+ years of experience building scalable, high-performance mobile apps. Currently leading a team of 5 engineers on the architectural rebuild of the 433 football app, serving 77M+ fans, owning Clean Architecture design, a modular monorepo setup, and CI/CD automation. Deep expertise in Flutter, Dart, and state management with BLoC. Also build and ship my own products end to end. Passionate about robust, user-first apps that scale.
+
+Employment History
+
+Lead Mobile Engineer at 433
+
+Remote (EU-Based) · Sept 2025 to Present
+
+- Leading a team of 5 engineers on the full rebuild of the official 433 mobile app, serving a global community of 77M+ football fans
+- Architected the complete application from zero using Clean Architecture, a multi-modular monorepo, and scalable state management, now the foundation for all mobile development at 433
+- Own all technical decisions including testing strategy, CI/CD pipelines, code standards, and architecture reviews across the mobile team
+- Drive complex third-party integrations including Airship, Segment, and analytics infrastructure
+- Partner with product, design, and backend leads to shape roadmap feasibility and technical priorities
+- Mentor engineers on architecture, BLoC state management, and code quality, raising team output and consistency
+
+Lead Flutter Engineer at Ignite Tournaments
+
+Remote (U.S.-Based) · Sept 2021 to Aug 2025
+
+- Led the full redesign and modernization of a crypto-enabled eSports platform, improving app performance by 20% and reducing regressions by 90% across mobile and web
+- Architected a modular Flutter codebase following Clean Architecture principles, enabling the team to scale features without breaking existing functionality
+- Directed a remote, cross-functional team of engineers, establishing coding standards, architecture guidelines, and testing practices
+- Implemented automated CI/CD pipelines, reducing deployment time by 30% and increasing release reliability
+- Designed and maintained backend services using NestJS, integrating mobile and web clients with payment and blockchain systems
+- Authored internal documentation for testing, architecture, and code reviews, cutting onboarding time for new engineers
+
+Full Stack Mobile Engineer at Flow Digital Studio
+
+Rabat · May 2021 to Nov 2021
+
+- Developed web and mobile apps using Flutter and NestJS for client projects across multiple industries
+- Built responsive, reusable UI components ensuring consistent cross-platform behavior
+- Designed and consumed RESTful APIs, integrating third-party services to expand app functionality
+
+Mobile Engineer at MEGALOGI
+
+Rabat · Sept 2020 to May 2021
+
+- Led the development of the MyButcher app for Android and iOS using Flutter, integrating Firebase and Shopify APIs, increasing user retention by 15%
+- Enhanced audio and video playback for the iSophro app, improving user engagement by 10%
+- Implemented a comprehensive testing strategy achieving 95% code coverage, significantly reducing post-release defects
+- Automated build, test, and deployment pipelines with CI/CD, increasing release efficiency by 25%
+
+Products
+
+Founder & Developer at Receipto
+
+Malaga · May 2025 to Present · receipto.app (https://receipto.app/)
+
+Built and launched an AI-powered receipt scanner and expense manager for iOS, now generating recurring revenue with 400+ App Store ratings. Full ownership across product, architecture, AI integration, App Store optimization, and paid acquisition. Features include AI OCR scanning, a Magic Email inbox for automatic receipt processing, and tax-ready exports.
+
+Founder & Developer at Flura
+
+Malaga · Jan 2026 to Present · flura.app (https://flura.app/)
+
+Built and launched a health tracking app for people with chronic conditions, featuring AI pattern recognition and physician-formatted PDF reports. End-to-end ownership: Flutter app, AI report generation, analytics infrastructure, and growth strategy.
+
+Certifications
+
+iOS Developer Professional Certificate, Meta
+
+Aug 2024 to Nov 2024
+
+Education
+
+Associate's Degree in Information Technology, OFPPT
+
+Kenitra · Sept 2018 to Jul 2020
+
+Skills
+
+- Flutter/Dart
+- Swift/SwiftUI
+- Kotlin/Java
+- React Native
+- NestJS/TypeScript
+- Firebase Suite
+- PostgreSQL
+- Clean Architecture
+- MVC/MVVM
+- Riverpod/Provider
+- BLoC/Cubit
+- RESTful APIs/GraphQL
+- Git/GitFlow
+- Codemagic
+- Unit, Integration, UI Testing
+- Test-Driven Development (TDD)
+- Agile (Scrum/Kanban)
+- Leadership & Team Management
+
+Languages
+
+Arabic · English · French
+
+Hobbies
+
+Attending tech meetups, Fitness, Photography

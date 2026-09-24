@@ -9,6 +9,7 @@ export function GET() {
     '## Profile',
     '',
     '- Contact: ' + site.email,
+    '- [Résumé (English PDF)](' + absolute(site.resume.basePath + '.pdf') + ')',
     '- Studio: ' + site.studio,
     ...site.profiles.map(
       (profile) => '- [' + profile.label + '](' + profile.url + ')',

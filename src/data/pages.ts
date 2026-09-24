@@ -6,6 +6,7 @@ export const sections = [
   '',
   'projects',
   'about',
+  'resume',
   'services',
   'contact',
   'faq',
@@ -51,6 +52,7 @@ export const pages: Page[] = locales.flatMap((locale) => {
           : 'Frequently Asked Questions') + ' | Amine Boularbah',
       t.faq.intro,
     ],
+    resume: [t.resume.title + ' | Amine Boularbah', t.resume.description],
     privacy: [t.nav.privacy + ' | Amine Boularbah', t.privacy.intro],
   };
   return [

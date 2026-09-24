@@ -31,7 +31,7 @@ Run `npm run validate` before opening a pull request. It checks formatting, Astr
 | `src/data/copy.ts`          | English, French, and Spanish interface and page copy                |
 | `src/data/projects.ts`      | Client projects, AppWrapp products, and earlier work                |
 | `src/data/experience.ts`    | Experience, credentials, services, process, FAQs                    |
-| `src/data/pages.ts`         | Shared route and metadata inventory for all 39 pages                |
+| `src/data/pages.ts`         | Shared route and metadata inventory for all 42 pages                |
 | `src/pages/[...path].astro` | Generates every translated page from that inventory                 |
 | `src/pages/`                | Sitemap, robots.txt, llms.txt, and custom 404                       |
 | `src/components/`           | Reusable navigation, content sections, project cards, footer        |
@@ -49,6 +49,18 @@ Update all three locales together. A new featured project in `projects.ts` autom
 
 Keep claims attributable. See [content sources](docs/SOURCES.md) before editing experience, credentials, testimonials, or outcomes. Do not publish private contracts, addresses, rates, customer numbers, or unverified performance metrics.
 
+### Public résumé
+
+`/resume/` renders the English résumé as semantic HTML from `src/content/resume.md`, with equivalent `/fr/resume/` and `/es/resume/` pages using translated navigation and download labels. The document itself is clearly identified as English. Desktop and mobile navigation and the footer link to the readable page. The homepage hero stays unchanged. The page offers same-origin PDF, Word (.docx), and plain-text downloads without JavaScript.
+
+- The original, user-approved PDF is `public/resume/amine-boularbah-resume.pdf` and is never changed by the exporter.
+- Edit `src/content/resume.md` when the résumé changes, and replace the PDF with the corresponding approved version.
+- Regenerate Word and text using Python 3.10+ with `python-docx==1.2.0`: `python3 scripts/build-resume.py`. This optional authoring dependency is not needed to build or deploy the website.
+- Review the generated Word document visually, including page breaks, and compare all formats with the approved PDF before committing.
+- Commit the source, three downloads, and `scripts/resume-manifest.json` together. Generated-site tests compare the HTML with the Markdown and validate checksums so a source change cannot silently leave old downloads behind.
+
+Download URLs are stable under `/resume/amine-boularbah-resume.{pdf,docx,txt}`. Personal contact details and claims in this résumé are reproduced from Amine’s approved website version; they are not independently verified.
+
 ## Deployment
 
 The `.github/workflows/website.yml` workflow validates pull requests. After a validated change lands on `main`, it uploads `dist/` and deploys through the GitHub Pages environment. Actions are pinned to reviewed commit SHAs; Dependabot proposes monthly dependency updates.
@@ -61,7 +73,7 @@ Use a feature branch and reviewed pull request. To roll back a content or code r
 
 - Canonical URLs, localized descriptions, Open Graph metadata, and reciprocal `en`/`fr`/`es`/`x-default` alternates are generated from the same route inventory.
 - Person, Organization, WebSite, ProfilePage/WebPage, BreadcrumbList, and service data reflect visible content. No fabricated reviews or ratings are marked up.
-- Submit `https://amineboularbah.com/sitemap.xml` in Google Search Console. The sitemap contains all 39 indexable pages and excludes the 404 and legacy FAQ alias.
+- Submit `https://amineboularbah.com/sitemap.xml` in Google Search Console. The sitemap contains all 42 indexable pages and excludes the 404 and legacy FAQ alias.
 - `robots.txt` allows crawling and advertises the sitemap. `llms.txt` is an optional human-readable directory, not a guarantee of AI inclusion or recommendations.
 - GitHub Pages serves a genuine 404 for unknown URLs. The old `/faq.html` uses an immediate HTML redirect with a canonical link to `/faq/`; it is not an HTTP 301. Old home fragment IDs and public image URLs remain available.
 

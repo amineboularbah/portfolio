@@ -1,0 +1,52 @@
+---
+import { Content } from '../content/resume.md';
+import { copy } from '../data/copy';
+import { site, type Locale } from '../data/site';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = copy[locale].resume;
+const downloads = [
+  { extension: 'pdf', label: t.download, type: 'application/pdf' },
+  {
+    extension: 'docx',
+    label: t.word,
+    type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  },
+  { extension: 'txt', label: t.text, type: 'text/plain' },
+];
+---
+
+<section class="container resume-page">
+  <p class="eyebrow">{t.label}</p>
+  <div class="resume-grid">
+    <aside class="resume-downloads" aria-label={t.downloads}>
+      <p class="resume-download-title">{t.downloads}</p>
+      <p class="resume-language">{t.language}</p>
+      <div class="resume-download-buttons">
+        {downloads.map(({ extension, label, type }) => (
+          <a
+            class:list={[
+              'button',
+              extension === 'pdf' ? 'button-dark' : 'button-outline',
+            ]}
+            href={`${site.resume.basePath}.${extension}`}
+            type={type}
+            hreflang="en"
+            download={`Amine-Boularbah-Resume.${extension}`}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </aside>
+    <article
+      class="resume-document"
+      lang="en"
+      aria-labelledby="amine-boularbah"
+    >
+      <Content />
+    </article>
+  </div>
+</section>

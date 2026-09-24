@@ -9,6 +9,9 @@ export const site = {
   role: 'Lead Mobile Engineer & Founder',
   city: 'Málaga, Spain',
   studio: 'https://appwrapp.com',
+  resume: {
+    basePath: '/resume/amine-boularbah-resume',
+  },
   profiles: [
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/amineboularbah' },
     { label: 'GitHub', url: 'https://github.com/amineboularbah' },

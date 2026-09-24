@@ -1,4 +1,5 @@
 ---
+import ResumeContent from '../components/ResumeContent.astro';
 import Layout from '../layouts/Layout.astro';
 import HomeContent from '../components/HomeContent.astro';
 import AboutContent from '../components/AboutContent.astro';
@@ -25,6 +26,7 @@ const project = projects.find((item) => item.slug === page.projectSlug);
 const components = {
   '': HomeContent,
   about: AboutContent,
+  resume: ResumeContent,
   projects: ProjectsContent,
   services: ServicesContent,
   contact: ContactContent,
