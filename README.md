@@ -49,6 +49,10 @@ Update all three locales together. A new featured project in `projects.ts` autom
 
 Keep claims attributable. See [content sources](docs/SOURCES.md) before editing experience, credentials, testimonials, or outcomes. Do not publish private contracts, addresses, rates, customer numbers, or unverified performance metrics.
 
+### Sharing previews
+
+The default LinkedIn/Open Graph and large Twitter/X image is `public/social/amine-boularbah-social-v1.png` (1200 × 630), featuring the existing portrait, Manrope typography, and portfolio colors. All three languages share the image with localized alternative text. See [design and export instructions](design/README.md). The earlier `/social-card.png` remains available for existing shared links.
+
 ### Public resume
 
 `/resume/`, `/fr/resume/`, and `/es/resume/` render English, French, and Spanish Markdown as semantic HTML. Each page offers PDF, Word (.docx), and plain-text downloads in its own language without JavaScript. Desktop and mobile navigation and the footer link to the readable page. The homepage hero stays unchanged.

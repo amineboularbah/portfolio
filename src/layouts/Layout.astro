@@ -14,6 +14,8 @@ interface Props {
 const { page, noindex = false } = Astro.props;
 const t = copy[page.locale];
 const canonical = absolute(page.path);
+const socialImage = absolute(site.socialImage.path);
+const socialImageAlt = site.socialImage.alt[page.locale];
 const personId = site.url + '/#person';
 const websiteId = site.url + '/#website';
 const pageId = canonical + '#webpage';
@@ -182,17 +184,20 @@ const graph = {
       property="og:locale"
       content={{ en: 'en_GB', fr: 'fr_FR', es: 'es_ES' }[page.locale]}
     />
-    <meta property="og:image" content={absolute('/social-card.png')} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:secure_url" content={socialImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content={String(site.socialImage.width)} />
     <meta
-      property="og:image:alt"
-      content="Amine Boularbah. Lead Mobile Engineer & Founder. Málaga, Spain."
+      property="og:image:height"
+      content={String(site.socialImage.height)}
     />
+    <meta property="og:image:alt" content={socialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={page.title} />
     <meta name="twitter:description" content={page.description} />
-    <meta name="twitter:image" content={absolute('/social-card.png')} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
     <meta name="theme-color" content="#fafaf6" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />

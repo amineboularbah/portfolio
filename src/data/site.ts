@@ -9,6 +9,16 @@ export const site = {
   role: 'Lead Mobile Engineer & Founder',
   city: 'Málaga, Spain',
   studio: 'https://appwrapp.com',
+  socialImage: {
+    path: '/social/amine-boularbah-social-v1.png',
+    width: 1200,
+    height: 630,
+    alt: {
+      en: 'Amine Boularbah, Lead Mobile Engineer. Portrait, Flutter, architecture, and native integrations.',
+      fr: 'Amine Boularbah, ingénieur mobile lead. Portrait, Flutter, architecture et intégrations natives.',
+      es: 'Amine Boularbah, responsable de ingeniería móvil. Retrato, Flutter, arquitectura e integraciones nativas.',
+    },
+  },
   resume: {
     basePath: '/resume/amine-boularbah-resume',
     languages: {
