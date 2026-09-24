@@ -49,17 +49,18 @@ Update all three locales together. A new featured project in `projects.ts` autom
 
 Keep claims attributable. See [content sources](docs/SOURCES.md) before editing experience, credentials, testimonials, or outcomes. Do not publish private contracts, addresses, rates, customer numbers, or unverified performance metrics.
 
-### Public résumé
+### Public resume
 
-`/resume/` renders the English résumé as semantic HTML from `src/content/resume.md`, with equivalent `/fr/resume/` and `/es/resume/` pages using translated navigation and download labels. The document itself is clearly identified as English. Desktop and mobile navigation and the footer link to the readable page. The homepage hero stays unchanged. The page offers same-origin PDF, Word (.docx), and plain-text downloads without JavaScript.
+`/resume/`, `/fr/resume/`, and `/es/resume/` render English, French, and Spanish Markdown as semantic HTML. Each page offers PDF, Word (.docx), and plain-text downloads in its own language without JavaScript. Desktop and mobile navigation and the footer link to the readable page. The homepage hero stays unchanged.
 
-- The original, user-approved PDF is `public/resume/amine-boularbah-resume.pdf` and is never changed by the exporter.
-- Edit `src/content/resume.md` when the résumé changes, and replace the PDF with the corresponding approved version.
-- Regenerate Word and text using Python 3.10+ with `python-docx==1.2.0`: `python3 scripts/build-resume.py`. This optional authoring dependency is not needed to build or deploy the website.
-- Review the generated Word document visually, including page breaks, and compare all formats with the approved PDF before committing.
-- Commit the source, three downloads, and `scripts/resume-manifest.json` together. Generated-site tests compare the HTML with the Markdown and validate checksums so a source change cannot silently leave old downloads behind.
+- Update `src/content/resume.md`, `resume.fr.md`, and `resume.es.md` together, preserving the meaning of the approved English source. Do not infer language fluency or convert qualifications into unverified local equivalents.
+- Regenerate all three Word and text versions using Python 3.10+ with `python-docx==1.2.0`: `python3 scripts/build-resume.py`. This optional authoring dependency is not needed to build or deploy the website.
+- The English PDF preserves the supplied two-column design and embedded fonts. It is curated separately and is never rebuilt by the exporter. Keep any updates narrow and compare its rendered pages with the approved original.
+- Export the French and Spanish Word files to PDF, preserving their document language and hyperlinks. Save them beside the matching Word and text files.
+- Render and review every page of all three Word files and PDFs, including page breaks and accented characters. Confirm matching product order and certificate links.
+- After reviewing all outputs, run `python3 scripts/build-resume.py --manifest-only`. Commit the three Markdown sources, nine downloads, and `scripts/resume-manifest.json` together. Generated-site tests check the HTML against each translation, download language, product order, and checksums.
 
-Download paths are stable under `/resume/amine-boularbah-resume.{pdf,docx,txt}`. Page download links include a content-checksum query parameter so updated files bypass older browser and CDN cache entries. Personal contact details and claims in this résumé are reproduced from Amine’s approved website version; they are not independently verified.
+English download paths remain `/resume/amine-boularbah-resume.{pdf,docx,txt}`. French and Spanish use `-fr` and `-es` suffixes before the extension. Page download links include a content-checksum query parameter so updated files bypass older browser and CDN cache entries. The three readable pages are included in the sitemap with language alternates and referenced in `llms.txt`. Personal contact details and claims are reproduced from Amine’s approved website version; they are not independently verified.
 
 ## Deployment
 

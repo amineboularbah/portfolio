@@ -1,6 +1,14 @@
 {
-  "src/content/resume.md": "89402cc3e98de5e2c885d50afb8a0629a6101692c01971b9c653315618fcd653",
-  "public/resume/amine-boularbah-resume.pdf": "dfe49a39c0b740787d6cc64524eb340d67928cd8bb7df2fe6a5efd827542d0da",
-  "public/resume/amine-boularbah-resume.docx": "05e6421b8d9f287b4c3bb6f571f02ac6ce12103047cd7ed736e828c2e0f77d20",
-  "public/resume/amine-boularbah-resume.txt": "a37f96eeb145ad96441d3b83d6f321dd8f938a759e76d686a8c4ef96abf4b043"
+  "src/content/resume.md": "f8eadaffd2199b67bff9428a524079506b784f292c6874045abeea29f25e225e",
+  "public/resume/amine-boularbah-resume.pdf": "58c21d27490da2ec157eeb02a34cec91fa56a585cf3693b5e4243724adde96c3",
+  "public/resume/amine-boularbah-resume.docx": "7548d4bd6aa67de4a201447514026d931c561d3d5aabba24a951107ca14ca9dd",
+  "public/resume/amine-boularbah-resume.txt": "c9a6151fef42614d31143c6e9c10fc0d96a138426d1f05c51ffb1e9fdf242f1c",
+  "src/content/resume.fr.md": "de6a3a4b67550cd3b32563a02f42dde8460f041718805e9e6daa33ab0689f478",
+  "public/resume/amine-boularbah-resume-fr.pdf": "9ac428aaf48d6e5240835e677cd23507d9bd2e269b34e4ae27dd61f626233563",
+  "public/resume/amine-boularbah-resume-fr.docx": "a4fc297efab22b86f7f80d0a33449ca957c70f9dc63c72481ba775dce11e54fc",
+  "public/resume/amine-boularbah-resume-fr.txt": "498f06afc3863bad1a3f91fd48f663622c6e6278db50b2dfeab648d134a7ce9a",
+  "src/content/resume.es.md": "80d741bdc72b181aa09ca9e09f10fc40ee1d11dd8add397bae6f484860ab97a9",
+  "public/resume/amine-boularbah-resume-es.pdf": "d3fbc22ef71258c15ffb6d20e0ed62bb52a917c2014cba6c268c5c2b5d5194b0",
+  "public/resume/amine-boularbah-resume-es.docx": "aed9d054f8e8be70449ee516a1d397a460400e080b6f08c71aa3f2276d7c2a77",
+  "public/resume/amine-boularbah-resume-es.txt": "0c0d5d759cfe6c4ef7168b0737b26837ef2a6893c46a73368b408b7e9e8b4997"
 }

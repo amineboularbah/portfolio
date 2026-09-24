@@ -291,11 +291,11 @@ html[data-theme='dark'] .button-dark:hover {
 .resume-document li + li {
   margin-top: 10px;
 }
-.resume-document #skills + ul {
+.resume-document :is(#skills, #compétences, #competencias) + ul {
   columns: 2;
   column-gap: 36px;
 }
-.resume-document #skills + ul li {
+.resume-document :is(#skills, #compétences, #competencias) + ul li {
   break-inside: avoid;
 }
 @media (max-width: 900px) {
@@ -325,7 +325,7 @@ html[data-theme='dark'] .button-dark:hover {
   .resume-download-buttons .button {
     flex: 1 1 auto;
   }
-  .resume-document #skills + ul {
+  .resume-document :is(#skills, #compétences, #competencias) + ul {
     columns: 1;
   }
 }
