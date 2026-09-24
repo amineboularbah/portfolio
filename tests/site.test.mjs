@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { runInNewContext } from 'node:vm';
@@ -28,8 +29,8 @@ const resolveFile = (url) =>
     url.pathname.endsWith('/') ? 'index.html' : '',
   );
 
-test('39 English, French, and Spanish pages have unique indexable metadata', () => {
-  assert.equal(pages.length, 39);
+test('42 English, French, and Spanish pages have unique indexable metadata', () => {
+  assert.equal(pages.length, 42);
   const titles = new Set();
   const descriptions = new Set();
   for (const { path, $ } of pages) {
@@ -258,11 +259,91 @@ test('core content and navigation work without client JavaScript', () => {
     assert.equal(projects('.project-card').length, 6);
     assert.equal(projects('.project-card[hidden]').length, 0);
     assert.equal(projects('.archive-list details').length, 5);
-    assert.equal(projects('.mobile-menu a').length, 4);
+    assert.equal(projects('.mobile-menu a').length, 5);
     assert.equal(projects('.language-menu a').length, 3);
     const contact = byPath.get(locale + '/contact/').$;
     assert.ok(contact('a[href^="mailto:hello@amineboularbah.com"]').length > 0);
     assert.equal(contact('form').length, 0);
     assert.equal(byPath.get(locale + '/faq/').$('.faq-list details').length, 6);
+  }
+});
+
+test('readable resumes preserve the Markdown and offer current downloads without JavaScript', () => {
+  const source = readFileSync(
+    new URL('../src/content/resume.md', import.meta.url),
+    'utf8',
+  );
+  const normalize = (value) => value.replace(/\s+/g, ' ').trim();
+  const expected = normalize(
+    source
+      .replace(/^#{1,3} /gm, '')
+      .replace(/^- /gm, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+  );
+  const manifest = JSON.parse(
+    readFileSync(
+      new URL('../scripts/resume-manifest.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  for (const [path, checksum] of Object.entries(manifest)) {
+    const bytes = path.startsWith('public/')
+      ? readFileSync(join(dist, path.slice('public/'.length)))
+      : readFileSync(new URL('../' + path, import.meta.url));
+    assert.equal(
+      createHash('sha256').update(bytes).digest('hex'),
+      checksum,
+      `Regenerate resume downloads after changing ${path}`,
+    );
+  }
+  for (const prefix of ['', '/fr', '/es']) {
+    const $ = byPath.get(prefix + '/resume/').$;
+    assert.equal($('.resume-document').attr('lang'), 'en');
+    const content = $('.resume-document')
+      .find('h1,h2,h3,p,li')
+      .toArray()
+      .map((node) => $(node).text())
+      .join(' ');
+    assert.equal(normalize(content), expected);
+    for (const extension of ['pdf', 'docx', 'txt']) {
+      const link = $(
+        `.resume-downloads a[download="Amine-Boularbah-Resume.${extension}"]`,
+      );
+      assert.equal(link.length, 1);
+      assert.equal(
+        link.attr('href'),
+        `/resume/amine-boularbah-resume.${extension}`,
+      );
+      assert.ok(existsSync(resolveFile(new URL(link.attr('href'), origin))));
+    }
+    $('.resume-document a[href^="https:"]').each((_, node) => {
+      if (new URL($(node).attr('href')).origin !== origin) {
+        assert.equal($(node).attr('target'), '_blank');
+        assert.match($(node).attr('rel'), /noopener/);
+      }
+    });
+  }
+  for (const { path, $ } of pages) {
+    const prefix = path.match(/^\/(fr|es)\//)?.[1];
+    assert.equal(
+      $(`footer a[href="${prefix ? '/' + prefix : ''}/resume/"]`).length,
+      1,
+      path,
+    );
+    assert.equal(
+      $(`.desktop-nav a[href="${prefix ? '/' + prefix : ''}/resume/"]`).length,
+      1,
+      path,
+    );
+    assert.equal(
+      $(`.mobile-menu a[href="${prefix ? '/' + prefix : ''}/resume/"]`).length,
+      1,
+      path,
+    );
+    assert.equal(
+      $('.hero a[href$="/resume/"], .hero a[download]').length,
+      0,
+      path,
+    );
   }
 });
