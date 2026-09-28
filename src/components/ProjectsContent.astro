@@ -4,6 +4,7 @@ import { copy } from '../data/copy';
 import { projects, earlierWork } from '../data/projects';
 import type { Locale } from '../data/site';
 import ProjectCard from './ProjectCard.astro';
+import ProjectStatus from './ProjectStatus.astro';
 import ContactBanner from './ContactBanner.astro';
 interface Props {
   locale: Locale;
@@ -52,7 +53,10 @@ const t = copy[locale];
     {earlierWork.map((project) => (
       <details>
         <summary>
-          <span>{project.name}</span>
+          <span class="archive-title">
+            <span class="archive-name">{project.name}</span>
+            <ProjectStatus status={project.status} locale={locale} />
+          </span>
           <span class="caption" lang="en">
             {project.tags}
           </span>

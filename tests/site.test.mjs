@@ -29,6 +29,57 @@ const resolveFile = (url) =>
     url.pathname.endsWith('/') ? 'index.html' : '',
   );
 
+test('project status is localized and discontinued products follow all active work', () => {
+  const labels = {
+    en: ['Active', 'Discontinued by owner'],
+    fr: ['Actif', 'Arrêté par le propriétaire'],
+    es: ['Activo', 'Descontinuado por el propietario'],
+  };
+  const archivedOrder = [
+    'GYMERZ',
+    'iSophro',
+    'Indiscutido',
+    'PennyFlow',
+    'Barid Purchase',
+  ];
+  for (const locale of ['en', 'fr', 'es']) {
+    const prefix = locale === 'en' ? '/' : `/${locale}/`;
+    const { $ } = byPath.get(`${prefix}projects/`);
+    assert.deepEqual(
+      $('.archive-name')
+        .map((_, el) => $(el).text())
+        .get(),
+      archivedOrder,
+    );
+    const statuses = $('[data-project-status]');
+    assert.equal(statuses.length, 11);
+    assert.deepEqual(
+      statuses.map((_, el) => $(el).attr('data-project-status')).get(),
+      [...Array(8).fill('active'), ...Array(3).fill('discontinued')],
+    );
+    statuses.each((_, el) => {
+      const index = $(el).attr('data-project-status') === 'active' ? 0 : 1;
+      assert.equal($(el).text().trim(), labels[locale][index]);
+    });
+    const home = byPath.get(prefix).$;
+    assert.equal(home('[data-project-status="active"]').length, 4);
+    for (const slug of [
+      '433-football',
+      'ignite-tournaments',
+      'receipto',
+      'fielduro',
+      'flura',
+      'finflo',
+    ]) {
+      const detail = byPath.get(`${prefix}projects/${slug}/`).$;
+      assert.equal(
+        detail('.project-facts [data-project-status="active"]').text().trim(),
+        labels[locale][0],
+      );
+    }
+  }
+});
+
 test('every language uses the branded landscape sharing image and matching accessible metadata', () => {
   const path = '/social/amine-boularbah-social-v1.png';
   const image = readFileSync(join(dist, path));

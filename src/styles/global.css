@@ -7,6 +7,7 @@
   --muted: #63716f;
   --accent: #087e94;
   --brand: #23b6d1;
+  --status-active: #267049;
   --line: #dfe5df;
   --soft: #eff3ed;
   --panel: #fffefa;
@@ -24,6 +25,7 @@ html[data-theme='dark'] {
   --line: #3c494c;
   --soft: #212c2e;
   --panel: #263033;
+  --status-active: #85ceaa;
 }
 *,
 *::before,
@@ -733,6 +735,32 @@ summary::-webkit-details-marker {
   color: var(--muted);
   white-space: nowrap;
 }
+.project-labels {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: var(--small);
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.5;
+}
+.project-status.active {
+  color: var(--status-active);
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
 .project-card > p {
   margin-top: 13px;
   color: var(--muted);
@@ -1057,7 +1085,15 @@ summary::-webkit-details-marker {
   padding-block: 24px;
   list-style: none;
 }
-.archive-list summary > span:first-child {
+.archive-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+  gap: 8px 18px;
+}
+.archive-name {
   font-size: 1.375rem;
   font-weight: 550;
   letter-spacing: -0.025em;

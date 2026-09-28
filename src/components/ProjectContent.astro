@@ -4,6 +4,7 @@ import { copy } from '../data/copy';
 import { projects, type Project } from '../data/projects';
 import { localPath, type Locale } from '../data/site';
 import ContactBanner from './ContactBanner.astro';
+import ProjectStatus from './ProjectStatus.astro';
 interface Props {
   locale: Locale;
   project: Project;
@@ -27,6 +28,12 @@ const next = projects[(projects.indexOf(project) + 1) % projects.length];
       <p class="intro">{content.summary}</p>
     </div>
     <dl class="project-facts">
+      <div>
+        <dt>{t.ui.status}</dt>
+        <dd>
+          <ProjectStatus status={project.status} locale={locale} />
+        </dd>
+      </div>
       <div>
         <dt>{t.ui.role}</dt>
         <dd>{content.role}</dd>

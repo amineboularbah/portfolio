@@ -12,10 +12,19 @@ import pennyflow from '../assets/thumbnails/pennyflow-thumbnail.webp';
 import isophro from '../assets/thumbnails/isophro-thumbnail.webp';
 import baridPurchase from '../assets/thumbnails/barid-purchase-thumbnail.webp';
 
+export type ProjectStatus = 'active' | 'discontinued';
+
+const activeFirst = <T extends { status: ProjectStatus }>(items: T[]): T[] =>
+  items.toSorted(
+    (a, b) =>
+      Number(a.status === 'discontinued') - Number(b.status === 'discontinued'),
+  );
+
 export interface Project {
   slug: string;
   name: string;
   category: 'client' | 'own';
+  status: ProjectStatus;
   image: ImageMetadata;
   imageAlt?: Localized<string>;
   visual: 'montage' | 'screen' | 'thumbnail';
@@ -31,10 +40,11 @@ export interface Project {
   }>;
 }
 
-export const projects: Project[] = [
+export const projects = activeFirst<Project>([
   {
     slug: '433-football',
     name: '433 Football',
+    status: 'active',
     category: 'client',
     image: football,
     imageAlt: {
@@ -100,6 +110,7 @@ export const projects: Project[] = [
   {
     slug: 'ignite-tournaments',
     name: 'Ignite Tournaments',
+    status: 'active',
     category: 'client',
     image: ignite,
     imageAlt: {
@@ -156,6 +167,7 @@ export const projects: Project[] = [
   {
     slug: 'receipto',
     name: 'Receipto',
+    status: 'active',
     category: 'own',
     image: receipto,
     imageAlt: {
@@ -212,6 +224,7 @@ export const projects: Project[] = [
   {
     slug: 'fielduro',
     name: 'Fielduro',
+    status: 'active',
     category: 'own',
     image: fielduro,
     imageAlt: {
@@ -268,6 +281,7 @@ export const projects: Project[] = [
   {
     slug: 'flura',
     name: 'Flura',
+    status: 'active',
     category: 'own',
     image: flura,
     imageAlt: {
@@ -324,6 +338,7 @@ export const projects: Project[] = [
   {
     slug: 'finflo',
     name: 'FinFlo',
+    status: 'active',
     category: 'own',
     image: finflo,
     imageAlt: {
@@ -377,11 +392,21 @@ export const projects: Project[] = [
       },
     },
   },
-];
+]);
 
-export const earlierWork = [
+interface EarlierProject {
+  name: string;
+  status: ProjectStatus;
+  tags: string;
+  image: ImageMetadata;
+  imageAlt: Localized<string>;
+  summary: Localized<string>;
+}
+
+export const earlierWork = activeFirst<EarlierProject>([
   {
     name: 'Indiscutido',
+    status: 'discontinued',
     tags: 'Flutter · Supabase',
     image: indiscutido,
     imageAlt: {
@@ -397,6 +422,7 @@ export const earlierWork = [
   },
   {
     name: 'GYMERZ',
+    status: 'active',
     tags: 'Flutter · .NET',
     image: gymerz,
     imageAlt: {
@@ -412,6 +438,7 @@ export const earlierWork = [
   },
   {
     name: 'PennyFlow',
+    status: 'discontinued',
     tags: 'SwiftUI · CoreData',
     image: pennyflow,
     imageAlt: {
@@ -427,6 +454,7 @@ export const earlierWork = [
   },
   {
     name: 'iSophro',
+    status: 'active',
     tags: 'Flutter · Firebase',
     image: isophro,
     imageAlt: {
@@ -442,6 +470,7 @@ export const earlierWork = [
   },
   {
     name: 'Barid Purchase',
+    status: 'discontinued',
     tags: 'Flutter · Laravel',
     image: baridPurchase,
     imageAlt: {
@@ -455,4 +484,4 @@ export const earlierWork = [
       es: 'Gestión de compras desde el móvil para Poste Maroc.',
     },
   },
-];
+]);

@@ -62,7 +62,7 @@ The current CV supplies `amine@amineboularbah.com` as its contact address. The w
 
 ## Product thumbnails, September 28, 2026
 
-Amine supplied the Fielduro landscape composition and authorized its use on both websites. Its original composition, type, and device imagery are retained. Receipto, Flura, and FinFlo thumbnails were created with the built-in image-generation tool using the official icons and published product screens as references. They are promotional compositions, not fresh app screenshots.
+Amine supplied the Fielduro landscape composition and authorized its use on both websites. The initial export retained its original composition, type, and device imagery; the brand-accent revision below supersedes that export. Receipto, Flura, and FinFlo thumbnails were created with the built-in image-generation tool using the official icons and published product screens as references. They are promotional compositions, not fresh app screenshots.
 
 - Fielduro: user-supplied `ChatGPT Image Sep 28, 2026, 01_29_56 PM.png`.
 - Receipto: logo from [receipto.app](https://receipto.app/receipto-logo.png) and the previously approved official press-kit receipt-library screen. Copy retains “smart scans”.
@@ -86,3 +86,13 @@ Amine then requested matching generated thumbnails for every remaining project, 
 The built-in image-generation tool produced the compositions in the same light visual style as the approved product set. Interfaces are illustrative renderings based on the historic references, not new screenshots or evidence that archived apps are currently available. No audience, financial, performance, or medical claims are added to the artwork. Original source files remain at their legacy URLs.
 
 The additional projects belong to Amine's personal portfolio; they are not added to the AppWrapp-owned product list. New WebP masters live under `src/assets/thumbnails/`, with responsive Astro image variants and English, French, and Spanish alternative text. Full PNG masters, reference files, prompts, and export dimensions are saved in the workspace’s `deliverables/portfolio-thumbnails-2026-09-28/` folder.
+
+## Brand-accent revision and resource library
+
+On 28 September 2026, Amine requested a branded color on one bold headline word in every project thumbnail, plus matching 1000 × 750 PNG exports for Upwork. The built-in image-generation tool edited the approved artwork; Fielduro was recomposed to match the shared visual style. FinFlo already had its green headline accent. The website uses 1600 × 900 WebP files, retaining responsive variants and full-frame display.
+
+The organized library is delivered in `Desktop/AppWrapp Resources`: `Personal Website` contains all eleven portfolio projects, `AppWrapp` contains only the four company products, and `Upwork` contains all eleven 4:3 covers. PNG masters, reference artwork, prompts, dimensions, and original Desktop files are preserved separately. These remain promotional renderings based on supplied references, not pixel-exact app screenshots.
+
+### Project availability
+
+Amine confirmed that Indiscutido, PennyFlow, and Barid Purchase were discontinued by their owners, while all other listed projects are active and available online. These are owner-supplied status declarations, not an independent availability audit. A shared status component provides English, French, and Spanish labels on project cards, detail pages, and earlier-work entries. Stable status sorting keeps discontinued entries after active entries in each collection, preserving the requested order among active projects. The three discontinued projects are the final entries on the portfolio list.
