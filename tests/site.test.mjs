@@ -337,6 +337,7 @@ test('readable resumes preserve each translation and offer matching current down
       source
         .replace(/^#{1,3} /gm, '')
         .replace(/^- /gm, '')
+        .replace(/\*\*/g, '')
         .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
     );
     const $ = byPath.get(prefix + '/resume/').$;
@@ -350,18 +351,28 @@ test('readable resumes preserve each translation and offer matching current down
     const headings = $('.resume-document h3')
       .toArray()
       .map((node) => $(node).text());
-    const productPositions = ['Receipto', 'Fielduro', 'Flura'].map((name) =>
-      headings.findIndex((heading) => heading.includes(name)),
+    assert.equal(
+      headings.filter((heading) => heading.includes('AppWrapp LLC')).length,
+      1,
     );
-    assert.ok(
-      productPositions[0] >= 0 &&
-        productPositions[0] < productPositions[1] &&
-        productPositions[1] < productPositions[2],
+    const productLinks = $('.resume-document li a')
+      .toArray()
+      .map((node) => [$(node).text(), $(node).attr('href')]);
+    assert.deepEqual(productLinks, [
+      ['Receipto', 'https://receipto.app/'],
+      ['Fielduro', 'https://fielduro.com/'],
+      ['Flura', 'https://flura.app/'],
+    ]);
+    assert.equal(
+      $('.resume-document a[href="https://appwrapp.com/"]').length,
+      1,
     );
+    // The current public CV contains only the iOS certificate. The separately
+    // approved React Native credential remains on About, as before.
     assert.equal(
       $('.resume-document a[href="https://coursera.org/verify/NXWJ4OHRRCJN"]')
         .length,
-      1,
+      0,
     );
     assert.equal(
       $(
@@ -420,6 +431,66 @@ test('readable resumes preserve each translation and offer matching current down
       $('.hero a[href$="/resume/"], .hero a[download]').length,
       0,
       path,
+    );
+  }
+});
+
+test('the supplied public PDF is unchanged and all 433 case studies match their resume language', () => {
+  const source = JSON.parse(
+    readFileSync(
+      new URL('../scripts/resume-source.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  assert.equal(source.filename, 'PUBLIC_CV.pdf');
+  assert.equal(
+    createHash('sha256')
+      .update(readFileSync(join(dist, 'resume/amine-boularbah-resume.pdf')))
+      .digest('hex'),
+    source.sha256,
+  );
+  const normalize = (value) =>
+    value.replace(/\s+/g, ' ').trim().replace(/\.$/, '');
+  for (const prefix of ['', '/fr', '/es']) {
+    const resume = byPath.get(prefix + '/resume/').$;
+    const contributions = resume('.resume-document h3')
+      .first()
+      .nextAll('ul')
+      .first()
+      .find('li')
+      .toArray()
+      .map((node) => normalize(resume(node).text()));
+    const project = byPath.get(prefix + '/projects/433-football/').$;
+    assert.equal(contributions.length, 6);
+    assert.deepEqual(
+      project('.contributions li p')
+        .toArray()
+        .map((node) => normalize(project(node).text())),
+      contributions,
+    );
+    assert.match(contributions[2], /SignalR/);
+    assert.match(contributions[2], /Swift\/SwiftUI/);
+    assert.match(contributions[2], /ActivityKit/);
+    assert.match(contributions[2], /Kotlin/);
+    assert.match(contributions[3], /Segment CDP/);
+    assert.match(contributions[3], /Airship/);
+    assert.match(contributions[4], /GitHub Actions\/Fastlane/);
+    assert.match(contributions[4], /47\s*%/);
+    const independent = resume('.resume-document h2').filter((_, node) =>
+      /Independent Products|Produits indépendants|Productos independientes/.test(
+        resume(node).text(),
+      ),
+    );
+    assert.equal(independent.length, 1);
+    assert.ok(independent.prevAll('h3').first().text().includes('MEGALOGI'));
+    assert.ok(
+      independent.nextAll('h3').first().text().includes('AppWrapp LLC'),
+    );
+    assert.match(independent.nextAll('p').first().text(), /2024/);
+    const about = byPath.get(prefix + '/about/').$;
+    assert.equal(
+      about('a[href="https://coursera.org/verify/NXWJ4OHRRCJN"]').length,
+      1,
     );
   }
 });

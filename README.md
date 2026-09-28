@@ -47,7 +47,7 @@ The site is static HTML and CSS with small progressive enhancements for theme sw
 
 Update all three locales together. A new featured project in `projects.ts` automatically gets a detail page in each locale, metadata, alternate-language links, and sitemap entries. Use real project imagery and distinguish client responsibilities from products owned through AppWrapp.
 
-Keep claims attributable. See [content sources](docs/SOURCES.md) before editing experience, credentials, testimonials, or outcomes. Do not publish private contracts, addresses, rates, customer numbers, or unverified performance metrics.
+Keep claims attributable. See [content sources](docs/SOURCES.md) before editing experience, credentials, testimonials, or outcomes. Do not publish private contracts, home addresses, or rates. Attribute any explicitly approved audience and performance figures to the supplied source without expanding their meaning.
 
 ### Sharing previews
 
@@ -59,9 +59,9 @@ The default LinkedIn/Open Graph and large Twitter/X image is `public/social/amin
 
 - Update `src/content/resume.md`, `resume.fr.md`, and `resume.es.md` together, preserving the meaning of the approved English source. Do not infer language fluency or convert qualifications into unverified local equivalents.
 - Regenerate all three Word and text versions using Python 3.10+ with `python-docx==1.2.0`: `python3 scripts/build-resume.py`. This optional authoring dependency is not needed to build or deploy the website.
-- The English PDF preserves the supplied two-column design and embedded fonts. It is curated separately and is never rebuilt by the exporter. Keep any updates narrow and compare its rendered pages with the approved original.
+- The English PDF is the exact supplied `PUBLIC_CV.pdf` from 28 September 2026. Never rebuild or modify it through the exporter. For a replacement explicitly supplied by Amine, copy it unchanged and update `scripts/resume-source.json`; tests verify its source checksum.
 - Export the French and Spanish Word files to PDF, preserving their document language and hyperlinks. Save them beside the matching Word and text files.
-- Render and review every page of all three Word files and PDFs, including page breaks and accented characters. Confirm matching product order and certificate links.
+- Render and review every page of all three Word files and PDFs, including page breaks and accented characters. Confirm the AppWrapp group, matching product order, the six 433 contributions, and certificate links.
 - After reviewing all outputs, run `python3 scripts/build-resume.py --manifest-only`. Commit the three Markdown sources, nine downloads, and `scripts/resume-manifest.json` together. Generated-site tests check the HTML against each translation, download language, product order, and checksums.
 
 English download paths remain `/resume/amine-boularbah-resume.{pdf,docx,txt}`. French and Spanish use `-fr` and `-es` suffixes before the extension. Page download links include a content-checksum query parameter so updated files bypass older browser and CDN cache entries. The three readable pages are included in the sitemap with language alternates and referenced in `llms.txt`. Personal contact details and claims are reproduced from Amine’s approved website version; they are not independently verified.

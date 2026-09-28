@@ -44,12 +44,12 @@ export const projects: Project[] = [
         context:
           'The 433 app brings football content and fan experiences together. My work focuses on the Flutter rebuild and the foundations that help the engineering team develop and maintain it.',
         contributions: [
-          'Lead mobile architecture and modular project design.',
-          'Build complex product features, including real-time data updates with SignalR.',
-          'Integrate Airship for customer engagement and Segment for customer data and analytics.',
-          'Develop live match experiences, including iOS Live Activities and match notifications.',
-          'Guide engineering standards, code reviews, and technical delivery across the mobile team.',
-          'Improve release automation and manage native and third-party SDK integrations.',
+          'Lead a team of 5 engineers rebuilding the official 433 mobile app, serving a global community of 77M+ football fans.',
+          'Architected the application from the ground up using Clean Architecture, BLoC, and a multi-package monorepo, establishing the foundation for mobile development at 433.',
+          'Designed and implemented real-time live updates with SignalR and native live experiences using Swift/SwiftUI + ActivityKit on iOS and Kotlin on Android.',
+          'Owned complex integrations including Segment CDP and Airship, partnering with Marketing and Analytics teams to deliver tracking, engagement, and customer-data requirements.',
+          'Optimized GitHub Actions/Fastlane CI/CD pipelines, reducing execution time by 47% and accelerating development and release cycles.',
+          'Own architecture, technical decisions, and complex feature delivery while mentoring 5 engineers, reviewing PRs, and driving engineering standards across the mobile team.',
         ],
       },
       fr: {
@@ -60,12 +60,12 @@ export const projects: Project[] = [
         context:
           'L’application 433 rassemble contenus et expériences pour les fans de football. Mon travail porte sur sa refonte Flutter et les bases qui permettent à l’équipe de la développer et de la maintenir.',
         contributions: [
-          'Piloter l’architecture mobile et la conception modulaire du projet.',
-          'Développer des fonctionnalités complexes, notamment la mise à jour des données en temps réel avec SignalR.',
-          'Intégrer Airship pour l’engagement utilisateur et Segment pour les données clients et l’analytique.',
-          'Créer des expériences de suivi des matchs en direct, avec les Live Activities iOS et les notifications de match.',
-          'Guider les standards d’ingénierie, les revues de code et les livraisons techniques de l’équipe mobile.',
-          'Améliorer l’automatisation des publications et prendre en charge les intégrations de SDK natifs et tiers.',
+          'Je dirige une équipe de 5 ingénieurs chargée de la refonte de l’application mobile officielle de 433, au service d’une communauté mondiale de plus de 77 millions de fans de football.',
+          'J’ai conçu l’application depuis zéro avec Clean Architecture, BLoC et un monorepo multipackage, établissant les fondations du développement mobile chez 433.',
+          'J’ai conçu et développé les mises à jour en temps réel avec SignalR et les expériences natives de suivi en direct avec Swift/SwiftUI et ActivityKit sur iOS et Kotlin sur Android.',
+          'J’ai pris en charge des intégrations complexes, notamment Segment CDP et Airship, en collaboration avec les équipes marketing et analytique pour répondre aux besoins de suivi, d’engagement et de données clients.',
+          'J’ai optimisé les pipelines CI/CD GitHub Actions/Fastlane, réduisant leur temps d’exécution de 47 % et accélérant les cycles de développement et de livraison.',
+          'Je suis responsable de l’architecture, des décisions techniques et de la livraison de fonctionnalités complexes, tout en accompagnant 5 ingénieurs, en réalisant les revues de pull requests et en définissant les standards d’ingénierie de l’équipe mobile.',
         ],
       },
       es: {
@@ -76,12 +76,12 @@ export const projects: Project[] = [
         context:
           'La app de 433 reúne contenido y experiencias para los aficionados al fútbol. Mi trabajo se centra en su reconstrucción con Flutter y en las bases que permiten al equipo desarrollarla y mantenerla.',
         contributions: [
-          'Liderar la arquitectura móvil y el diseño modular del proyecto.',
-          'Desarrollar funcionalidades complejas, incluidas las actualizaciones de datos en tiempo real con SignalR.',
-          'Integrar Airship para la interacción con los usuarios y Segment para los datos de clientes y la analítica.',
-          'Crear experiencias de seguimiento de partidos en directo, con Live Activities en iOS y notificaciones de partidos.',
-          'Guiar los estándares de ingeniería, las revisiones de código y las entregas técnicas del equipo móvil.',
-          'Mejorar la automatización de las publicaciones y gestionar integraciones de SDK nativos y de terceros.',
+          'Lidero un equipo de 5 ingenieros encargado de reconstruir la aplicación móvil oficial de 433, al servicio de una comunidad mundial de más de 77 millones de aficionados al fútbol.',
+          'Diseñé la aplicación desde cero con Clean Architecture, BLoC y un monorepositorio con múltiples paquetes, estableciendo la base del desarrollo móvil en 433.',
+          'Diseñé e implementé actualizaciones en tiempo real con SignalR y experiencias nativas de seguimiento en directo con Swift/SwiftUI y ActivityKit en iOS y Kotlin en Android.',
+          'Me responsabilicé de integraciones complejas, como Segment CDP y Airship, en colaboración con los equipos de marketing y analítica para cubrir los requisitos de seguimiento, interacción y datos de clientes.',
+          'Optimicé los pipelines CI/CD de GitHub Actions/Fastlane, reduciendo el tiempo de ejecución un 47 % y acelerando los ciclos de desarrollo y publicación.',
+          'Soy responsable de la arquitectura, las decisiones técnicas y la entrega de funcionalidades complejas, mientras acompaño a 5 ingenieros, reviso pull requests e impulso los estándares de ingeniería del equipo móvil.',
         ],
       },
     },
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     url: 'https://www.ignitetournaments.com',
     content: {
       en: {
-        role: 'Flutter Lead',
+        role: 'Lead Flutter Engineer',
         title: 'Bringing competition to mobile.',
         summary:
           'Leading Flutter development for an esports tournament platform.',
@@ -110,7 +110,7 @@ export const projects: Project[] = [
         ],
       },
       fr: {
-        role: 'Flutter Lead',
+        role: 'Lead Flutter Engineer',
         title: 'La compétition sur mobile.',
         summary:
           'Pilotage du développement Flutter d’une plateforme de tournois esport.',
@@ -123,7 +123,7 @@ export const projects: Project[] = [
         ],
       },
       es: {
-        role: 'Flutter Lead',
+        role: 'Lead Flutter Engineer',
         title: 'La competición llega al móvil.',
         summary:
           'Liderazgo del desarrollo Flutter de una plataforma de torneos de esports.',
@@ -379,9 +379,9 @@ export const earlierWork = [
     tags: 'Flutter · Firebase',
     image: '/assets/images/portfolio5.webp',
     summary: {
-      en: 'A guided sophrology and wellness app, built with Flow Digital Studio.',
-      fr: 'Une app de sophrologie et de bien-être créée avec Flow Digital Studio.',
-      es: 'Una app de sofrología y bienestar desarrollada con Flow Digital Studio.',
+      en: 'A guided sophrology and wellness app with audio and video experiences.',
+      fr: 'Une app de sophrologie et de bien-être avec des expériences audio et vidéo.',
+      es: 'Una app de sofrología y bienestar con experiencias de audio y vídeo.',
     },
   },
   {

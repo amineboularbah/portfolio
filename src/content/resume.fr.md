@@ -12,20 +12,20 @@ Ingénieur mobile senior avec plus de 6 ans d’expérience dans la conception d
 
 ## Expérience professionnelle
 
-### Lead Mobile Engineer chez 433
+### Lead Mobile Engineer chez 433 football
 
-Télétravail (entreprise basée dans l’UE) · Septembre 2025 à aujourd’hui
+Málaga, Espagne · Télétravail · Septembre 2025 à aujourd’hui
 
-- Direction d’une équipe de 5 ingénieurs pour la refonte complète de l’application mobile officielle de 433, destinée à une communauté mondiale de plus de 77 millions de fans de football
-- Conception de l’application depuis zéro, fondée sur la Clean Architecture, un monorepo multimodule et une gestion d’état évolutive, désormais à la base de tous les développements mobiles de 433
-- Responsabilité des décisions techniques : stratégie de test, pipelines CI/CD, conventions de code et revues d’architecture au sein de l’équipe mobile
-- Pilotage d’intégrations complexes de services tiers, notamment Airship, Segment et l’infrastructure d’analytique
-- Collaboration avec les responsables produit, design et backend pour évaluer la faisabilité de la feuille de route et définir les priorités techniques
-- Accompagnement des ingénieurs sur l’architecture, la gestion d’état avec BLoC et la qualité du code pour améliorer l’efficacité et la cohérence des développements
+- Je dirige une équipe de 5 ingénieurs chargée de la refonte de l’**application mobile officielle de 433**, au service d’une communauté mondiale de **plus de 77 millions de fans de football**
+- J’ai conçu l’application depuis zéro avec **Clean Architecture, BLoC et un monorepo multipackage**, établissant les fondations du développement mobile chez 433
+- J’ai conçu et développé les **mises à jour en temps réel avec SignalR** et les expériences natives de suivi en direct avec **Swift/SwiftUI et ActivityKit sur iOS** et **Kotlin sur Android**
+- J’ai pris en charge des intégrations complexes, notamment **Segment CDP et Airship**, en collaboration avec les équipes marketing et analytique pour répondre aux besoins de suivi, d’engagement et de données clients
+- J’ai optimisé les **pipelines CI/CD GitHub Actions/Fastlane**, réduisant leur temps d’exécution de **47 %** et accélérant les cycles de développement et de livraison
+- Je suis responsable de l’architecture, des décisions techniques et de la livraison de fonctionnalités complexes, tout en **accompagnant 5 ingénieurs**, en réalisant les revues de pull requests et en définissant les standards d’ingénierie de l’équipe mobile
 
 ### Lead Flutter Engineer chez Ignite Tournaments
 
-Télétravail (entreprise basée aux États-Unis) · Septembre 2021 à août 2025
+Télétravail · Septembre 2021 à août 2025
 
 - Pilotage de la refonte et de la modernisation d’une plateforme e-sport intégrant les cryptomonnaies, avec une amélioration des performances de 20 % et une réduction des régressions de 90 % sur mobile et sur le web
 - Conception d’un code Flutter modulaire selon les principes de la Clean Architecture, permettant d’ajouter des fonctionnalités sans compromettre l’existant
@@ -51,25 +51,25 @@ Rabat · Septembre 2020 à mai 2021
 - Mise en place d’une stratégie de test complète atteignant 95 % de couverture du code et réduisant sensiblement les défauts après livraison
 - Automatisation des pipelines de compilation, de test et de déploiement avec CI/CD, améliorant l’efficacité des livraisons de 25 %
 
-## Produits
+## Produits indépendants
 
-### Fondateur et développeur de Receipto
+### Fondateur et ingénieur mobile chez AppWrapp LLC
 
-Málaga · Mai 2025 à aujourd’hui · [receipto.app](https://receipto.app/)
+Málaga, Espagne · Télétravail · Janvier 2024 à aujourd’hui
 
-Conception et lancement d’une application iOS de numérisation de reçus et de gestion des dépenses utilisant l’IA, générant des revenus récurrents et comptant plus de 400 évaluations sur l’App Store. Responsabilité complète du produit, de l’architecture, de l’intégration de l’IA, de l’optimisation sur l’App Store et de l’acquisition payante. Fonctionnalités : reconnaissance de texte par IA, boîte de réception Magic Email pour le traitement automatique des reçus et exports pour la préparation fiscale.
+Je développe et maintiens des produits logiciels indépendants au sein d’[AppWrapp](https://appwrapp.com/), en prenant en charge le développement produit, l’architecture technique, les intégrations, les publications et les améliorations continues.
 
-### Fondateur et développeur de Fielduro
+- [Receipto](https://receipto.app/) : J’ai conçu et lancé une application de gestion des reçus avec numérisation intelligente, traitement automatique des reçus par e-mail et fonctions d’export pour les indépendants et les petites entreprises.
+- [Fielduro](https://fielduro.com/) : J’ai développé des processus connectés pour les devis, bons d’intervention, factures et reçus, avec des PDF prêts à envoyer aux clients et un suivi des paiements pour les prestataires de services indépendants.
+- [Flura](https://flura.app/) : J’ai conçu et lancé une application de suivi de santé destinée aux personnes atteintes de maladies chroniques, avec journal des symptômes, historique de santé et rapports à partager lors des consultations médicales.
 
-Málaga · Aujourd’hui · [fielduro.com](https://fielduro.com/)
+Mes responsabilités techniques couvrent le développement d’applications, les intégrations backend, la facturation des abonnements, l’analytique, l’optimisation sur l’App Store et la croissance des produits.
 
-Conception d’un produit pour les prestataires de services indépendants, reliant devis, bons d’intervention, factures et reçus. Création de documents liés à chaque intervention, de PDF prêts à envoyer aux clients et d’un suivi des paiements.
+## Formation
 
-### Fondateur et développeur de Flura
+### Diplôme en informatique (Associate’s Degree), OFPPT
 
-Málaga · Janvier 2026 à aujourd’hui · [flura.app](https://flura.app/)
-
-Conception et lancement d’une application de suivi de santé destinée aux personnes atteintes de maladies chroniques, avec détection de tendances par IA et rapports PDF structurés pour les médecins. Responsabilité de bout en bout : application Flutter, génération de rapports par IA, infrastructure d’analytique et stratégie de croissance.
+Kénitra · Septembre 2018 à juillet 2020
 
 ## Certifications
 
@@ -79,27 +79,12 @@ Août 2024 à novembre 2024
 
 [Vérifier le certificat iOS sur Coursera](https://www.coursera.org/account/accomplishments/professional-cert/78GNB17YLC98)
 
-### Certificat React Native, Meta
-
-2024
-
-[Vérifier le certificat React Native sur Coursera](https://coursera.org/verify/NXWJ4OHRRCJN)
-
-## Formation
-
-### Diplôme en informatique (Associate’s Degree), OFPPT
-
-Kénitra · Septembre 2018 à juillet 2020
-
 ## Compétences
 
 - Flutter/Dart
 - Swift/SwiftUI
 - Kotlin/Java
-- React Native
 - NestJS/TypeScript
-- Suite Firebase
-- PostgreSQL
 - Clean Architecture
 - MVC/MVVM
 - Riverpod/Provider
