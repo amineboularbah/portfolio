@@ -33,7 +33,7 @@ const t = copy[locale];
       ))}
     </div>
     <span class="filter-count" aria-live="polite" data-count-label={t.ui.show}>
-      {projects.length} {t.ui.show}
+      {projects.length + earlierWork.length} {t.ui.show}
     </span>
   </div>
   <div class="project-grid" id="project-grid">
@@ -42,7 +42,7 @@ const t = copy[locale];
     ))}
   </div>
 </section>
-<section class="container section archive-section">
+<section class="container section archive-section" data-earlier-work>
   <div class="section-heading" data-reveal>
     <div>
       <p class="eyebrow">{t.ui.archive}</p>
@@ -51,7 +51,7 @@ const t = copy[locale];
   </div>
   <div class="archive-list">
     {earlierWork.map((project) => (
-      <details>
+      <details data-project-item data-category={project.category}>
         <summary>
           <span class="archive-title">
             <span class="archive-name">{project.name}</span>
@@ -65,6 +65,7 @@ const t = copy[locale];
           </span>
         </summary>
         <div class="archive-detail">
+          <span class="category-label">{t.ui[project.category]}</span>
           <p>{project.summary[locale]}</p>
           <Image
             src={project.image}
@@ -82,11 +83,12 @@ const t = copy[locale];
 <ContactBanner locale={locale} />
 <script>
   const filters = document.querySelector<HTMLElement>('[data-filters]');
-  const cards = document.querySelectorAll<HTMLElement>(
-    '#project-grid .project-card',
+  const items = document.querySelectorAll<HTMLElement>('[data-project-item]');
+  const earlierWork = document.querySelector<HTMLElement>(
+    '[data-earlier-work]',
   );
   const count = document.querySelector<HTMLElement>('[data-count-label]');
-  if (filters && cards.length) {
+  if (filters && items.length) {
     filters.hidden = false;
     filters
       .querySelectorAll<HTMLButtonElement>('[data-filter]')
@@ -94,11 +96,16 @@ const t = copy[locale];
         button.addEventListener('click', () => {
           const selected = button.dataset.filter;
           let total = 0;
-          cards.forEach((card) => {
-            card.hidden =
-              selected !== 'all' && card.dataset.category !== selected;
-            if (!card.hidden) total++;
+          items.forEach((item) => {
+            item.hidden =
+              selected !== 'all' && item.dataset.category !== selected;
+            if (!item.hidden) total++;
           });
+          if (earlierWork) {
+            earlierWork.hidden = !earlierWork.querySelector(
+              '[data-project-item]:not([hidden])',
+            );
+          }
           filters
             .querySelectorAll('[data-filter]')
             .forEach((item) =>
