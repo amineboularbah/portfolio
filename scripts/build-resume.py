@@ -1,7 +1,7 @@
 """Regenerate localized Word and plain-text downloads from Markdown resumes.
 
 Requires Python 3.10+ and python-docx 1.2.0. PDFs are reviewed separately.
-Only headings, paragraphs, bullets, and inline links are accepted deliberately.
+Only headings, paragraphs, bullets, inline links, and bold text are accepted deliberately.
 """
 from pathlib import Path
 import argparse
@@ -19,6 +19,7 @@ from docx.opc.constants import RELATIONSHIP_TYPE as RT
 ROOT = Path(__file__).resolve().parents[1]
 DESTINATION = ROOT / "public/resume"
 LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+INLINE = re.compile(r"\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\)")
 LANGUAGES = {
     "en": {"source": "resume.md", "suffix": "", "language": "en-GB", "subject": "Senior Mobile Engineer Resume"},
     "fr": {"source": "resume.fr.md", "suffix": "-fr", "language": "fr-FR", "subject": "CV Ingénieur mobile senior"},
@@ -27,15 +28,19 @@ LANGUAGES = {
 
 
 def plain(text):
-    return LINK.sub(lambda m: m[1] if m[2] == "mailto:" + m[1] else f"{m[1]} ({m[2]})", text)
+    return LINK.sub(lambda m: m[1] if m[2] == "mailto:" + m[1] else f"{m[1]} ({m[2]})", text).replace("**", "")
 
 
 def add_inline(paragraph, text):
     cursor = 0
-    for match in LINK.finditer(text):
+    for match in INLINE.finditer(text):
         paragraph.add_run(text[cursor:match.start()])
+        if match[1] is not None:
+            paragraph.add_run(match[1]).bold = True
+            cursor = match.end()
+            continue
         hyperlink = OxmlElement("w:hyperlink")
-        hyperlink.set(qn("r:id"), paragraph.part.relate_to(match[2], RT.HYPERLINK, is_external=True))
+        hyperlink.set(qn("r:id"), paragraph.part.relate_to(match[3], RT.HYPERLINK, is_external=True))
         run = OxmlElement("w:r")
         properties = OxmlElement("w:rPr")
         color = OxmlElement("w:color")
@@ -45,7 +50,7 @@ def add_inline(paragraph, text):
         properties.extend([color, underline])
         run.append(properties)
         node = OxmlElement("w:t")
-        node.text = match[1]
+        node.text = match[2]
         run.append(node)
         hyperlink.append(run)
         paragraph._p.append(hyperlink)
@@ -133,7 +138,7 @@ def build(config):
                     add_inline(paragraph, item[2:])
             text_blocks.append("\n".join("- " + plain(item[2:]) for item in items))
         else:
-            if re.search(r"^\s*[#>*`|]|[!*`]", block, re.M):
+            if re.search(r"^\s*[#>*`|]|[!*`]", INLINE.sub("", block), re.M):
                 raise ValueError("Unsupported Markdown syntax; update the exporter before continuing")
             paragraph = document.add_paragraph()
             add_inline(paragraph, " ".join(block.splitlines()))
@@ -146,8 +151,8 @@ def build(config):
                     run.font.size = Pt(9)
             if index > 0 and blocks[index - 1].startswith("### "):
                 paragraph.paragraph_format.keep_with_next = current_section in (
-                    "Employment History", "Products", "Expérience professionnelle",
-                    "Produits", "Experiencia profesional", "Productos",
+                    "Employment History", "Independent Products", "Expérience professionnelle",
+                    "Produits indépendants", "Experiencia profesional", "Productos independientes",
                 )
             text_blocks.append(plain(" ".join(block.splitlines())))
     DESTINATION.mkdir(exist_ok=True)
