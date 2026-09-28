@@ -1,18 +1,19 @@
 import type { ImageMetadata } from 'astro';
 import type { Localized } from './site';
 import football from '../assets/portfolio11.webp';
-import receipto from '../assets/receipto-screen.png';
-import flura from '../assets/flura-screen.webp';
+import receipto from '../assets/thumbnails/receipto-thumbnail.webp';
+import flura from '../assets/thumbnails/flura-thumbnail.webp';
 import ignite from '../assets/portfolio1.webp';
-import fielduro from '../assets/fielduro-screen.webp';
-import finflo from '../assets/portfolio8.webp';
+import fielduro from '../assets/thumbnails/fielduro-thumbnail.webp';
+import finflo from '../assets/thumbnails/finflo-thumbnail.webp';
 
 export interface Project {
   slug: string;
   name: string;
   category: 'client' | 'own';
   image: ImageMetadata;
-  visual: 'montage' | 'screen';
+  imageAlt?: Localized<string>;
+  visual: 'montage' | 'screen' | 'thumbnail';
   color: string;
   tags: string[];
   url: string;
@@ -142,7 +143,12 @@ export const projects: Project[] = [
     name: 'Receipto',
     category: 'own',
     image: receipto,
-    visual: 'screen',
+    imageAlt: {
+      en: 'Receipto receipt library on iPhone with smart scanning and organized receipts',
+      fr: 'La bibliothèque de reçus Receipto sur iPhone, avec numérisation intelligente et reçus organisés',
+      es: 'Biblioteca de recibos de Receipto en iPhone, con escaneos inteligentes y recibos organizados',
+    },
+    visual: 'thumbnail',
     color: '#f4edda',
     tags: ['Flutter', 'Smart scans', 'Product ownership'],
     url: 'https://receipto.app/',
@@ -193,7 +199,12 @@ export const projects: Project[] = [
     name: 'Fielduro',
     category: 'own',
     image: fielduro,
-    visual: 'screen',
+    imageAlt: {
+      en: 'Fielduro documents, invoicing, and time tracking on iPhone, Mac, and iPad',
+      fr: 'Documents, facturation et suivi du temps Fielduro sur iPhone, Mac et iPad',
+      es: 'Documentos, facturación y seguimiento del tiempo de Fielduro en iPhone, Mac y iPad',
+    },
+    visual: 'thumbnail',
     color: '#e7eef2',
     tags: ['Mobile product', 'Business workflows', 'AppWrapp'],
     url: 'https://fielduro.com/',
@@ -244,7 +255,12 @@ export const projects: Project[] = [
     name: 'Flura',
     category: 'own',
     image: flura,
-    visual: 'screen',
+    imageAlt: {
+      en: 'Flura daily symptom check-in and health history on iPhone',
+      fr: 'Bilan quotidien des symptômes et historique de santé Flura sur iPhone',
+      es: 'Registro diario de síntomas e historial de salud de Flura en iPhone',
+    },
+    visual: 'thumbnail',
     color: '#e9eee7',
     tags: ['Flutter', 'Health tracking', 'Product ownership'],
     url: 'https://flura.app/',
@@ -295,7 +311,12 @@ export const projects: Project[] = [
     name: 'FinFlo',
     category: 'own',
     image: finflo,
-    visual: 'montage',
+    imageAlt: {
+      en: 'FinFlo budget dashboard and spending charts on iPhone',
+      fr: 'Tableau de bord des budgets et graphiques de dépenses FinFlo sur iPhone',
+      es: 'Panel de presupuestos y gráficos de gastos de FinFlo en iPhone',
+    },
+    visual: 'thumbnail',
     color: '#e5eee8',
     tags: ['Flutter', 'Personal finance', 'AppWrapp'],
     url: 'https://apps.apple.com/app/id6741395623',

@@ -43,7 +43,7 @@ const next = projects[(projects.indexOf(project) + 1) % projects.length];
   >
     <Image
       src={project.image}
-      alt={project.name}
+      alt={project.imageAlt?.[locale] ?? project.name}
       widths={project.visual === 'screen' ? [400, 640, 880] : [640, 1000, 1600]}
       sizes={
         project.visual === 'screen'

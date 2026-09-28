@@ -704,10 +704,10 @@ summary::-webkit-details-marker {
 .project-visual.screen:hover > img {
   transform: rotate(3deg) translateY(-5px);
 }
-.project-visual.flura > img {
+.project-visual.screen.flura > img {
   transform: rotate(-6deg);
 }
-.project-visual.flura:hover > img {
+.project-visual.screen.flura:hover > img {
   transform: rotate(-3deg) translateY(-5px);
 }
 .project-visual.\34 33-football > img {
@@ -2031,4 +2031,18 @@ details[open] > summary .details-symbol {
   .project-cover {
     height: 270px;
   }
+}
+
+/* Preserve the complete landscape composition, including text and devices. */
+.project-visual.thumbnail,
+.project-cover.thumbnail {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+.project-visual.thumbnail > img,
+.project-cover.thumbnail > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
