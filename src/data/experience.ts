@@ -8,7 +8,7 @@ export const experience = [
       es: 'Sept. 2025–Actualidad',
     },
     company: '433 Football',
-    url: 'https://www.433.com',
+    url: 'https://www.433football.com/',
     role: {
       en: 'Lead Mobile Engineer',
       fr: 'Lead Mobile Engineer',

@@ -55,7 +55,7 @@ export const projects = activeFirst<Project>([
     visual: 'thumbnail',
     color: '#e9eddf',
     tags: ['Flutter', 'BLoC', 'Mobile architecture'],
-    url: 'https://www.433.com',
+    url: 'https://www.433football.com/',
     content: {
       en: {
         role: 'Lead Mobile Engineer',
