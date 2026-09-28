@@ -17,7 +17,7 @@ Amine supplied additional detail about his 433 contributions on 22 September 202
 
 | Project            | Public destination                                   | Relationship shown                         |
 | ------------------ | ---------------------------------------------------- | ------------------------------------------ |
-| 433 Football       | [433](https://www.433.com)                           | Client collaboration, Lead Mobile Engineer |
+| 433 Football       | [433](https://www.433football.com/)                  | Client collaboration, Lead Mobile Engineer |
 | Ignite Tournaments | [Ignite](https://www.ignitetournaments.com)          | Past client collaboration, Flutter Lead    |
 | Receipto           | [Receipto](https://receipto.app/)                    | AppWrapp product                           |
 | Flura              | [Flura](https://flura.app/)                          | AppWrapp product                           |
