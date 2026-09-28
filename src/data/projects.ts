@@ -1,11 +1,16 @@
 import type { ImageMetadata } from 'astro';
 import type { Localized } from './site';
-import football from '../assets/portfolio11.webp';
+import football from '../assets/thumbnails/433-football-thumbnail.webp';
 import receipto from '../assets/thumbnails/receipto-thumbnail.webp';
 import flura from '../assets/thumbnails/flura-thumbnail.webp';
-import ignite from '../assets/portfolio1.webp';
+import ignite from '../assets/thumbnails/ignite-tournaments-thumbnail.webp';
 import fielduro from '../assets/thumbnails/fielduro-thumbnail.webp';
 import finflo from '../assets/thumbnails/finflo-thumbnail.webp';
+import indiscutido from '../assets/thumbnails/indiscutido-thumbnail.webp';
+import gymerz from '../assets/thumbnails/gymerz-thumbnail.webp';
+import pennyflow from '../assets/thumbnails/pennyflow-thumbnail.webp';
+import isophro from '../assets/thumbnails/isophro-thumbnail.webp';
+import baridPurchase from '../assets/thumbnails/barid-purchase-thumbnail.webp';
 
 export interface Project {
   slug: string;
@@ -32,7 +37,12 @@ export const projects: Project[] = [
     name: '433 Football',
     category: 'client',
     image: football,
-    visual: 'montage',
+    imageAlt: {
+      en: '433 Football match experiences and predictions presented on iPhone',
+      fr: 'Expériences de match et pronostics 433 Football présentés sur iPhone',
+      es: 'Experiencias de partidos y pronósticos de 433 Football en iPhone',
+    },
+    visual: 'thumbnail',
     color: '#e9eddf',
     tags: ['Flutter', 'BLoC', 'Mobile architecture'],
     url: 'https://www.433.com',
@@ -92,7 +102,12 @@ export const projects: Project[] = [
     name: 'Ignite Tournaments',
     category: 'client',
     image: ignite,
-    visual: 'montage',
+    imageAlt: {
+      en: 'Ignite Tournaments esports discovery and team screens presented on iPhone',
+      fr: 'Découverte de tournois esport et écrans d’équipes Ignite Tournaments sur iPhone',
+      es: 'Descubrimiento de torneos de esports y pantallas de equipos de Ignite Tournaments en iPhone',
+    },
+    visual: 'thumbnail',
     color: '#211844',
     tags: ['Flutter', 'Riverpod', 'Team leadership'],
     url: 'https://www.ignitetournaments.com',
@@ -368,7 +383,12 @@ export const earlierWork = [
   {
     name: 'Indiscutido',
     tags: 'Flutter · Supabase',
-    image: '/assets/images/portfolio9.webp',
+    image: indiscutido,
+    imageAlt: {
+      en: 'Indiscutido boxing schedules and fight results presented on iPhone',
+      fr: 'Calendrier de boxe et résultats des combats Indiscutido sur iPhone',
+      es: 'Calendario de boxeo y resultados de combates de Indiscutido en iPhone',
+    },
     summary: {
       en: 'A live boxing companion with fight tracking and community features.',
       fr: 'Une app de boxe avec suivi des combats et fonctions communautaires.',
@@ -378,7 +398,12 @@ export const earlierWork = [
   {
     name: 'GYMERZ',
     tags: 'Flutter · .NET',
-    image: '/assets/images/portfolio7.webp',
+    image: gymerz,
+    imageAlt: {
+      en: 'GYMERZ fitness community and activity screens presented on iPhone',
+      fr: 'Communauté sportive et écrans d’activité GYMERZ sur iPhone',
+      es: 'Comunidad de fitness y pantallas de actividad de GYMERZ en iPhone',
+    },
     summary: {
       en: 'A fitness marketplace connecting people with coaches and gyms.',
       fr: 'Une plateforme de fitness reliant utilisateurs, coachs et salles.',
@@ -388,7 +413,12 @@ export const earlierWork = [
   {
     name: 'PennyFlow',
     tags: 'SwiftUI · CoreData',
-    image: '/assets/images/portfolio6.webp',
+    image: pennyflow,
+    imageAlt: {
+      en: 'PennyFlow subscription budgets and payment calendar presented on iPhone',
+      fr: 'Budgets d’abonnements et calendrier des paiements PennyFlow sur iPhone',
+      es: 'Presupuestos de suscripciones y calendario de pagos de PennyFlow en iPhone',
+    },
     summary: {
       en: 'A native iOS app for keeping track of recurring subscriptions.',
       fr: 'Une application iOS native pour suivre les abonnements récurrents.',
@@ -398,7 +428,12 @@ export const earlierWork = [
   {
     name: 'iSophro',
     tags: 'Flutter · Firebase',
-    image: '/assets/images/portfolio5.webp',
+    image: isophro,
+    imageAlt: {
+      en: 'iSophro guided sessions and daily mood check-in presented on iPhone',
+      fr: 'Séances guidées et bilan quotidien de l’humeur iSophro sur iPhone',
+      es: 'Sesiones guiadas y registro diario del estado de ánimo de iSophro en iPhone',
+    },
     summary: {
       en: 'A guided sophrology and wellness app with audio and video experiences.',
       fr: 'Une app de sophrologie et de bien-être avec des expériences audio et vidéo.',
@@ -408,7 +443,12 @@ export const earlierWork = [
   {
     name: 'Barid Purchase',
     tags: 'Flutter · Laravel',
-    image: '/assets/images/portfolio2.webp',
+    image: baridPurchase,
+    imageAlt: {
+      en: 'Barid Purchase procurement reports and budget charts presented on iPhone',
+      fr: 'Rapports d’achats et graphiques budgétaires Barid Purchase sur iPhone',
+      es: 'Informes de compras y gráficos presupuestarios de Barid Purchase en iPhone',
+    },
     summary: {
       en: 'Mobile procurement workflows for Poste Maroc.',
       fr: 'Des outils mobiles de gestion des achats pour Poste Maroc.',

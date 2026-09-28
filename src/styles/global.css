@@ -710,12 +710,6 @@ summary::-webkit-details-marker {
 .project-visual.screen.flura:hover > img {
   transform: rotate(-3deg) translateY(-5px);
 }
-.project-visual.\34 33-football > img {
-  width: 91%;
-  height: 107%;
-  margin-inline: auto;
-  padding-top: 24px;
-}
 .project-heading {
   display: flex;
   align-items: center;
