@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { copy } from '../data/copy';
 import { projects, earlierWork } from '../data/projects';
 import type { Locale } from '../data/site';
@@ -61,12 +62,13 @@ const t = copy[locale];
         </summary>
         <div class="archive-detail">
           <p>{project.summary[locale]}</p>
-          <img
+          <Image
             src={project.image}
-            alt={project.name}
+            alt={project.imageAlt[locale]}
+            widths={[480, 800, 1200, 1600]}
+            sizes="(max-width: 760px) 90vw, 900px"
+            format="webp"
             loading="lazy"
-            width="1200"
-            height="675"
           />
         </div>
       </details>
