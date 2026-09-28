@@ -1,0 +1,16 @@
+---
+import { copy } from '../data/copy';
+import type { ProjectStatus } from '../data/projects';
+import type { Locale } from '../data/site';
+
+interface Props {
+  status: ProjectStatus;
+  locale: Locale;
+}
+const { status, locale } = Astro.props;
+---
+
+<span class:list={['project-status', status]} data-project-status={status}>
+  <span class="status-dot" aria-hidden="true"></span>
+  {copy[locale].ui[status]}
+</span>

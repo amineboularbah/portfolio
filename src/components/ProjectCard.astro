@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { copy } from '../data/copy';
 import type { Project } from '../data/projects';
+import ProjectStatus from './ProjectStatus.astro';
 import { localPath, type Locale } from '../data/site';
 interface Props {
   project: Project;
@@ -46,7 +47,10 @@ const href = localPath(locale, 'projects/' + project.slug);
     <h3>
       <a href={href}>{project.name}</a>
     </h3>
-    <span class="category-label">{t.ui[project.category]}</span>
+    <div class="project-labels">
+      <span class="category-label">{t.ui[project.category]}</span>
+      <ProjectStatus status={project.status} locale={locale} />
+    </div>
   </div>
   <p>{content.summary}</p>
   <div class="project-bottom">
