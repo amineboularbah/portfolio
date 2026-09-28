@@ -96,3 +96,9 @@ The organized library is delivered in `Desktop/AppWrapp Resources`: `Personal We
 ### Project availability
 
 Amine confirmed that Indiscutido, PennyFlow, and Barid Purchase were discontinued by their owners, while all other listed projects are active and available online. These are owner-supplied status declarations, not an independent availability audit. A shared status component provides English, French, and Spanish labels on project cards, detail pages, and earlier-work entries. Stable status sorting keeps discontinued entries after active entries in each collection, preserving the requested order among active projects. The three discontinued projects are the final entries on the portfolio list.
+
+### Project ownership and exact brand references
+
+Amine confirmed that GYMERZ, iSophro, Indiscutido, and Barid Purchase are earlier client work. PennyFlow is his own discontinued SwiftUI product. The filters now include both featured projects and earlier work: six client projects, five personal products, eleven in total. Availability and ownership are separate fields, so discontinued work remains discoverable in its category and follows active work. The classification, counts, and labels apply in English, French, and Spanish.
+
+Amine supplied the official square 433 app logo and exact brand references `#f1ff00` for 433 and `#ffba1d` for Receipto. Both website and Upwork artwork were corrected with the built-in image-generation tool. The 433 headline accent uses a dark backing for readability. The revised Receipto website master is shared with AppWrapp. The original supplied logo, correction prompts, PNG masters, and previous exports are preserved in the organized resource library. Raster artwork retains its photographic shading and antialiasing; the source brand values are recorded separately.

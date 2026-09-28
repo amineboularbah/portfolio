@@ -15,7 +15,12 @@ const content = project.content[locale];
 const href = localPath(locale, 'projects/' + project.slug);
 ---
 
-<article class="project-card" data-category={project.category} data-reveal>
+<article
+  class="project-card"
+  data-project-item
+  data-category={project.category}
+  data-reveal
+>
   <a
     class:list={['project-visual', project.visual, project.slug]}
     style={'--project-bg:' + project.color}

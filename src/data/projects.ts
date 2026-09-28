@@ -396,6 +396,7 @@ export const projects = activeFirst<Project>([
 
 interface EarlierProject {
   name: string;
+  category: Project['category'];
   status: ProjectStatus;
   tags: string;
   image: ImageMetadata;
@@ -406,6 +407,7 @@ interface EarlierProject {
 export const earlierWork = activeFirst<EarlierProject>([
   {
     name: 'Indiscutido',
+    category: 'client',
     status: 'discontinued',
     tags: 'Flutter · Supabase',
     image: indiscutido,
@@ -422,6 +424,7 @@ export const earlierWork = activeFirst<EarlierProject>([
   },
   {
     name: 'GYMERZ',
+    category: 'client',
     status: 'active',
     tags: 'Flutter · .NET',
     image: gymerz,
@@ -438,6 +441,7 @@ export const earlierWork = activeFirst<EarlierProject>([
   },
   {
     name: 'PennyFlow',
+    category: 'own',
     status: 'discontinued',
     tags: 'SwiftUI · CoreData',
     image: pennyflow,
@@ -454,6 +458,7 @@ export const earlierWork = activeFirst<EarlierProject>([
   },
   {
     name: 'iSophro',
+    category: 'client',
     status: 'active',
     tags: 'Flutter · Firebase',
     image: isophro,
@@ -470,6 +475,7 @@ export const earlierWork = activeFirst<EarlierProject>([
   },
   {
     name: 'Barid Purchase',
+    category: 'client',
     status: 'discontinued',
     tags: 'Flutter · Laravel',
     image: baridPurchase,

@@ -80,6 +80,52 @@ test('project status is localized and discontinued products follow all active wo
   }
 });
 
+test('project filters include client archives and the discontinued SwiftUI product in every language', () => {
+  const expected = {
+    client: [
+      '433 Football',
+      'Ignite Tournaments',
+      'GYMERZ',
+      'iSophro',
+      'Indiscutido',
+      'Barid Purchase',
+    ],
+    own: ['Receipto', 'Fielduro', 'Flura', 'FinFlo', 'PennyFlow'],
+  };
+  for (const prefix of ['/', '/fr/', '/es/']) {
+    const { $ } = byPath.get(`${prefix}projects/`);
+    assert.equal($('[data-project-item]').length, 11);
+    assert.equal($('[data-project-item][hidden]').length, 0);
+    assert.match($('[data-count-label]').text().trim(), /^11 /);
+    for (const [category, names] of Object.entries(expected)) {
+      const items = $(`[data-project-item][data-category="${category}"]`);
+      assert.deepEqual(
+        items
+          .map((_, el) => $(el).find('h3, .archive-name').text().trim())
+          .get(),
+        names,
+      );
+      const statuses = items
+        .map((_, el) =>
+          $(el).find('[data-project-status]').attr('data-project-status'),
+        )
+        .get();
+      assert.deepEqual(
+        statuses,
+        [...statuses].sort(
+          (a, b) => Number(a === 'discontinued') - Number(b === 'discontinued'),
+        ),
+      );
+    }
+    const pennyFlow = $('[data-earlier-work] [data-category="own"]');
+    assert.match(pennyFlow.find('.caption').text(), /SwiftUI/);
+    assert.equal(
+      pennyFlow.find('[data-project-status]').attr('data-project-status'),
+      'discontinued',
+    );
+  }
+});
+
 test('every language uses the branded landscape sharing image and matching accessible metadata', () => {
   const path = '/social/amine-boularbah-social-v1.png';
   const image = readFileSync(join(dist, path));
