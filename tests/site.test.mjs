@@ -31,9 +31,21 @@ const resolveFile = (url) =>
 
 test('project status is localized and discontinued products follow all active work', () => {
   const labels = {
-    en: ['Active', 'Discontinued by owner'],
-    fr: ['Actif', 'Arrêté par le propriétaire'],
-    es: ['Activo', 'Descontinuado por el propietario'],
+    en: {
+      active: 'Active',
+      comingSoon: 'Coming soon',
+      discontinued: 'Discontinued by owner',
+    },
+    fr: {
+      active: 'Actif',
+      comingSoon: 'Prochainement',
+      discontinued: 'Arrêté par le propriétaire',
+    },
+    es: {
+      active: 'Activo',
+      comingSoon: 'Próximamente',
+      discontinued: 'Descontinuado por el propietario',
+    },
   };
   const archivedOrder = [
     'GYMERZ',
@@ -52,14 +64,19 @@ test('project status is localized and discontinued products follow all active wo
       archivedOrder,
     );
     const statuses = $('[data-project-status]');
-    assert.equal(statuses.length, 11);
+    assert.equal(statuses.length, 12);
     assert.deepEqual(
       statuses.map((_, el) => $(el).attr('data-project-status')).get(),
-      [...Array(8).fill('active'), ...Array(3).fill('discontinued')],
+      [
+        ...Array(6).fill('active'),
+        'comingSoon',
+        ...Array(2).fill('active'),
+        ...Array(3).fill('discontinued'),
+      ],
     );
     statuses.each((_, el) => {
-      const index = $(el).attr('data-project-status') === 'active' ? 0 : 1;
-      assert.equal($(el).text().trim(), labels[locale][index]);
+      const status = $(el).attr('data-project-status');
+      assert.equal($(el).text().trim(), labels[locale][status]);
     });
     const home = byPath.get(prefix).$;
     assert.equal(home('[data-project-status="active"]').length, 4);
@@ -74,9 +91,20 @@ test('project status is localized and discontinued products follow all active wo
       const detail = byPath.get(`${prefix}projects/${slug}/`).$;
       assert.equal(
         detail('.project-facts [data-project-status="active"]').text().trim(),
-        labels[locale][0],
+        labels[locale].active,
       );
     }
+    const cucu = byPath.get(`${prefix}projects/cucu-rutxo/`).$;
+    assert.equal(
+      cucu('.project-facts [data-project-status="comingSoon"]').text().trim(),
+      labels[locale].comingSoon,
+    );
+    assert.equal(cucu('.project-gallery figure').length, 4);
+    assert.equal(cucu('.project-story a').length, 0);
+    assert.match(
+      cucu('.project-gallery > .caption').text(),
+      /demo|démonstration|demostración/i,
+    );
   }
 });
 
@@ -85,6 +113,7 @@ test('project filters include client archives and the discontinued SwiftUI produ
     client: [
       '433 Football',
       'Ignite Tournaments',
+      'Cucu Rutxo',
       'GYMERZ',
       'iSophro',
       'Indiscutido',
@@ -94,9 +123,9 @@ test('project filters include client archives and the discontinued SwiftUI produ
   };
   for (const prefix of ['/', '/fr/', '/es/']) {
     const { $ } = byPath.get(`${prefix}projects/`);
-    assert.equal($('[data-project-item]').length, 11);
+    assert.equal($('[data-project-item]').length, 12);
     assert.equal($('[data-project-item][hidden]').length, 0);
-    assert.match($('[data-count-label]').text().trim(), /^11 /);
+    assert.match($('[data-count-label]').text().trim(), /^12 /);
     for (const [category, names] of Object.entries(expected)) {
       const items = $(`[data-project-item][data-category="${category}"]`);
       assert.deepEqual(
@@ -110,12 +139,13 @@ test('project filters include client archives and the discontinued SwiftUI produ
           $(el).find('[data-project-status]').attr('data-project-status'),
         )
         .get();
-      assert.deepEqual(
-        statuses,
-        [...statuses].sort(
-          (a, b) => Number(a === 'discontinued') - Number(b === 'discontinued'),
-        ),
-      );
+      const firstDiscontinued = statuses.indexOf('discontinued');
+      if (firstDiscontinued >= 0)
+        assert.ok(
+          statuses
+            .slice(firstDiscontinued)
+            .every((status) => status === 'discontinued'),
+        );
     }
     const pennyFlow = $('[data-earlier-work] [data-category="own"]');
     assert.match(pennyFlow.find('.caption').text(), /SwiftUI/);
@@ -162,8 +192,8 @@ test('every language uses the branded landscape sharing image and matching acces
   assert.equal(alternatives.size, 3);
 });
 
-test('45 English, French, and Spanish pages have unique indexable metadata', () => {
-  assert.equal(pages.length, 45);
+test('48 English, French, and Spanish pages have unique indexable metadata', () => {
+  assert.equal(pages.length, 48);
   const titles = new Set();
   const descriptions = new Set();
   for (const { path, $ } of pages) {
@@ -173,7 +203,7 @@ test('45 English, French, and Spanish pages have unique indexable metadata', () 
         ? 'es'
         : 'en';
     assert.equal($('html').attr('lang'), locale, path);
-    assert.equal($('html').attr('data-theme'), 'light', path);
+    assert.equal($('html').attr('data-theme'), undefined, path);
     assert.equal($('main h1').length, 1, path);
     assert.equal($('link[rel=canonical]').attr('href'), origin + path, path);
     assert.doesNotMatch($('meta[name=robots]').attr('content'), /noindex/);
@@ -351,23 +381,25 @@ test('legacy FAQ and home fragments survive, and unknown pages are not indexed',
   assert.ok(existsSync(join(dist, '.nojekyll')));
 });
 
-test('first visit stays light and English; only an explicit dark preference changes it', () => {
+test('system appearance is the default and saved theme choices take precedence', () => {
   const $ = byPath.get('/').$;
   const boot = $('head script').first().text();
-  for (const [stored, expected] of [
-    [null, 'light'],
-    ['light', 'light'],
-    ['dark', 'dark'],
-    ['invalid', 'light'],
+  for (const [stored, systemDark, expected] of [
+    [null, false, 'light'],
+    [null, true, 'dark'],
+    ['light', true, 'light'],
+    ['dark', false, 'dark'],
+    ['invalid', true, 'dark'],
   ]) {
-    const document = { documentElement: { dataset: { theme: 'light' } } };
+    const document = { documentElement: { dataset: {} } };
     runInNewContext(boot, {
       document,
       localStorage: { getItem: () => stored },
+      window: { matchMedia: () => ({ matches: systemDark }) },
     });
     assert.equal(document.documentElement.dataset.theme, expected);
   }
-  const document = { documentElement: { dataset: { theme: 'light' } } };
+  const document = { documentElement: { dataset: {} } };
   runInNewContext(boot, {
     document,
     localStorage: {
@@ -375,21 +407,26 @@ test('first visit stays light and English; only an explicit dark preference chan
         throw new Error('Storage blocked');
       },
     },
+    window: { matchMedia: () => ({ matches: true }) },
   });
-  assert.equal(document.documentElement.dataset.theme, 'light');
+  assert.equal(document.documentElement.dataset.theme, 'dark');
+  const css = walk(dist)
+    .filter((file) => file.endsWith('.css'))
+    .map((file) => readFileSync(file, 'utf8'))
+    .join('\n');
+  assert.match(css, /prefers-color-scheme:\s*dark/);
+  assert.match(css, /html:not\(\[data-theme\]\)/);
   for (const file of walk(dist).filter((file) => /\.(html|js)$/.test(file))) {
     const script = readFileSync(file, 'utf8');
-    assert.doesNotMatch(
-      script,
-      /navigator\.language|ab-lang|prefers-color-scheme/,
-    );
+    assert.doesNotMatch(script, /navigator\.language|ab-lang/);
   }
+  assert.equal($('meta[name="theme-color"]').length, 2);
 });
 
 test('core content and navigation work without client JavaScript', () => {
   for (const locale of ['', '/fr', '/es']) {
     const projects = byPath.get(locale + '/projects/').$;
-    assert.equal(projects('.project-card').length, 6);
+    assert.equal(projects('.project-card').length, 7);
     assert.equal(projects('.project-card[hidden]').length, 0);
     assert.equal(projects('.archive-list details').length, 5);
     assert.equal(projects('.mobile-menu a').length, 6);

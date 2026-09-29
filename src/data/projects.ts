@@ -11,14 +11,28 @@ import gymerz from '../assets/thumbnails/gymerz-thumbnail.webp';
 import pennyflow from '../assets/thumbnails/pennyflow-thumbnail.webp';
 import isophro from '../assets/thumbnails/isophro-thumbnail.webp';
 import baridPurchase from '../assets/thumbnails/barid-purchase-thumbnail.webp';
+import cucuOnboarding from '../assets/cucu-rutxo/onboarding.png';
+import cucuHome from '../assets/cucu-rutxo/home.png';
+import cucuNfcGuide from '../assets/cucu-rutxo/nfc-guide.png';
+import cucuConnections from '../assets/cucu-rutxo/connections.png';
 
-export type ProjectStatus = 'active' | 'discontinued';
+export type ProjectStatus = 'active' | 'comingSoon' | 'discontinued';
 
 const activeFirst = <T extends { status: ProjectStatus }>(items: T[]): T[] =>
-  items.toSorted(
-    (a, b) =>
-      Number(a.status === 'discontinued') - Number(b.status === 'discontinued'),
-  );
+  items.toSorted((a, b) => {
+    const order: Record<ProjectStatus, number> = {
+      active: 0,
+      comingSoon: 1,
+      discontinued: 2,
+    };
+    return order[a.status] - order[b.status];
+  });
+
+interface ProjectGalleryImage {
+  image: ImageMetadata;
+  alt: Localized<string>;
+  label: Localized<string>;
+}
 
 export interface Project {
   slug: string;
@@ -30,7 +44,8 @@ export interface Project {
   visual: 'montage' | 'screen' | 'thumbnail';
   color: string;
   tags: string[];
-  url: string;
+  url?: string;
+  gallery?: ProjectGalleryImage[];
   content: Localized<{
     role: string;
     title: string;
@@ -331,6 +346,100 @@ export const projects = activeFirst<Project>([
           'Diseñar y desarrollar el producto móvil desde cero.',
           'Crear el registro de síntomas y el historial de salud.',
           'Facilitar la revisión de los datos y su intercambio con profesionales sanitarios.',
+        ],
+      },
+    },
+  },
+  {
+    slug: 'cucu-rutxo',
+    name: 'Cucu Rutxo',
+    status: 'comingSoon',
+    category: 'client',
+    image: cucuOnboarding,
+    imageAlt: {
+      en: 'Cucu Rutxo onboarding screen with a green character and Spanish introduction',
+      fr: 'Écran d’accueil de Cucu Rutxo avec un personnage vert et une introduction en espagnol',
+      es: 'Pantalla de bienvenida de Cucu Rutxo con un personaje verde y una introducción en español',
+    },
+    visual: 'screen',
+    color: '#e5efdf',
+    tags: ['Flutter', 'NFC', 'Mobile experience'],
+    gallery: [
+      {
+        image: cucuOnboarding,
+        label: { en: 'Onboarding', fr: 'Accueil', es: 'Bienvenida' },
+        alt: {
+          en: 'Cucu Rutxo character-led onboarding screen',
+          fr: 'Écran d’accueil de Cucu Rutxo avec son personnage',
+          es: 'Pantalla de bienvenida de Cucu Rutxo con su personaje',
+        },
+      },
+      {
+        image: cucuHome,
+        label: { en: 'Home', fr: 'Accueil de l’app', es: 'Inicio' },
+        alt: {
+          en: 'Cucu Rutxo home screen with a yellow character theme and demo profile',
+          fr: 'Écran principal de Cucu Rutxo avec un thème jaune et un profil de démonstration',
+          es: 'Pantalla principal de Cucu Rutxo con un tema amarillo y un perfil de demostración',
+        },
+      },
+      {
+        image: cucuNfcGuide,
+        label: { en: 'NFC guide', fr: 'Guide NFC', es: 'Guía NFC' },
+        alt: {
+          en: 'Cucu Rutxo three-step NFC connection guide in Spanish',
+          fr: 'Guide de connexion NFC de Cucu Rutxo en trois étapes, en espagnol',
+          es: 'Guía de conexión NFC de Cucu Rutxo en tres pasos',
+        },
+      },
+      {
+        image: cucuConnections,
+        label: { en: 'Connections', fr: 'Connexions', es: 'Conexiones' },
+        alt: {
+          en: 'Cucu Rutxo connections screen with fictional demo contacts',
+          fr: 'Écran des connexions de Cucu Rutxo avec des contacts fictifs de démonstration',
+          es: 'Pantalla de conexiones de Cucu Rutxo con contactos ficticios de demostración',
+        },
+      },
+    ],
+    content: {
+      en: {
+        role: 'Flutter Engineer',
+        title: 'A little less scrolling. More real connections.',
+        summary:
+          'A playful social app designed to make it easier to connect with people in person.',
+        context:
+          'Cucu Rutxo is a client project in development. It uses an NFC connection flow to help people share social links when they meet, with character-led onboarding and a place to revisit connections.',
+        contributions: [
+          'Build the Flutter mobile experience and character-led onboarding.',
+          'Develop the NFC connection flow and supporting profile screens.',
+          'Create social-link and connections views for in-person discovery.',
+        ],
+      },
+      fr: {
+        role: 'Ingénieur Flutter',
+        title: 'Moins de défilement. Plus de rencontres réelles.',
+        summary:
+          'Une application sociale ludique pour faciliter les rencontres dans la vraie vie.',
+        context:
+          'Cucu Rutxo est un projet client en cours de développement. Un parcours NFC aide les personnes qui se rencontrent à échanger leurs liens sociaux, avec un accueil illustré par des personnages et un espace pour retrouver leurs contacts.',
+        contributions: [
+          'Développer l’application Flutter et son parcours d’accueil illustré.',
+          'Créer le parcours de connexion NFC et les écrans de profil associés.',
+          'Concevoir les vues des liens sociaux et des connexions pour les rencontres en personne.',
+        ],
+      },
+      es: {
+        role: 'Ingeniero Flutter',
+        title: 'Menos scroll. Más encuentros reales.',
+        summary:
+          'Una app social divertida para facilitar las conexiones en persona.',
+        context:
+          'Cucu Rutxo es un proyecto para un cliente que está en desarrollo. Su flujo NFC ayuda a intercambiar enlaces sociales al conocer a alguien, con una bienvenida protagonizada por personajes y un espacio para volver a encontrar esas conexiones.',
+        contributions: [
+          'Desarrollar la experiencia móvil en Flutter y la bienvenida protagonizada por personajes.',
+          'Crear el flujo de conexión NFC y las pantallas de perfil relacionadas.',
+          'Diseñar las vistas de enlaces sociales y conexiones para encuentros en persona.',
         ],
       },
     },

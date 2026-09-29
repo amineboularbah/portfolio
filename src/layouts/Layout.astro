@@ -135,18 +135,24 @@ const graph = {
 ---
 
 <!doctype html>
-<html lang={page.locale} data-theme="light">
+<html lang={page.locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script is:inline>
       (() => {
+        let savedTheme;
         try {
-          if (localStorage.getItem('ab-theme') === 'dark')
-            document.documentElement.dataset.theme = 'dark';
+          savedTheme = localStorage.getItem('ab-theme');
         } catch {
-          /* The light default also works when storage is unavailable. */
+          /* System appearance still works when storage is unavailable. */
         }
+        document.documentElement.dataset.theme =
+          savedTheme === 'dark' ||
+          (savedTheme !== 'light' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ? 'dark'
+            : 'light';
       })();
     </script>
     <title>{page.title}</title>
@@ -198,7 +204,16 @@ const graph = {
     <meta name="twitter:description" content={page.description} />
     <meta name="twitter:image" content={socialImage} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
-    <meta name="theme-color" content="#fafaf6" />
+    <meta
+      name="theme-color"
+      content="#fafaf6"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#171e21"
+      media="(prefers-color-scheme: dark)"
+    />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

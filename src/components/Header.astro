@@ -87,11 +87,23 @@ const names = { en: 'English', fr: 'Français', es: 'Español' };
 </header>
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+  const savedTheme = (): 'light' | 'dark' | null => {
+    try {
+      const value = localStorage.getItem('ab-theme');
+      return value === 'light' || value === 'dark' ? value : null;
+    } catch {
+      return null;
+    }
+  };
+  const currentSystemTheme = () => (systemTheme.matches ? 'dark' : 'light');
   const applyTheme = (theme: 'light' | 'dark') => {
     document.documentElement.dataset.theme = theme;
     document
-      .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', theme === 'dark' ? '#171e21' : '#fafaf6');
+      .querySelectorAll('meta[name="theme-color"]')
+      .forEach((meta) =>
+        meta.setAttribute('content', theme === 'dark' ? '#171e21' : '#fafaf6'),
+      );
     if (!toggle) return;
     toggle.textContent =
       (theme === 'dark' ? toggle.dataset.light : toggle.dataset.dark) ?? '';
@@ -102,9 +114,7 @@ const names = { en: 'English', fr: 'Français', es: 'Español' };
     );
   };
   if (toggle) {
-    applyTheme(
-      document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
-    );
+    applyTheme(savedTheme() ?? currentSystemTheme());
     toggle.hidden = false;
     toggle.addEventListener('click', () => {
       const theme =
@@ -118,7 +128,10 @@ const names = { en: 'English', fr: 'Français', es: 'Español' };
     });
     window.addEventListener('storage', (event) => {
       if (event.key === 'ab-theme' || event.key === null)
-        applyTheme(event.newValue === 'dark' ? 'dark' : 'light');
+        applyTheme(savedTheme() ?? currentSystemTheme());
+    });
+    systemTheme.addEventListener('change', () => {
+      if (savedTheme() === null) applyTheme(currentSystemTheme());
     });
   }
   const menus = document.querySelectorAll<HTMLDetailsElement>(

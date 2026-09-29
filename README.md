@@ -2,7 +2,7 @@
 
 Personal portfolio for [amineboularbah.com](https://amineboularbah.com), built with Astro and published on GitHub Pages.
 
-English and light mode are the defaults. French and Spanish have their own complete page trees. Visitors can explicitly switch language or save a light/dark preference. There is no automatic language or system-theme redirect.
+English is the default language. The site follows the visitor's system light or dark mode until they save a manual theme choice. French and Spanish have their own complete page trees. There is no automatic language redirect.
 
 ## Development
 
