@@ -95,6 +95,8 @@ test('project status is localized and discontinued products follow all active wo
       );
     }
     const cucu = byPath.get(`${prefix}projects/cucu-rutxo/`).$;
+    assert.equal($(`.project-visual.cucu-rutxo.thumbnail`).length, 1);
+    assert.equal(cucu('.project-cover.cucu-rutxo.thumbnail').length, 1);
     assert.equal(
       cucu('.project-facts [data-project-status="comingSoon"]').text().trim(),
       labels[locale].comingSoon,

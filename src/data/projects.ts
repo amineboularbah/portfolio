@@ -11,6 +11,7 @@ import gymerz from '../assets/thumbnails/gymerz-thumbnail.webp';
 import pennyflow from '../assets/thumbnails/pennyflow-thumbnail.webp';
 import isophro from '../assets/thumbnails/isophro-thumbnail.webp';
 import baridPurchase from '../assets/thumbnails/barid-purchase-thumbnail.webp';
+import cucuThumbnail from '../assets/thumbnails/cucu-rutxo-thumbnail.webp';
 import cucuOnboarding from '../assets/cucu-rutxo/onboarding.png';
 import cucuHome from '../assets/cucu-rutxo/home.png';
 import cucuNfcGuide from '../assets/cucu-rutxo/nfc-guide.png';
@@ -355,13 +356,13 @@ export const projects = activeFirst<Project>([
     name: 'Cucu Rutxo',
     status: 'comingSoon',
     category: 'client',
-    image: cucuOnboarding,
+    image: cucuThumbnail,
     imageAlt: {
-      en: 'Cucu Rutxo onboarding screen with a green character and Spanish introduction',
-      fr: 'Écran d’accueil de Cucu Rutxo avec un personnage vert et une introduction en espagnol',
-      es: 'Pantalla de bienvenida de Cucu Rutxo con un personaje verde y una introducción en español',
+      en: 'Cucu Rutxo project thumbnail with onboarding and NFC guide screens in phone mockups',
+      fr: 'Vignette de Cucu Rutxo avec les écrans d’accueil et du guide NFC dans des téléphones',
+      es: 'Miniatura de Cucu Rutxo con las pantallas de bienvenida y la guía NFC en dos móviles',
     },
-    visual: 'screen',
+    visual: 'thumbnail',
     color: '#e5efdf',
     tags: ['Flutter', 'NFC', 'Mobile experience'],
     gallery: [
