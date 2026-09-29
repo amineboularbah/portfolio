@@ -16,6 +16,7 @@ export const copy = {
       home: 'Home',
       projects: 'Work',
       about: 'About',
+      reviews: 'Reviews',
       services: 'Services',
       contact: 'Let’s talk',
       faq: 'FAQ',
@@ -127,6 +128,19 @@ export const copy = {
       intro:
         'Client collaborations and products I build through AppWrapp. Each project makes my role and the engineering focus clear.',
     },
+    reviews: {
+      eyebrow: 'IN THEIR WORDS',
+      title: 'What people say about working with me.',
+      intro:
+        'A few public reviews from clients and colleagues. Every excerpt links to its original source.',
+      topRated: 'Top Rated on Upwork',
+      upwork: 'Client reviews on Upwork',
+      linkedin: 'Recommendations on LinkedIn',
+      source: 'Read the original',
+      anonymous: 'Upwork client',
+      note: 'Quotes are excerpts in their original language. Upwork does not show client names for these reviews.',
+      homeLink: 'Read more reviews',
+    },
     services: {
       eyebrow: 'WORK WITH ME',
       title: 'Good ideas deserve thoughtful execution.',
@@ -217,6 +231,7 @@ export const copy = {
       home: 'Accueil',
       projects: 'Projets',
       about: 'À propos',
+      reviews: 'Avis',
       services: 'Services',
       contact: 'Échangeons',
       faq: 'FAQ',
@@ -328,6 +343,19 @@ export const copy = {
       intro:
         'Des collaborations et les produits de mon studio AppWrapp. Pour chaque projet, découvrez mon rôle et les principaux sujets techniques.',
     },
+    reviews: {
+      eyebrow: 'LEURS MOTS',
+      title: 'Ce qu’ils disent de notre collaboration.',
+      intro:
+        'Quelques avis publics de clients et de collègues. Chaque extrait renvoie à sa source.',
+      topRated: 'Top Rated sur Upwork',
+      upwork: 'Avis clients sur Upwork',
+      linkedin: 'Recommandations sur LinkedIn',
+      source: 'Lire l’original',
+      anonymous: 'Client Upwork',
+      note: 'Les citations sont des extraits dans leur langue originale. Upwork n’affiche pas le nom des clients pour ces avis.',
+      homeLink: 'Lire d’autres avis',
+    },
     services: {
       eyebrow: 'TRAVAILLONS ENSEMBLE',
       title: 'Une bonne idée mérite une réalisation soignée.',
@@ -419,6 +447,7 @@ export const copy = {
       home: 'Inicio',
       projects: 'Proyectos',
       about: 'Sobre mí',
+      reviews: 'Opiniones',
       services: 'Servicios',
       contact: 'Hablemos',
       faq: 'Preguntas',
@@ -529,6 +558,19 @@ export const copy = {
       title: 'Productos diferentes. El mismo cuidado por los detalles.',
       intro:
         'Colaboraciones con clientes y productos que desarrollo en AppWrapp. Cada proyecto explica mi papel y su enfoque técnico.',
+    },
+    reviews: {
+      eyebrow: 'SUS PALABRAS',
+      title: 'Lo que dicen sobre trabajar conmigo.',
+      intro:
+        'Algunas opiniones públicas de clientes y compañeros. Cada extracto enlaza a su fuente original.',
+      topRated: 'Top Rated en Upwork',
+      upwork: 'Opiniones de clientes en Upwork',
+      linkedin: 'Recomendaciones en LinkedIn',
+      source: 'Leer el original',
+      anonymous: 'Cliente de Upwork',
+      note: 'Las citas son extractos en su idioma original. Upwork no muestra los nombres de los clientes en estas opiniones.',
+      homeLink: 'Leer más opiniones',
     },
     services: {
       eyebrow: 'TRABAJEMOS JUNTOS',

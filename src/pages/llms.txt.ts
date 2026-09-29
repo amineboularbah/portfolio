@@ -36,7 +36,7 @@ export function GET() {
     '- [CV en français](' + site.url + '/fr/resume/)',
     '- [CV en español](' + site.url + '/es/resume/)',
     '',
-    'Project pages distinguish client collaborations from products built through AppWrapp. Credentials and professional references are linked on the About page. Public copy makes no guarantees about availability, prices, performance metrics, or delivery dates.',
+    'Project pages distinguish client collaborations from products built through AppWrapp. Credentials and professional references are linked on the About page. The Reviews page contains short excerpts from public Upwork feedback and LinkedIn recommendations with source links. Public copy makes no guarantees about availability, prices, performance metrics, or delivery dates.',
     '',
   ];
   return new Response(lines.join('\n'), {

@@ -153,12 +153,15 @@ const t = copy[locale];
 <section class="container quote-section" id="testimonial" data-reveal>
   <p class="eyebrow">{t.home.quoteLabel}</p>
   <blockquote lang="en">
-    “He was able to execute on everything we assigned to him, showing clear
-    understanding of the problem space.”
+    “He is an exceptionally talented and motivated developer with a deep
+    expertise in his field.”
   </blockquote>
   <p class="quote-attribution">
-    Josh K. <span>CTO, Ignite Tournaments</span>
+    Jeffrey Godwyll <span>VP of Engineering, Ignite Tournaments</span>
   </p>
   {locale !== 'en' && <p class="caption">{t.ui.originalQuote}</p>}
+  <a class="text-link" href={localPath(locale, 'reviews')}>
+    {t.reviews.homeLink}
+  </a>
 </section>
 <ContactBanner locale={locale} />

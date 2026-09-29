@@ -6,6 +6,7 @@ export const sections = [
   '',
   'projects',
   'about',
+  'reviews',
   'resume',
   'services',
   'contact',
@@ -35,6 +36,7 @@ export const pages: Page[] = locales.flatMap((locale) => {
     ],
     projects: [t.nav.projects + ' | Amine Boularbah', t.projects.intro],
     about: [t.nav.about + ' | Amine Boularbah', t.about.intro],
+    reviews: [t.nav.reviews + ' | Amine Boularbah', t.reviews.intro],
     services: [
       (locale === 'fr'
         ? 'Services Flutter et ingénierie mobile'

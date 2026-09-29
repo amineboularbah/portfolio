@@ -903,6 +903,69 @@ summary::-webkit-details-marker {
 .quote-section .caption {
   margin-top: 10px;
 }
+.quote-section .text-link {
+  margin-top: 20px;
+}
+.reviews-intro {
+  padding-bottom: 42px;
+}
+.reviews-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: var(--panel);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.reviews-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.reviews-section {
+  padding-block: 40px 54px;
+  border-top: 1px solid var(--line);
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+.review-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 265px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.review-card blockquote {
+  font-size: clamp(1.125rem, 1.55vw, 1.35rem);
+  font-weight: 550;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+  flex: 1;
+}
+.review-meta {
+  margin-top: 26px;
+}
+.review-person {
+  font-weight: 700;
+  line-height: 1.4;
+}
+.review-card .text-link {
+  align-self: flex-start;
+  margin-top: 18px;
+}
+.reviews-note {
+  padding-bottom: 75px;
+}
 .contact-banner {
   background: var(--soft);
 }
@@ -1841,6 +1904,13 @@ details[open] > summary .details-symbol {
   .quote-attribution span {
     display: block;
     margin: 6px 0 0;
+  }
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .review-card {
+    min-height: 0;
+    padding: 24px;
   }
   .contact-banner-inner {
     padding-block: 47px;

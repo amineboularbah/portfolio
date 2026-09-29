@@ -162,8 +162,8 @@ test('every language uses the branded landscape sharing image and matching acces
   assert.equal(alternatives.size, 3);
 });
 
-test('42 English, French, and Spanish pages have unique indexable metadata', () => {
-  assert.equal(pages.length, 42);
+test('45 English, French, and Spanish pages have unique indexable metadata', () => {
+  assert.equal(pages.length, 45);
   const titles = new Set();
   const descriptions = new Set();
   for (const { path, $ } of pages) {
@@ -392,12 +392,39 @@ test('core content and navigation work without client JavaScript', () => {
     assert.equal(projects('.project-card').length, 6);
     assert.equal(projects('.project-card[hidden]').length, 0);
     assert.equal(projects('.archive-list details').length, 5);
-    assert.equal(projects('.mobile-menu a').length, 5);
+    assert.equal(projects('.mobile-menu a').length, 6);
     assert.equal(projects('.language-menu a').length, 3);
     const contact = byPath.get(locale + '/contact/').$;
     assert.ok(contact('a[href^="mailto:hello@amineboularbah.com"]').length > 0);
     assert.equal(contact('form').length, 0);
     assert.equal(byPath.get(locale + '/faq/').$('.faq-list details').length, 6);
+  }
+});
+
+test('review pages keep source links, original quotes, and localized navigation', () => {
+  for (const locale of ['', '/fr', '/es']) {
+    const path = locale + '/reviews/';
+    const { $ } = byPath.get(path);
+    assert.equal($('.review-card').length, 5);
+    assert.equal($('.review-card blockquote[lang="en"]').length, 4);
+    assert.equal($('.review-card blockquote[lang="fr"]').length, 1);
+    assert.match($('.reviews-badge').text(), /Top Rated/);
+    for (const element of $('.review-card a, .reviews-badge').toArray()) {
+      const link = $(element);
+      assert.match(
+        link.attr('href'),
+        /^https:\/\/(www\.)?(upwork|linkedin)\.com\//,
+      );
+      assert.equal(link.attr('target'), '_blank');
+      assert.match(link.attr('rel'), /noopener/);
+    }
+    assert.equal($(`.desktop-nav a[href="${path}"]`).length, 1);
+    assert.equal($(`.mobile-menu a[href="${path}"]`).length, 1);
+    assert.equal($(`footer a[href="${path}"]`).length, 1);
+    assert.equal(
+      byPath.get(locale + '/').$(`.quote-section a[href="${path}"]`).length,
+      1,
+    );
   }
 });
 
