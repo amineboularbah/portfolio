@@ -16,6 +16,13 @@ import cucuOnboarding from '../assets/cucu-rutxo/onboarding.png';
 import cucuHome from '../assets/cucu-rutxo/home.png';
 import cucuNfcGuide from '../assets/cucu-rutxo/nfc-guide.png';
 import cucuConnections from '../assets/cucu-rutxo/connections.png';
+import receiptoLibrary from '../assets/galleries/receipto/receipt-library.webp';
+import receiptoDigital from '../assets/galleries/receipto/digital-receipt.webp';
+import receiptoDetails from '../assets/galleries/receipto/receipt-details.webp';
+import receiptoTaxPack from '../assets/galleries/receipto/tax-pack.webp';
+import fielduroOverview from '../assets/galleries/fielduro/overview.webp';
+import fielduroDocuments from '../assets/galleries/fielduro/documents.webp';
+import fielduroTime from '../assets/galleries/fielduro/time-tracking.webp';
 
 export type ProjectStatus = 'active' | 'comingSoon' | 'discontinued';
 
@@ -47,6 +54,7 @@ export interface Project {
   tags: string[];
   url?: string;
   gallery?: ProjectGalleryImage[];
+  galleryNote?: Localized<string>;
   content: Localized<{
     role: string;
     title: string;
@@ -195,6 +203,65 @@ export const projects = activeFirst<Project>([
     color: '#f4edda',
     tags: ['Flutter', 'Smart scans', 'Product ownership'],
     url: 'https://receipto.app/',
+    galleryNote: {
+      en: 'A closer look at receipts and exports, shown with sample data.',
+      fr: 'Un aperçu des reçus et des exports, avec des données de démonstration.',
+      es: 'Un vistazo a los recibos y las exportaciones, con datos de ejemplo.',
+    },
+    gallery: [
+      {
+        image: receiptoLibrary,
+        label: {
+          en: 'Receipt library',
+          fr: 'Bibliothèque de reçus',
+          es: 'Biblioteca de recibos',
+        },
+        alt: {
+          en: 'Receipto receipt library with sample merchants, dates, and amounts',
+          fr: 'Bibliothèque Receipto avec des commerces, dates et montants de démonstration',
+          es: 'Biblioteca de Receipto con comercios, fechas e importes de ejemplo',
+        },
+      },
+      {
+        image: receiptoDigital,
+        label: {
+          en: 'Digital receipts',
+          fr: 'Reçus numériques',
+          es: 'Recibos digitales',
+        },
+        alt: {
+          en: 'A sample digital receipt in Receipto with itemized purchases and totals',
+          fr: 'Exemple de reçu numérique dans Receipto avec les achats détaillés et les totaux',
+          es: 'Un recibo digital de ejemplo en Receipto con compras desglosadas y totales',
+        },
+      },
+      {
+        image: receiptoDetails,
+        label: {
+          en: 'Receipt details',
+          fr: 'Détails du reçu',
+          es: 'Detalles del recibo',
+        },
+        alt: {
+          en: 'Receipto receipt editor showing the merchant, date, and total amount',
+          fr: 'Éditeur de reçu Receipto avec le commerce, la date et le montant total',
+          es: 'Editor de recibos de Receipto con el comercio, la fecha y el importe total',
+        },
+      },
+      {
+        image: receiptoTaxPack,
+        label: {
+          en: 'Tax Pack exports',
+          fr: 'Exports Tax Pack',
+          es: 'Exportaciones Tax Pack',
+        },
+        alt: {
+          en: 'Receipto Tax Pack export screen with PDF summary, CSV spreadsheet, and original receipt files',
+          fr: 'Écran d’export Tax Pack de Receipto avec récapitulatif PDF, tableau CSV et reçus originaux',
+          es: 'Pantalla de exportación Tax Pack de Receipto con resumen PDF, hoja CSV y recibos originales',
+        },
+      },
+    ],
     content: {
       en: {
         role: 'Founder & Mobile Engineer',
@@ -252,6 +319,52 @@ export const projects = activeFirst<Project>([
     color: '#e7eef2',
     tags: ['Mobile product', 'Business workflows', 'AppWrapp'],
     url: 'https://fielduro.com/',
+    galleryNote: {
+      en: 'From everyday documents to time tracking, on iPhone and iPad. Shown with sample data.',
+      fr: 'Des documents du quotidien au suivi du temps, sur iPhone et iPad. Données de démonstration.',
+      es: 'De los documentos del día a día al seguimiento del tiempo, en iPhone y iPad. Datos de ejemplo.',
+    },
+    gallery: [
+      {
+        image: fielduroOverview,
+        label: {
+          en: 'Daily overview',
+          fr: 'Vue d’ensemble',
+          es: 'Vista general',
+        },
+        alt: {
+          en: 'Fielduro overview on iPhone with drafts, accepted estimates, unpaid invoices, and active jobs',
+          fr: 'Vue d’ensemble de Fielduro sur iPhone avec brouillons, devis acceptés, factures impayées et interventions en cours',
+          es: 'Vista general de Fielduro en iPhone con borradores, presupuestos aceptados, facturas pendientes y trabajos activos',
+        },
+      },
+      {
+        image: fielduroDocuments,
+        label: {
+          en: 'Connected documents',
+          fr: 'Documents liés',
+          es: 'Documentos conectados',
+        },
+        alt: {
+          en: 'Fielduro documents on iPhone showing sample invoices, estimates, and work orders',
+          fr: 'Documents Fielduro sur iPhone avec des exemples de factures, devis et bons de travail',
+          es: 'Documentos de Fielduro en iPhone con ejemplos de facturas, presupuestos y órdenes de trabajo',
+        },
+      },
+      {
+        image: fielduroTime,
+        label: {
+          en: 'Time tracking on iPad',
+          fr: 'Suivi du temps sur iPad',
+          es: 'Seguimiento del tiempo en iPad',
+        },
+        alt: {
+          en: 'Fielduro on iPad with a timer, billable time, and detailed time entries for sample service jobs',
+          fr: 'Fielduro sur iPad avec un chronomètre, le temps facturable et les heures détaillées d’interventions de démonstration',
+          es: 'Fielduro en iPad con temporizador, tiempo facturable y registros detallados de trabajos de ejemplo',
+        },
+      },
+    ],
     content: {
       en: {
         role: 'Founder, AppWrapp',

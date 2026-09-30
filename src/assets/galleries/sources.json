@@ -1,0 +1,62 @@
+{
+  "prepared": "2026-09-30",
+  "notes": "Original product screenshots, resized and WebP compressed without changing their content. Receipto captures use fictional demo receipt data. Fielduro captures come from its official press kit with sample business data.",
+  "images": [
+    {
+      "project": "receipto",
+      "file": "src/assets/galleries/receipto/receipt-library.webp",
+      "source": "/Users/amine/Dev/Receipto/docs/marketing/app-store-capture-2026-09-17/originals/iphone-17-pro/02-receipt-library.png",
+      "width": 900,
+      "height": 1957,
+      "bytes": 85450
+    },
+    {
+      "project": "receipto",
+      "file": "src/assets/galleries/receipto/digital-receipt.webp",
+      "source": "/Users/amine/Dev/Receipto/docs/marketing/app-store-capture-2026-09-17/originals/iphone-17-pro/04-digital-receipt.png",
+      "width": 900,
+      "height": 1957,
+      "bytes": 51658
+    },
+    {
+      "project": "receipto",
+      "file": "src/assets/galleries/receipto/receipt-details.webp",
+      "source": "/Users/amine/Dev/Receipto/docs/marketing/app-store-capture-2026-09-17/originals/iphone-17-pro/05-receipt-details.png",
+      "width": 900,
+      "height": 1957,
+      "bytes": 33972
+    },
+    {
+      "project": "receipto",
+      "file": "src/assets/galleries/receipto/tax-pack.webp",
+      "source": "/Users/amine/Dev/Receipto/docs/marketing/app-store-capture-2026-09-17/originals/iphone-17-pro/11-tax-pack-ready.png",
+      "width": 900,
+      "height": 1957,
+      "bytes": 54824
+    },
+    {
+      "project": "fielduro",
+      "file": "src/assets/galleries/fielduro/overview.webp",
+      "source": "/Users/amine/Documents/Codex/2026-08-16/formstead/formstead/public/press-kit/screenshots/fielduro-iphone-overview.png",
+      "width": 900,
+      "height": 1955,
+      "bytes": 63388
+    },
+    {
+      "project": "fielduro",
+      "file": "src/assets/galleries/fielduro/documents.webp",
+      "source": "/Users/amine/Documents/Codex/2026-08-16/formstead/formstead/public/press-kit/screenshots/fielduro-iphone-documents.png",
+      "width": 900,
+      "height": 1955,
+      "bytes": 93976
+    },
+    {
+      "project": "fielduro",
+      "file": "src/assets/galleries/fielduro/time-tracking.webp",
+      "source": "/Users/amine/Documents/Codex/2026-08-16/formstead/formstead/public/press-kit/screenshots/fielduro-ipad-time-tracking.png",
+      "width": 1200,
+      "height": 1600,
+      "bytes": 72618
+    }
+  ]
+}

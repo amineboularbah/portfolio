@@ -1277,7 +1277,7 @@ details[open] > summary .details-symbol {
 }
 .project-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: var(--gallery-columns, repeat(4, minmax(0, 1fr)));
   gap: 18px;
 }
 .project-gallery figure {
@@ -1298,6 +1298,9 @@ details[open] > summary .details-symbol {
   .project-gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 12px;
+  }
+  .project-gallery .gallery-wide {
+    grid-column: 1 / -1;
   }
 }
 .project-story,
